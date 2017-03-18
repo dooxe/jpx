@@ -4,7 +4,9 @@
 
 **jpx** is a javascript image processing toolkit
 
-## jpx library
+[API documentation](https://dooxe.github.io/jpx/docs/api/)
+
+## Get started
 
 ```html
 <!DOCTYPE html>
@@ -23,6 +25,9 @@
     </body>
 </html>
 ```
+
+<canvas id="output" width="200" height="200"></canvas>
+<script src=""/>
 
 
 ## jiplc: an image processing compiler
@@ -52,7 +57,3 @@
     </body>
 </html>
 ```
-
-## API documentation
-
-https://dooxe.github.io/jpx/docs/api/

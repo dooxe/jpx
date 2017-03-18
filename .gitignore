@@ -4,7 +4,6 @@ yuidoc.json
 
 #
 bin/
-dist/
 trash/
 tests/
 yuidoc-theme-blue-dc/
