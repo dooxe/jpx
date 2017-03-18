@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8"/>
+    <title>jipl - jpx</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css"/>
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'/>
+    <link rel="shortcut icon" type="image/png" href="../assets/logo.png"/>
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles"/>
+    <!--dc-->
+    <link rel="stylesheet" href="../assets/css/dc.css"/>
+    <link rel="stylesheet" href="../assets/css/prettyprint.css"/>
+    <script src="../assets/../../../build/jpx.min.js"></script>
+    <!--/dc-->
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">
+                <img src="../assets/logo.png" width="32" height="32" style="vertical-align:middle;margin-right:10px"/>
+                <span style="display:inline-block;height:32px">jpx - <i style="font-size:0.8em;vertical-align:middle">A javascript image processing library toolkit</i></span>
+            </h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 0.0.1
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/jipl.html">jipl</a></li>
+                                <li><a href="../classes/jiplc.html">jiplc</a></li>
+                                <li><a href="../classes/jpx.html">jpx</a></li>
+                                <li><a href="../classes/jpx.Image.html">jpx.Image</a></li>
+                                <li><a href="../classes/jpx.Kernel.html">jpx.Kernel</a></li>
+                                <li><a href="../classes/jpx.utils.html">jpx.utils</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+            <!--dc-->
+            <div style="display:none">
+            <div id="api-options">
+                Show:
+                <label for="api-show-inherited">
+                    <input type="checkbox" id="api-show-inherited" checked>
+                    Inherited
+                </label>
+            
+                <label for="api-show-protected">
+                    <input type="checkbox" id="api-show-protected">
+                    Protected
+                </label>
+            
+                <label for="api-show-private">
+                    <input type="checkbox" id="api-show-private">
+                    Private
+                </label>
+                <label for="api-show-deprecated">
+                    <input type="checkbox" id="api-show-deprecated">
+                    Deprecated
+                </label>
+            </div>
+            </div>
+            <!--/dc-->
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>jipl</h1>
+<div class="meta">
+
+
+    <!--dc-->
+    <div style="display:none">
+        <div class="meta-content foundat">
+            Defined in: <a href="../files/src_jiplc.js.html#l5"><code>src&#x2F;jiplc.js:5</code></a>
+        </div>
+
+    </div>
+    <!--/dc-->
+
+</div>
+
+
+
+<!--dc-->
+<div style="display:none">
+<h3>Summary</h3>
+<div class="intro">
+    <p>jipl stands for
+<b style="color:#4499DD">J</b>avascript
+<b style="color:#4499DD">I</b>mage
+<b style="color:#4499DD">P</b>rocessing
+<b style="color:#4499DD">L</b>anguage.</p>
+<p>It provides a specific syntax to make image processing tasks easier,
+and more efficient.</p>
+<p><h2>Loops</h2></p>
+<p><h3><code>foreach(position p) in image</code></h3>
+Loops over image pixel positions.</p>
+<pre class="code prettyprint"><code class="language-javascript">foreach(position p) in image
+    // Do something with p.x, p.y
+/foreach
+</code></pre>
+<p><h3><code>foreach(channel c) in image</code></h3>
+Loops over image channels.</p>
+<pre class="code prettyprint"><code class="language-javascript">foreach(channel c) in image
+    // Do something with c
+/foreach
+</code></pre>
+<p><h3><code>foreach(pixel p) in image</code></h3>
+Loops over all image pixels.</p>
+<pre class="code prettyprint"><code class="language-javascript">foreach(pixel p) in image
+    // Do something with p.x, p.y, p.c, p.index
+/foreach
+</code></pre>
+<p><h2>Helpers</h2>
+<h3><code>@</code> as <code>this.</code></h3>
+Within a function, you can use the symbol <code>@</code> that aliases &quot;<code>this.</code>&quot;.</p>
+<p>Example:</p>
+<pre class="code prettyprint"><code class="language-javascript">var image = new jpx.Image('my/super/image.png',function()
+{
+    foreach(pixel p) in this
+        var index = index;
+        var value = <code>@</code>data[index]; // this.data[index]
+        <code>@</code>data[index] = value / 2 + 10 * p.c;
+    /foreach
+});
+</code></pre>
+
+</div>
+</div>
+<!--/dc-->
+<p>jipl stands for
+<b style="color:#4499DD">J</b>avascript
+<b style="color:#4499DD">I</b>mage
+<b style="color:#4499DD">P</b>rocessing
+<b style="color:#4499DD">L</b>anguage.</p>
+<p>It provides a specific syntax to make image processing tasks easier,
+and more efficient.</p>
+<p><h2>Loops</h2></p>
+<p><h3><code>foreach(position p) in image</code></h3>
+Loops over image pixel positions.</p>
+<pre class="code prettyprint"><code class="language-javascript">foreach(position p) in image
+    // Do something with p.x, p.y
+/foreach
+</code></pre>
+<p><h3><code>foreach(channel c) in image</code></h3>
+Loops over image channels.</p>
+<pre class="code prettyprint"><code class="language-javascript">foreach(channel c) in image
+    // Do something with c
+/foreach
+</code></pre>
+<p><h3><code>foreach(pixel p) in image</code></h3>
+Loops over all image pixels.</p>
+<pre class="code prettyprint"><code class="language-javascript">foreach(pixel p) in image
+    // Do something with p.x, p.y, p.c, p.index
+/foreach
+</code></pre>
+<p><h2>Helpers</h2>
+<h3><code>@</code> as <code>this.</code></h3>
+Within a function, you can use the symbol <code>@</code> that aliases &quot;<code>this.</code>&quot;.</p>
+<p>Example:</p>
+<pre class="code prettyprint"><code class="language-javascript">var image = new jpx.Image('my/super/image.png',function()
+{
+    foreach(pixel p) in this
+        var index = index;
+        var value = <code>@</code>data[index]; // this.data[index]
+        <code>@</code>data[index] = value / 2 + 10 * p.c;
+    /foreach
+});
+</code></pre>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

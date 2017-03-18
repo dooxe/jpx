@@ -1,0 +1,2333 @@
+{
+    "project": {
+        "name": "jpx",
+        "description": "A javascript image processing library toolkit",
+        "version": "0.0.1",
+        "author": "Maxime Daisy",
+        "url": "http://dooxe-creative.net/projects/jpx",
+        "logo": "../images/logo.png",
+        "themedir": "docs/yuidoc-theme-blue-dc"
+    },
+    "files": {
+        "src/jiplc.js": {
+            "name": "src/jiplc.js",
+            "modules": {},
+            "classes": {
+                "jipl": 1,
+                "jiplc": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/jpx.jipl.js": {
+            "name": "src/jpx.jipl.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/jpx.js": {
+            "name": "src/jpx.js",
+            "modules": {},
+            "classes": {
+                "jpx": 1,
+                "jpx.Kernel": 1,
+                "jpx.utils": 1,
+                "jpx.Image": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "jipl": {
+            "name": "jipl",
+            "shortname": "jipl",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/jiplc.js",
+            "line": 5,
+            "description": "jipl stands for\n<b style=\"color:#4499DD\">J</b>avascript\n<b style=\"color:#4499DD\">I</b>mage\n<b style=\"color:#4499DD\">P</b>rocessing\n<b style=\"color:#4499DD\">L</b>anguage.\n\nIt provides a specific syntax to make image processing tasks easier,\n   and more efficient.\n\n<h2>Loops</h2>\n\n<h3>`foreach(position p) in image`</h3>\nLoops over image pixel positions.\n```javascript\nforeach(position p) in image\n\t// Do something with p.x, p.y\n/foreach\n```\n\n<h3>`foreach(channel c) in image`</h3>\nLoops over image channels.\n```javascript\nforeach(channel c) in image\n\t// Do something with c\n/foreach\n```\n\n<h3>`foreach(pixel p) in image`</h3>\nLoops over all image pixels.\n```javascript\nforeach(pixel p) in image\n\t// Do something with p.x, p.y, p.c, p.index\n/foreach\n```\n\n<h2>Helpers</h2>\n<h3>`@` as `this.`</h3>\nWithin a function, you can use the symbol `@` that aliases \"`this.`\".\n\nExample:\n```javascript\nvar image = new jpx.Image('my/super/image.png',function()\n{\n\tforeach(pixel p) in this\n\t\tvar index = index;\n\t\tvar value = `@`data[index]; // this.data[index]\n\t\t`@`data[index] = value / 2 + 10 * p.c;\n\t/foreach\n});\n```"
+        },
+        "jiplc": {
+            "name": "jiplc",
+            "shortname": "jiplc",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/jiplc.js",
+            "line": 58,
+            "description": "`jipl` to `javascript` compiler."
+        },
+        "jpx": {
+            "name": "jpx",
+            "shortname": "jpx",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/jpx.js",
+            "line": 40
+        },
+        "jpx.Kernel": {
+            "name": "jpx.Kernel",
+            "shortname": "jpx.Kernel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/jpx.js",
+            "line": 106,
+            "description": "Class representing a kernel (e.g. gaussian kernel)",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "width",
+                    "description": "The kernel width",
+                    "type": "Integer"
+                },
+                {
+                    "name": "height",
+                    "description": "The kernel height",
+                    "type": "Integer"
+                },
+                {
+                    "name": "data",
+                    "description": "The kernel data, a 1D array",
+                    "type": "Array"
+                },
+                {
+                    "name": "normalize",
+                    "description": "Define whether the kernel should be normalized",
+                    "type": "Boolean",
+                    "optional": true
+                }
+            ]
+        },
+        "jpx.utils": {
+            "name": "jpx.utils",
+            "shortname": "jpx.utils",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/jpx.js",
+            "line": 153
+        },
+        "jpx.Image": {
+            "name": "jpx.Image",
+            "shortname": "jpx.Image",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/jpx.js",
+            "line": 946,
+            "description": "An image class.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "constructor",
+                    "description": "",
+                    "type": "Arguments",
+                    "props": [
+                        {
+                            "name": "constructor1",
+                            "description": "",
+                            "type": "Arguments",
+                            "props": [
+                                {
+                                    "name": "width",
+                                    "description": "Image.width",
+                                    "type": "Integer"
+                                },
+                                {
+                                    "name": "height",
+                                    "description": "Image height",
+                                    "type": "Integer"
+                                },
+                                {
+                                    "name": "nbChannels",
+                                    "description": "Number of channels of the image",
+                                    "type": "Integer",
+                                    "optional": true,
+                                    "optdefault": "1"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "constructor2",
+                            "description": "",
+                            "type": "Arguments",
+                            "props": [
+                                {
+                                    "name": "src",
+                                    "description": "The image URL",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "onload",
+                                    "description": "Called when the image is loaded if `src` is specified",
+                                    "type": "Function",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\t// Grayscale image\n\tvar image1 = new jpx.Image(256,256);\n\n\t// RGB image\n\tvar image2 = new jpx.Image(256,256,3);\n\n\t// RGBA image\n\tvar image3 = new jpx.Image('my/image/file.png', function()\n\t{\n\t\tconsole.log(\"I'm loaded !\");\n\t});"
+            ]
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "src/jiplc.js",
+            "line": 64,
+            "description": "Compile from jipl to javascript.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "compile",
+            "params": [
+                {
+                    "name": "jipl",
+                    "description": "The script to be compiled",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Javascript code resulting of the compilation",
+                "type": "String"
+            },
+            "example": [
+                "\n\tvar image = new jpx.Image('my/super/image.png', function()\n\t{\n\t\tvar code = jiplc.compile(\n\t\t\t\"foreach(channel c) in image\\n\"\t+\n\t\t\t\"\tconsole.log(c);\\n\"\t\t\t+\n\t\t\t\"/foreach \\n\"\n\t\t);\n\t\teval(code);\n\t});"
+            ],
+            "class": "jiplc"
+        },
+        {
+            "file": "src/jiplc.js",
+            "line": 150,
+            "description": "<b>[ BROWSER ONLY ]</b>\n<p>\n\tCompile each jipl script within the page.\n\t`jpx-jipl` scripts must have type `text/jpx-jipl`.\n</p>",
+            "static": 1,
+            "itemtype": "method",
+            "name": "run",
+            "example": [
+                "\n\t\t<script type=\"text/jpx-jipl\">\n\t\t\tvar I = new jpx.Image('my/super/image.jpg', function()\n\t\t\t{\n\t\t\t\tforeach(pixel p) in this\n\t\t\t\t\tvar i = p.index;\n\t\t\t\t\tvar d = `@`data[i];\n\t\t\t\t\t`@`data[i] = d / 2;\n\t\t\t\t/foreach\n\t\t\t});\n\t\t</script>\n\t\t<script>\n\t\t\tjpx.jipl.run();\n\t\t</script>"
+            ],
+            "class": "jiplc"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 49,
+            "description": "Get the current timestamp.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "time",
+            "return": {
+                "description": "The number of millisecond since the 1st of January 1970 00:00:00 UTC."
+            },
+            "class": "jpx"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 60,
+            "description": "Exit the program by throwing an error. Useful when one debugs loops\nwith callback functions etc.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "exit",
+            "class": "jpx"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 71,
+            "description": "Add a set of filters to jpx.Image class",
+            "static": 1,
+            "itemtype": "method",
+            "name": "addPlugin",
+            "params": [
+                {
+                    "name": "plugin",
+                    "description": "Contains all image filters (see the example)",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n\tvar plugin = {\n\t\tredify : function(){\n\t\t\treturn this.forXY2(function(x,y,data){\n\t\t\t\tdata[0] += 25;\n\t\t\t\tdata[0] = Math.min(255,data[0]);\n\t\t\t});\n\t\t}\n\t};\n\tjpx.addPlugin(plugin);\n\tvar image = new jpx.Image.load('my/image.png', function()\n\t{\n\t\tthis.redify().output('output');\n\t});"
+            ],
+            "class": "jpx"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 142,
+            "description": "Derive an object with another one.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "derive",
+            "params": [
+                {
+                    "name": "object1",
+                    "description": "The object to be derived",
+                    "type": "Object"
+                },
+                {
+                    "name": "object2",
+                    "description": "Properties to add/override in `object1`",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "`object1`",
+                "type": "Object"
+            },
+            "example": [
+                "\n\tvar Klass = function(id)\n\t{\n\t\tthis.id = id;\n\t};\n\tjpx.utils.derive(Klass.prototype,\n\t{\n\t\tgetId : function()\n\t\t{\n\t\t\treturn this.id;\n\t\t}\n\t});\n\tvar kobject = new Klass(5);\n\tconsole.log(kobject.getId()); // \"5\""
+            ],
+            "class": "jpx.utils"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 172,
+            "description": "Check whether an object is an array.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "isArray",
+            "params": [
+                {
+                    "name": "suspect",
+                    "description": "The object to be checked"
+                }
+            ],
+            "class": "jpx.utils"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 183,
+            "description": "If `object` is defined returns it, otherwise returns `defaultValue`",
+            "static": 1,
+            "itemtype": "method",
+            "name": "getDefault",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "The object to be tested",
+                    "type": "Object"
+                },
+                {
+                    "name": "defaultValue",
+                    "description": "The value to be returned if `object` is not defined",
+                    "type": "Object"
+                }
+            ],
+            "class": "jpx.utils"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 251,
+            "description": "Data buffer.",
+            "itemtype": "property",
+            "name": "data",
+            "type": "Array",
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 258,
+            "description": "The source image.\nIf no `src` was provided at construction or if\nno loading was performed, this value is `null`.",
+            "itemtype": "property",
+            "name": "imageBase",
+            "type": "HTMLImageElement",
+            "default": "null",
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 287,
+            "description": "Create an new image from specified dimension",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "width",
+                    "description": "The image width",
+                    "type": "Integer"
+                },
+                {
+                    "name": "height",
+                    "description": "The image height",
+                    "type": "Integer"
+                },
+                {
+                    "name": "nbChannels",
+                    "description": "The number of channels of the image",
+                    "type": "Integer"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 305,
+            "description": "Load an image from an url.\nThe resulting image has 4 channels.",
+            "itemtype": "method",
+            "name": "load",
+            "chainable": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "The URL of the image to be loaded.",
+                    "type": "String"
+                },
+                {
+                    "name": "onComplete",
+                    "description": "Called when the image has just finished loading.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 339,
+            "description": "Clone the image.",
+            "itemtype": "method",
+            "name": "clone",
+            "return": {
+                "description": "A new instance of the current image."
+            },
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 351,
+            "description": "Copy the contents of an image to the current image",
+            "itemtype": "method",
+            "name": "copy",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "The image from which data are copied",
+                    "type": "jpx.Image"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 368,
+            "description": "Compute the index of a specified pixel position",
+            "itemtype": "method",
+            "name": "index",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "The x-coordinate of the pixel",
+                    "type": "Integer"
+                },
+                {
+                    "name": "y",
+                    "description": "The y-coordinate of the pixel",
+                    "type": "Integer",
+                    "optional": true,
+                    "optdefault": "0"
+                },
+                {
+                    "name": "c",
+                    "description": "The channel",
+                    "type": "Integer",
+                    "optional": true,
+                    "optdefault": "0"
+                }
+            ],
+            "return": {
+                "description": "The index of the pixel inside the data buffer",
+                "type": "Integer"
+            },
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 380,
+            "description": "Roughfly resize the image using specified dimension and method.",
+            "itemtype": "method",
+            "name": "resize",
+            "params": [
+                {
+                    "name": "width",
+                    "description": "The new image width",
+                    "type": "Integer"
+                },
+                {
+                    "name": "height",
+                    "description": "The new image height",
+                    "type": "Integer"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 415,
+            "description": "Crop an image from specified position and size.",
+            "itemtype": "method",
+            "name": "crop",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "The x-coordinate of the top-left corner of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "y",
+                    "description": "The y-coordinate of the top-left corner of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "width",
+                    "description": "The width of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "height",
+                    "description": "The height of the crop",
+                    "type": "Integer"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 440,
+            "description": "Crop an image from specified corner positions.",
+            "itemtype": "method",
+            "name": "crop2",
+            "params": [
+                {
+                    "name": "x1",
+                    "description": "The x-coordinate of the top-left corner of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "y1",
+                    "description": "The y-coordinate of the top-left corner of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "x2",
+                    "description": "The x-coordinate of the bottom-right corner of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "y2",
+                    "description": "The y-coordinate of the bottom-right corner of the crop",
+                    "type": "Integer"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 457,
+            "description": "Fill the image with data.",
+            "itemtype": "method",
+            "name": "fill",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "The vector of data to use",
+                    "type": "Array"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 463,
+            "description": "Fill the image with data.",
+            "itemtype": "method",
+            "name": "fill",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 480,
+            "description": "Convert the image to a base64 string\n(see HTMLcanvasElement.toDataURL() for more details).",
+            "itemtype": "method",
+            "name": "toDataURL",
+            "return": {
+                "description": "A base64-based url of the image.",
+                "type": "String"
+            },
+            "example": [
+                "\n\tvar image = jpx.Image.load('my/image.png', function()\n\t{\n\t\tvar img = document.createElement('img');\n\t\timg.src = this.toDataURL();\n\t\tdocument.body.appendChild(img);\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 500,
+            "description": "Compute a canvas image data buffer.",
+            "itemtype": "method",
+            "name": "getImageData",
+            "example": [
+                "\n\tvar canvas\t= document.getElementById('mycanvas');\n\tvar ctx\t\t= canvas.getContext('2d');\n\tvar image = jpx.Image.load('my/image.png', function()\n\t{\n\t\tctx.putImageData(this.getImageData(),0,0);\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 526,
+            "description": "Create an HTML image.",
+            "itemtype": "method",
+            "name": "getHTMLImage",
+            "return": {
+                "description": "An html image"
+            },
+            "example": [
+                "\n\tvar image = new jpx.Image(256,256,1);\n\tvar img   = image.getHTMLImage();\n\tdocument.body.appendChild(img);"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 542,
+            "description": "Output the image to the specified canvas element.",
+            "itemtype": "method",
+            "name": "output",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the canvas on which the image will be drawn",
+                    "type": "String"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 548,
+            "description": "Output the image to the specified canvas element.",
+            "itemtype": "method",
+            "name": "output",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "The the canvas element where to\ndraw the image",
+                    "type": "HTMLCanvasElement"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 576,
+            "description": "Iterate over all image pixels from top-left to bottom-right.",
+            "itemtype": "method",
+            "name": "forXY",
+            "params": [
+                {
+                    "name": "forxy",
+                    "description": "The pixel callback",
+                    "type": "Function",
+                    "props": [
+                        {
+                            "name": "pixel",
+                            "description": "",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "x",
+                                    "description": "The x-coordinate",
+                                    "type": "Integer"
+                                },
+                                {
+                                    "name": "y",
+                                    "description": "The y-coordinate",
+                                    "type": "Integer"
+                                },
+                                {
+                                    "name": "i",
+                                    "description": "The index of the pixel inside the data buffer",
+                                    "type": "Integer"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "chainable": 1,
+            "example": [
+                "\n\tvar image = new jpx.Image(50,50,1);\n\timage.forXY(function(pixel)\n\t{\n\t\tthis.data[pixel.x+pixel.y*this.width] = Math.random();\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 613,
+            "description": "Iterate over all image pixels from top-left to bottom-right.",
+            "itemtype": "method",
+            "name": "forXY2",
+            "params": [
+                {
+                    "name": "forxy",
+                    "description": "The pixel callback",
+                    "type": "Function",
+                    "props": [
+                        {
+                            "name": "x",
+                            "description": "The pixel x-coordinate",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "y",
+                            "description": "The pixel y-coordinate",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "data",
+                            "description": "The [I/O] pixel color",
+                            "type": "Array"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\t// Apply a blueish tone to the image\n\tvar image = new jpx.Image(50,50,3);\n\timage.forXY2(function(x,y,data)\n\t{\n\t\tdata[0] *= 0.5;\n\t\tdata[1] *= 0.8;\n\t\tdata[2] *= 1.2;\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 652,
+            "description": "Iterate over all image pixels from top-left to bottom-right.",
+            "itemtype": "method",
+            "name": "forInXY",
+            "params": [
+                {
+                    "name": "minX",
+                    "description": "",
+                    "type": "Integer"
+                },
+                {
+                    "name": "minY",
+                    "description": "",
+                    "type": "Integer"
+                },
+                {
+                    "name": "maxX",
+                    "description": "",
+                    "type": "Integer"
+                },
+                {
+                    "name": "maxY",
+                    "description": "",
+                    "type": "Integer"
+                },
+                {
+                    "name": "forInXY",
+                    "description": "The pixel callback",
+                    "type": "Function",
+                    "props": [
+                        {
+                            "name": "x",
+                            "description": "The x-coordinate of the pixel",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "y",
+                            "description": "The y-coordinate of the pixel",
+                            "type": "Integer"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\t//\tDraw a white square at the top-left of the image\n\tvar image = new jpx.Image(50,50,1);\n\timage.forInXY(0,0,25,25, function(x,y)\n\t{\n\t\tthis.data[this.index(x,y)] = 255;\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 681,
+            "description": "Iterate over all values inside an image.",
+            "itemtype": "method",
+            "name": "forXYC",
+            "params": [
+                {
+                    "name": "forXYC",
+                    "description": "",
+                    "type": "Function",
+                    "props": [
+                        {
+                            "name": "x",
+                            "description": "The pixel y-coordinate",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "y",
+                            "description": "The pixel x-coordinate",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "c",
+                            "description": "The channel of the current pixel",
+                            "type": "Integer"
+                        }
+                    ]
+                }
+            ],
+            "chainable": 1,
+            "example": [
+                "\n\t//\tMake a blueish image\n\tvar image = new jpx.Image(50,50,3).forXYC(function(x,y,c)\n\t{\n\t\tthis.data[this.index(x,y,c)] = 50 + 50 * c;\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 710,
+            "description": "Iterate over image channels.\n<p class=\"warning\">\n<span class=\"tag-warning\">Warning</span>\nDue to performance issues, this method must NOT\nbe used inside a `forXY` loop.\nInstead, you may use the `forXYC` loop.\n</p>",
+            "itemtype": "method",
+            "name": "forC",
+            "params": [
+                {
+                    "name": "forC",
+                    "description": "`function(c){ }`",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n\tvar image = new jpx.Image(256,256,3);\n\timage.forC(function(c){\n\t\t// do stuff with channels\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 740,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 756,
+            "description": "Convolve the image with by specified kernel.",
+            "itemtype": "method",
+            "name": "convolve",
+            "params": [
+                {
+                    "name": "kernel",
+                    "description": "A normalized kernel.",
+                    "type": "Kernel",
+                    "props": [
+                        {
+                            "name": "width",
+                            "description": "",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "height",
+                            "description": "",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "data",
+                            "description": "",
+                            "type": "Array"
+                        }
+                    ]
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 801,
+            "description": "Repeat a filter afor `n` times.",
+            "itemtype": "method",
+            "name": "repeat",
+            "params": [
+                {
+                    "name": "filter",
+                    "description": "The name of the filter"
+                },
+                {
+                    "name": "parameters",
+                    "description": "The parameters of the filter,"
+                },
+                {
+                    "name": "n",
+                    "description": "The number of iterations"
+                }
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 817,
+            "description": "Apply a set of filters defined by a JSON object.",
+            "itemtype": "method",
+            "name": "applyFilters",
+            "params": [
+                {
+                    "name": "filters",
+                    "description": "The set of filters to be applied",
+                    "type": "Array"
+                }
+            ],
+            "chainable": 1,
+            "example": [
+                "\n\tvar filters = {\n\t\tcolorAdjust\t\t: {\n\t\t\tr : 0.5,\n\t\t\tg : 1.1,\n\t\t\tb : 0.7\n\t\t},\n\t\tsaturation \t\t: 0.5\n\t};\n\tvar image = jpx.Image.load('my/image.png', function()\n\t{\n\t\tthis.applyFilters(filters);\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 845,
+            "description": "Free image memory",
+            "itemtype": "method",
+            "name": "dispose",
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 858,
+            "description": "Load an image from a specified source filename.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "load",
+            "params": [
+                {
+                    "name": "src",
+                    "description": "The image filename",
+                    "type": "String"
+                },
+                {
+                    "name": "loaded",
+                    "description": "Called when the image has finished loading",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The new newly created image"
+            },
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 882,
+            "description": "Pointwise addition of an image to the current image",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "The image to be added to the current image",
+                    "type": "jpx.Image"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 888,
+            "description": "Pointwise addition of the current image by a number",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The value to be added to the current image",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 905,
+            "description": "Pointwise substraction of an image to the current image",
+            "itemtype": "method",
+            "name": "sub",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "The image to be substracted to the current image",
+                    "type": "jpx.Image"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 911,
+            "description": "Pointwise substraction of the current image by a number",
+            "itemtype": "method",
+            "name": "sub",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The value to be substracted to the current image",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 927,
+            "description": "Pointwise multiplication of an image to the current image",
+            "itemtype": "method",
+            "name": "mul",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "The image to be multiplied to the current image",
+                    "type": "jpx.Image"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 933,
+            "description": "Pointwise multiplication of the current image by a number",
+            "itemtype": "method",
+            "name": "mul",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The value to be multiplied to the current image",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 956,
+            "description": "Apply a negative filter on the image",
+            "itemtype": "method",
+            "name": "negative",
+            "params": [
+                {
+                    "name": "max=255",
+                    "description": "The value from which compute the negative",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 973,
+            "description": "Desaturate the image",
+            "itemtype": "method",
+            "name": "desaturate",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1007,
+            "description": "<span class=\"beta-feature\">beta</span>\nPixelate the image.",
+            "itemtype": "method",
+            "name": "pixelate",
+            "params": [
+                {
+                    "name": "p=5",
+                    "description": "The pixel size"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1036,
+            "description": "Apply sepia tone to the image.",
+            "itemtype": "method",
+            "name": "sepia",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1053,
+            "description": "Change the brightness and/or the contrast of the image",
+            "itemtype": "method",
+            "name": "brightnessContrast",
+            "params": [
+                {
+                    "name": "properties",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "brighntess",
+                            "description": "Brightness between -1 and 1",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": " 0"
+                        },
+                        {
+                            "name": "contrast",
+                            "description": "Contrast between 0 and 1",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": " 1"
+                        }
+                    ]
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1074,
+            "description": "Lighten the image with a specified percentage",
+            "itemtype": "method",
+            "name": "lighten",
+            "params": [
+                {
+                    "name": "factor=0.1",
+                    "description": "The percentage of lightness to increase",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1094,
+            "description": "Equalize the image histogram",
+            "itemtype": "method",
+            "name": "equalize",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1122,
+            "description": "Change the image saturation",
+            "itemtype": "method",
+            "name": "saturation",
+            "params": [
+                {
+                    "name": "saturation",
+                    "description": "The new image saturation between 0 and 2",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1189,
+            "description": "Adjust RGB channels values.",
+            "itemtype": "method",
+            "name": "colorAdjust",
+            "params": [
+                {
+                    "name": "rgb",
+                    "description": "The RGB correction vector",
+                    "type": "Array|Object",
+                    "props": [
+                        {
+                            "name": "r",
+                            "description": "Correction of the red channel"
+                        },
+                        {
+                            "name": "g",
+                            "description": "Correction of the green channel"
+                        },
+                        {
+                            "name": "b",
+                            "description": "Correction of the blue channel"
+                        }
+                    ]
+                }
+            ],
+            "chainable": 1,
+            "example": [
+                "\n\tvar image = ...\n\timage.colorAdjust({r:0.7,g:1.0,b:1.4});\t// I'm blueish !\n\timage.colorAdjust([1.5,0.8,1.2]);\t\t// I'm pinky !"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1216,
+            "description": "Apply vintage effect to the image.",
+            "itemtype": "method",
+            "name": "vintage",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1230,
+            "description": "Love filter. Get ready to fall in love",
+            "itemtype": "method",
+            "name": "love",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1245,
+            "description": "Apply a blueish tone on the dark parts of the image",
+            "itemtype": "method",
+            "name": "bluetify",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1264,
+            "itemtype": "method",
+            "name": "grungy",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1277,
+            "itemtype": "method",
+            "name": "lightVintage",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1290,
+            "description": "Apply a blooming effect on the image",
+            "itemtype": "method",
+            "name": "bloom",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1303,
+            "description": "Sharpen the image",
+            "itemtype": "method",
+            "name": "sharpen",
+            "params": [
+                {
+                    "name": "amount",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "lowPassKernel",
+                    "description": "Kernel used to apply the low-pass filtering",
+                    "type": "Kernel"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 1323,
+            "description": "Evaluate a filter sequence from a string.",
+            "itemtype": "method",
+            "name": "eval",
+            "params": [
+                {
+                    "name": "filters",
+                    "description": "The filter sequence.",
+                    "type": "String"
+                }
+            ],
+            "chainable": 1,
+            "example": [
+                "\n\t//\n\t//\tExample script\n\t//-------------------------------\n\t//\tbrightness:brightness=0.5\n\t//\tsepia\n\t//\tlighten\n\t//\n\tvar script\t= \"\";\n\tscript += \"brightness:brightness=0.5\\n\";\n\tscript += \"sepia\\n\";\n\tscript += \"lighten\\n\";\n\tvar image\t= new jpx.Image.load('my/image.png', function()\n\t{\n\t\tthis.eval(script).output('output');\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 24,
+            "class": "jpx"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 51,
+            "description": "Get the current timestamp.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "time",
+            "return": {
+                "description": "The number of millisecond since the 1st of January 1970 00:00:00 UTC."
+            },
+            "class": "jpx"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 62,
+            "description": "Exit the program by throwing an error. Useful when one debugs loops\nwith callback functions etc.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "exit",
+            "class": "jpx"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 73,
+            "description": "Add a set of filters to jpx.Image class",
+            "static": 1,
+            "itemtype": "method",
+            "name": "addPlugin",
+            "params": [
+                {
+                    "name": "plugin",
+                    "description": "Contains all image filters (see the example)",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n\tvar plugin = {\n\t\tredify : function(){\n\t\t\treturn this.forXY2(function(x,y,data){\n\t\t\t\tdata[0] += 25;\n\t\t\t\tdata[0] = Math.min(255,data[0]);\n\t\t\t});\n\t\t}\n\t};\n\tjpx.addPlugin(plugin);\n\tvar image = new jpx.Image.load('my/image.png', function()\n\t{\n\t\tthis.redify().output('output');\n\t});"
+            ],
+            "class": "jpx"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 157,
+            "description": "Derive an object with another one.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "derive",
+            "params": [
+                {
+                    "name": "object1",
+                    "description": "The object to be derived",
+                    "type": "Object"
+                },
+                {
+                    "name": "object2",
+                    "description": "Properties to add/override in `object1`",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "`object1`",
+                "type": "Object"
+            },
+            "example": [
+                "\n\tvar Klass = function(id)\n\t{\n\t\tthis.id = id;\n\t};\n\tjpx.utils.derive(Klass.prototype,\n\t{\n\t\tgetId : function()\n\t\t{\n\t\t\treturn this.id;\n\t\t}\n\t});\n\tvar kobject = new Klass(5);\n\tconsole.log(kobject.getId()); // \"5\""
+            ],
+            "class": "jpx.utils"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 187,
+            "description": "Check whether an object is an array.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "isArray",
+            "params": [
+                {
+                    "name": "suspect",
+                    "description": "The object to be checked"
+                }
+            ],
+            "class": "jpx.utils"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 198,
+            "description": "If `object` is defined returns it, otherwise returns `defaultValue`",
+            "static": 1,
+            "itemtype": "method",
+            "name": "getDefault",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "The object to be tested",
+                    "type": "Object"
+                },
+                {
+                    "name": "defaultValue",
+                    "description": "The value to be returned if `object` is not defined",
+                    "type": "Object"
+                }
+            ],
+            "class": "jpx.utils"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 266,
+            "description": "Data buffer.",
+            "itemtype": "property",
+            "name": "data",
+            "type": "Array",
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 273,
+            "description": "The source image.\nIf no `src` was provided at construction or if\nno loading was performed, this value is `null`.",
+            "itemtype": "property",
+            "name": "imageBase",
+            "type": "HTMLImageElement",
+            "default": "null",
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 299,
+            "description": "Create an new image from specified dimension",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "width",
+                    "description": "The image width",
+                    "type": "Integer"
+                },
+                {
+                    "name": "height",
+                    "description": "The image height",
+                    "type": "Integer"
+                },
+                {
+                    "name": "nbChannels",
+                    "description": "The number of channels of the image",
+                    "type": "Integer"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 320,
+            "description": "Load an image from an url.\nThe resulting image has 4 channels.",
+            "itemtype": "method",
+            "name": "load",
+            "chainable": 1,
+            "params": [
+                {
+                    "name": "src",
+                    "description": "The URL of the image to be loaded.",
+                    "type": "String"
+                },
+                {
+                    "name": "onComplete",
+                    "description": "Called when the image has just finished loading.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 354,
+            "description": "Clone the image.",
+            "itemtype": "method",
+            "name": "clone",
+            "return": {
+                "description": "A new instance of the current image."
+            },
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 366,
+            "description": "Copy the contents of an image to the current image",
+            "itemtype": "method",
+            "name": "copy",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "The image from which data are copied",
+                    "type": "jpx.Image"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 384,
+            "description": "Compute the index of a specified pixel position",
+            "itemtype": "method",
+            "name": "index",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "The x-coordinate of the pixel",
+                    "type": "Integer"
+                },
+                {
+                    "name": "y",
+                    "description": "The y-coordinate of the pixel",
+                    "type": "Integer"
+                },
+                {
+                    "name": "c",
+                    "description": "The channel",
+                    "type": "Integer",
+                    "optional": true,
+                    "optdefault": "0"
+                }
+            ],
+            "return": {
+                "description": "The index of the pixel inside the data buffer",
+                "type": "Integer"
+            },
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 396,
+            "description": "Roughfly resize the image using specified dimension and method.",
+            "itemtype": "method",
+            "name": "resize",
+            "params": [
+                {
+                    "name": "width",
+                    "description": "The new image width",
+                    "type": "Integer"
+                },
+                {
+                    "name": "height",
+                    "description": "The new image height",
+                    "type": "Integer"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 430,
+            "description": "Crop an image from specified position and size.",
+            "itemtype": "method",
+            "name": "crop",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "The x-coordinate of the top-left corner of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "y",
+                    "description": "The y-coordinate of the top-left corner of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "width",
+                    "description": "The width of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "height",
+                    "description": "The height of the crop",
+                    "type": "Integer"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 455,
+            "description": "Crop an image from specified corner positions.",
+            "itemtype": "method",
+            "name": "crop2",
+            "params": [
+                {
+                    "name": "x1",
+                    "description": "The x-coordinate of the top-left corner of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "y1",
+                    "description": "The y-coordinate of the top-left corner of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "x2",
+                    "description": "The x-coordinate of the bottom-right corner of the crop",
+                    "type": "Integer"
+                },
+                {
+                    "name": "y2",
+                    "description": "The y-coordinate of the bottom-right corner of the crop",
+                    "type": "Integer"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 472,
+            "description": "Fill the image with data.",
+            "itemtype": "method",
+            "name": "fill",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "The vector of data to use",
+                    "type": "Array"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 478,
+            "description": "Fill the image with data.",
+            "itemtype": "method",
+            "name": "fill",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 495,
+            "description": "Convert the image to a base64 string\n(see HTMLcanvasElement.toDataURL() for more details).",
+            "itemtype": "method",
+            "name": "toDataURL",
+            "return": {
+                "description": "A base64-based url of the image.",
+                "type": "String"
+            },
+            "example": [
+                "\n\tvar image = jpx.Image.load('my/image.png', function()\n\t{\n\t\tvar img = document.createElement('img');\n\t\timg.src = this.toDataURL();\n\t\tdocument.body.appendChild(img);\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 515,
+            "description": "Compute a canvas image data buffer.",
+            "itemtype": "method",
+            "name": "getImageData",
+            "example": [
+                "\n\tvar canvas\t= document.getElementById('mycanvas');\n\tvar ctx\t\t= canvas.getContext('2d');\n\tvar image = jpx.Image.load('my/image.png', function()\n\t{\n\t\tctx.putImageData(this.getImageData(),0,0);\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 541,
+            "description": "Create an HTML image.",
+            "itemtype": "method",
+            "name": "getHTMLImage",
+            "return": {
+                "description": "An html image"
+            },
+            "example": [
+                "\n\tvar image = new jpx.Image(256,256,1);\n\tvar img   = image.getHTMLImage();\n\tdocument.body.appendChild(img);"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 557,
+            "description": "Output the image to the specified canvas element.",
+            "itemtype": "method",
+            "name": "output",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the canvas on which the image will be drawn",
+                    "type": "String"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 563,
+            "description": "Output the image to the specified canvas element.",
+            "itemtype": "method",
+            "name": "output",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "The the canvas element where to\ndraw the image",
+                    "type": "HTMLCanvasElement"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 591,
+            "description": "Iterate over all image pixels from top-left to bottom-right.",
+            "itemtype": "method",
+            "name": "forXY",
+            "params": [
+                {
+                    "name": "forxy",
+                    "description": "The pixel callback",
+                    "type": "Function",
+                    "props": [
+                        {
+                            "name": "pixel",
+                            "description": "",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "x",
+                                    "description": "The x-coordinate",
+                                    "type": "Integer"
+                                },
+                                {
+                                    "name": "y",
+                                    "description": "The y-coordinate",
+                                    "type": "Integer"
+                                },
+                                {
+                                    "name": "i",
+                                    "description": "The index of the pixel inside the data buffer",
+                                    "type": "Integer"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "chainable": 1,
+            "example": [
+                "\n\tvar image = new jpx.Image(50,50,1);\n\timage.forXY(function(pixel)\n\t{\n\t\tthis.data[pixel.x+pixel.y*this.width] = Math.random();\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 628,
+            "description": "Iterate over all image pixels from top-left to bottom-right.",
+            "itemtype": "method",
+            "name": "forXY2",
+            "params": [
+                {
+                    "name": "forxy",
+                    "description": "The pixel callback",
+                    "type": "Function",
+                    "props": [
+                        {
+                            "name": "x",
+                            "description": "The pixel x-coordinate",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "y",
+                            "description": "The pixel y-coordinate",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "data",
+                            "description": "The [I/O] pixel color",
+                            "type": "Array"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\t// Apply a blueish tone to the image\n\tvar image = new jpx.Image(50,50,3);\n\timage.forXY2(function(x,y,data)\n\t{\n\t\tdata[0] *= 0.5;\n\t\tdata[1] *= 0.8;\n\t\tdata[2] *= 1.2;\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 667,
+            "description": "Iterate over all image pixels from top-left to bottom-right.",
+            "itemtype": "method",
+            "name": "forInXY",
+            "params": [
+                {
+                    "name": "minX",
+                    "description": "",
+                    "type": "Integer"
+                },
+                {
+                    "name": "minY",
+                    "description": "",
+                    "type": "Integer"
+                },
+                {
+                    "name": "maxX",
+                    "description": "",
+                    "type": "Integer"
+                },
+                {
+                    "name": "maxY",
+                    "description": "",
+                    "type": "Integer"
+                },
+                {
+                    "name": "forInXY",
+                    "description": "The pixel callback",
+                    "type": "Function",
+                    "props": [
+                        {
+                            "name": "x",
+                            "description": "The x-coordinate of the pixel",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "y",
+                            "description": "The y-coordinate of the pixel",
+                            "type": "Integer"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\t//\tDraw a white square at the top-left of the image\n\tvar image = new jpx.Image(50,50,1);\n\timage.forInXY(0,0,25,25, function(x,y)\n\t{\n\t\tthis.data[this.index(x,y)] = 255;\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 696,
+            "description": "Iterate over all values inside an image.",
+            "itemtype": "method",
+            "name": "forXYC",
+            "params": [
+                {
+                    "name": "forXYC",
+                    "description": "",
+                    "type": "Function",
+                    "props": [
+                        {
+                            "name": "x",
+                            "description": "The pixel y-coordinate",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "y",
+                            "description": "The pixel x-coordinate",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "c",
+                            "description": "The channel of the current pixel",
+                            "type": "Integer"
+                        }
+                    ]
+                }
+            ],
+            "chainable": 1,
+            "example": [
+                "\n\t//\tMake a blueish image\n\tvar image = new jpx.Image(50,50,3).forXYC(function(x,y,c)\n\t{\n\t\tthis.data[this.index(x,y,c)] = 50 + 50 * c;\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 725,
+            "description": "Iterate over image channels.\n<p class=\"warning\">\n<span class=\"tag-warning\">Warning</span>\nDue to performance issues, this method must NOT\nbe used inside a `forXY` loop.\nInstead, you may use the `forXYC` loop.\n</p>",
+            "itemtype": "method",
+            "name": "forC",
+            "params": [
+                {
+                    "name": "forC",
+                    "description": "`function(c){ }`",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n\tvar image = new jpx.Image(256,256,3);\n\timage.forC(function(c){\n\t\t// do stuff with channels\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 750,
+            "description": "Convolve the image with by specified kernel.",
+            "itemtype": "method",
+            "name": "convolve",
+            "params": [
+                {
+                    "name": "kernel",
+                    "description": "A normalized kernel.",
+                    "type": "Kernel",
+                    "props": [
+                        {
+                            "name": "width",
+                            "description": "",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "height",
+                            "description": "",
+                            "type": "Integer"
+                        },
+                        {
+                            "name": "data",
+                            "description": "",
+                            "type": "Array"
+                        }
+                    ]
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 795,
+            "description": "Repeat a filter afor `n` times.",
+            "itemtype": "method",
+            "name": "repeat",
+            "params": [
+                {
+                    "name": "filter",
+                    "description": "The name of the filter"
+                },
+                {
+                    "name": "parameters",
+                    "description": "The parameters of the filter,"
+                },
+                {
+                    "name": "n",
+                    "description": "The number of iterations"
+                }
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 811,
+            "description": "Apply a set of filters defined by a JSON object.",
+            "itemtype": "method",
+            "name": "applyFilters",
+            "params": [
+                {
+                    "name": "filters",
+                    "description": "The set of filters to be applied",
+                    "type": "Array"
+                }
+            ],
+            "chainable": 1,
+            "example": [
+                "\n\tvar filters = {\n\t\tcolorAdjust\t\t: {\n\t\t\tr : 0.5,\n\t\t\tg : 1.1,\n\t\t\tb : 0.7\n\t\t},\n\t\tsaturation \t\t: 0.5\n\t};\n\tvar image = jpx.Image.load('my/image.png', function()\n\t{\n\t\tthis.applyFilters(filters);\n\t});"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 839,
+            "description": "Free image memory",
+            "itemtype": "method",
+            "name": "dispose",
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 852,
+            "description": "Load an image from a specified source filename.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "load",
+            "params": [
+                {
+                    "name": "src",
+                    "description": "The image filename",
+                    "type": "String"
+                },
+                {
+                    "name": "loaded",
+                    "description": "Called when the image has finished loading",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The new newly created image"
+            },
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 876,
+            "description": "Pointwise addition of an image to the current image",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "The image to be added to the current image",
+                    "type": "jpx.Image"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 882,
+            "description": "Pointwise addition of the current image by a number",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The value to be added to the current image",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 899,
+            "description": "Pointwise substraction of an image to the current image",
+            "itemtype": "method",
+            "name": "sub",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "The image to be substracted to the current image",
+                    "type": "jpx.Image"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 905,
+            "description": "Pointwise substraction of the current image by a number",
+            "itemtype": "method",
+            "name": "sub",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The value to be substracted to the current image",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 921,
+            "description": "Pointwise multiplication of an image to the current image",
+            "itemtype": "method",
+            "name": "mul",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "The image to be multiplied to the current image",
+                    "type": "jpx.Image"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 927,
+            "description": "Pointwise multiplication of the current image by a number",
+            "itemtype": "method",
+            "name": "mul",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The value to be multiplied to the current image",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 950,
+            "description": "Apply a negative filter on the image",
+            "itemtype": "method",
+            "name": "negative",
+            "params": [
+                {
+                    "name": "max=255",
+                    "description": "The value from which compute the negative",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 967,
+            "description": "Desaturate the image",
+            "itemtype": "method",
+            "name": "desaturate",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1001,
+            "description": "<span class=\"beta-feature\">beta</span>\nPixelate the image.",
+            "itemtype": "method",
+            "name": "pixelate",
+            "params": [
+                {
+                    "name": "p=5",
+                    "description": "The pixel size"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1030,
+            "description": "Apply sepia tone to the image.",
+            "itemtype": "method",
+            "name": "sepia",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1047,
+            "description": "Change the brightness and/or the contrast of the image",
+            "itemtype": "method",
+            "name": "brightnessContrast",
+            "params": [
+                {
+                    "name": "properties",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "brighntess",
+                            "description": "Brightness between -1 and 1",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": " 0"
+                        },
+                        {
+                            "name": "contrast",
+                            "description": "Contrast between 0 and 1",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": " 1"
+                        }
+                    ]
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1068,
+            "description": "Lighten the image with a specified percentage",
+            "itemtype": "method",
+            "name": "lighten",
+            "params": [
+                {
+                    "name": "factor=0.1",
+                    "description": "The percentage of lightness to increase",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1088,
+            "description": "Equalize the image histogram",
+            "itemtype": "method",
+            "name": "equalize",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1116,
+            "description": "Change the image saturation",
+            "itemtype": "method",
+            "name": "saturation",
+            "params": [
+                {
+                    "name": "saturation",
+                    "description": "The new image saturation between 0 and 2",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1183,
+            "description": "Adjust RGB channels values.",
+            "itemtype": "method",
+            "name": "colorAdjust",
+            "params": [
+                {
+                    "name": "rgb",
+                    "description": "The RGB correction vector",
+                    "type": "Array|Object",
+                    "props": [
+                        {
+                            "name": "r",
+                            "description": "Correction of the red channel"
+                        },
+                        {
+                            "name": "g",
+                            "description": "Correction of the green channel"
+                        },
+                        {
+                            "name": "b",
+                            "description": "Correction of the blue channel"
+                        }
+                    ]
+                }
+            ],
+            "chainable": 1,
+            "example": [
+                "\n\tvar image = ...\n\timage.colorAdjust({r:0.7,g:1.0,b:1.4});\t// I'm blueish !\n\timage.colorAdjust([1.5,0.8,1.2]);\t\t// I'm pinky !"
+            ],
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1210,
+            "description": "Apply vintage effect to the image.",
+            "itemtype": "method",
+            "name": "vintage",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1224,
+            "description": "Love filter. Get ready to fall in love",
+            "itemtype": "method",
+            "name": "love",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1239,
+            "description": "Apply a blueish tone on the dark parts of the image",
+            "itemtype": "method",
+            "name": "bluetify",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1258,
+            "itemtype": "method",
+            "name": "grungy",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1271,
+            "itemtype": "method",
+            "name": "lightVintage",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1284,
+            "description": "Apply a blooming effect on the image",
+            "itemtype": "method",
+            "name": "bloom",
+            "chainable": 1,
+            "class": "jpx.Image"
+        },
+        {
+            "file": "src/jpx.js",
+            "line": 1297,
+            "description": "Sharpen the image",
+            "itemtype": "method",
+            "name": "sharpen",
+            "params": [
+                {
+                    "name": "amount",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "lowPassKernel",
+                    "description": "Kernel used to apply the low-pass filtering",
+                    "type": "Kernel"
+                }
+            ],
+            "chainable": 1,
+            "class": "jpx.Image"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type",
+            "line": " src/jpx.jipl.js:740"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/jpx.js:24"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8"/>
+        <script src="../../dist/jpx.js"></script>
+    </head>
+    <body>
+        <canvas id="output" width="640" height="480"></canvas>
+        <script>
+            var image = new jpx.Image();
+            image.load('images/Flower.jpg', function()
+            {
+                this.sepia().output('output');
+            });
+        </script>
+    </body>
+</html>

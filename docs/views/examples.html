@@ -1,0 +1,357 @@
+<style>
+    #jpx-demos
+    {
+        max-width                   : 100%;
+        border-spacing              : 5px 5px;
+    }
+    #jpx-demos tr
+    {
+        background-color            : rgba(0,0,0,0.2);
+        box-sizing                  : border-box;
+    }
+    #jpx-demos td
+    {
+
+    }
+    #jpx-demos td:last-child
+    {
+        text-align                  : center;
+    }
+
+    #jpx-demos td img,
+    #jpx-demos td canvas
+    {
+        max-width                       : 100%;
+    }
+</style>
+<p>
+    Image size : <span id="jpx-examples-image-size"></span><br/>
+    Results generated in <span id="jpx-examples-time"></span>
+</p>
+<table id="jpx-demos" style="width:900px;margin:auto;">
+    <tr>
+        <th style="width:30%">Script</th>
+        <th style="width:65%">Result</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>
+var image = jpx.Image.load('images/Flower.jpg',
+function()
+{
+    this.output('output-canvas-id');
+});
+            </pre>
+        </td>
+        <td>
+            <img src="assets/images/Flower.jpg" alt="A beautiful flower"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.resize(256,256)
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.crop(100,0,320,280);
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.desaturate();
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.negative();
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.sepia();
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.love();
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.blutify();
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.vintage();
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.lightVintage();
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.saturation(0.25);
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.saturation(2);
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.equalize();
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.pixelate(5);
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.colorAdjust([1.2,0.1,0.8]);
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.repeat('blutify', 5);
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.applyFilters({
+    saturation:0.25,
+    colorAdjust:[2,0.3,0.7],
+    saturation:2
+});
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.bloom();
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.sharpen(4);
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre class="jpx-script">
+image.applyFilters({
+    saturation  : 0.25,
+    colorAdjust : [0,0.25,1.2]
+});
+            </pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>
+// Create a new plugin
+jpx.addPlugin(
+{
+    myNoise      : function()
+    {
+        return this.forXY2(function(x,y,data)
+        {
+            // keep the alpha channel as is
+            for(var i = 0; i < data.length-1; ++i)
+            {
+                var val = data[i];
+                var min = val / 2;
+                var max = val + min;
+                var rand = Math.random();
+                data[i] = min + (max-min) * rand;
+            }
+        });
+    }
+});</pre>
+            <pre class="jpx-script">image.myNoise();</pre>
+        </td>
+        <td>
+            <canvas></canvas>
+        </td>
+    </tr>
+</table>
+
+<!--
+
+-->
+<script id="script">
+    var imageURL = 'assets/images/Flower.jpg';
+
+    // Create a new plugin
+    var myPlugin = {
+        /**
+        *   Fill the image with random values
+        *   @param {Number} min The minimal value
+        *   @param {Number} max The maximal value
+        *   @chainable
+        */
+        myNoise      : function()
+        {
+            return this.forXY2(function(x,y,data)
+            {
+                // keep the alpha channel as is
+                for(var i = 0; i < data.length-1; ++i)
+                {
+                    var val = data[i];
+                    var min = val / 2;
+                    var max = val + min;
+                    data[i] = min + (max-min) * Math.random();
+                }
+            });
+        }
+    };
+    jpx.addPlugin(myPlugin);
+
+    // Link demos and output canvas
+    var demos   = document.getElementById('jpx-demos');
+    var trList  = demos.getElementsByTagName('tr');
+    for(var i = 0; i < trList.length; ++i)
+    {
+        var tr = trList[i];
+        var script = $(tr).find('pre[class="jpx-script"]')[0];
+        var canvas = tr.getElementsByTagName('canvas')[0];
+        if(canvas)
+        {
+            var id = 'output-' + i;
+            script.setAttribute('data-output', id);
+            canvas.id = id;
+        }
+    }
+
+    // Load and apply all filters
+    var image = new jpx.Image();
+    var tb = jpx.time();
+    image.load(imageURL, function()
+    {
+        var base = image;
+        $('#jpx-examples-image-size').html(image.width + ' x ' + image.height);
+        var scripts = document.getElementsByTagName('*');
+        for(var i = 0; i < scripts.length; ++i)
+        {
+            var script = scripts[i];
+            if(script.getAttribute('class') == 'jpx-script')
+            {
+                var text = script.innerHTML;
+                var output = script.getAttribute('data-output');
+                image = base.clone();
+                eval(text).output(output);
+                var canvas = document.getElementById(output);
+                if(canvas.width == base.width && canvas.height == base.height)
+                {
+                    var ctx = canvas.getContext('2d');
+                    ctx.drawImage(base.imageBase,0,0,canvas.width/2,canvas.height,0,0,canvas.width/2,canvas.height);
+                    ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+                    ctx.moveTo(canvas.width/2,0);
+                    ctx.lineTo(canvas.width/2,canvas.height);
+                    ctx.stroke();
+                }
+            }
+        };
+        var te = jpx.time();
+        $('#jpx-examples-time').html((te-tb) + ' ms.');
+        console.log('Filters applyied in ' + (te-tb) + ' ms.');
+    });
+</script>

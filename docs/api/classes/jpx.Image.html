@@ -1,0 +1,6764 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8"/>
+    <title>jpx.Image - jpx</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css"/>
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'/>
+    <link rel="shortcut icon" type="image/png" href="../assets/logo.png"/>
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles"/>
+    <!--dc-->
+    <link rel="stylesheet" href="../assets/css/dc.css"/>
+    <link rel="stylesheet" href="../assets/css/prettyprint.css"/>
+    <script src="../assets/../../../build/jpx.min.js"></script>
+    <!--/dc-->
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">
+                <img src="../assets/logo.png" width="32" height="32" style="vertical-align:middle;margin-right:10px"/>
+                <span style="display:inline-block;height:32px">jpx - <i style="font-size:0.8em;vertical-align:middle">A javascript image processing library toolkit</i></span>
+            </h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 0.0.1
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/jipl.html">jipl</a></li>
+                                <li><a href="../classes/jiplc.html">jiplc</a></li>
+                                <li><a href="../classes/jpx.html">jpx</a></li>
+                                <li><a href="../classes/jpx.Image.html">jpx.Image</a></li>
+                                <li><a href="../classes/jpx.Kernel.html">jpx.Kernel</a></li>
+                                <li><a href="../classes/jpx.utils.html">jpx.utils</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+            <!--dc-->
+            <div style="display:none">
+            <div id="api-options">
+                Show:
+                <label for="api-show-inherited">
+                    <input type="checkbox" id="api-show-inherited" checked>
+                    Inherited
+                </label>
+            
+                <label for="api-show-protected">
+                    <input type="checkbox" id="api-show-protected">
+                    Protected
+                </label>
+            
+                <label for="api-show-private">
+                    <input type="checkbox" id="api-show-private">
+                    Private
+                </label>
+                <label for="api-show-deprecated">
+                    <input type="checkbox" id="api-show-deprecated">
+                    Deprecated
+                </label>
+            </div>
+            </div>
+            <!--/dc-->
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>jpx.Image</h1>
+<div class="meta">
+
+
+    <!--dc-->
+    <div style="display:none">
+        <div class="meta-content foundat">
+            Defined in: <a href="../files/src_jpx.js.html#l946"><code>src&#x2F;jpx.js:946</code></a>
+        </div>
+
+    </div>
+    <!--/dc-->
+
+</div>
+
+
+
+<!--dc-->
+<div style="display:none">
+<h3>Summary</h3>
+<div class="intro">
+    <p>An image class.</p>
+
+</div>
+</div>
+<!--/dc-->
+<p>An image class.</p>
+
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+<div id="method_jpx.Image" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>jpx.Image</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>constructor</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">constructor</code>
+                        <span class="type">Arguments</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">constructor1</code>
+                                    <span class="type">Arguments</span>
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                                    <ul class="params-list">
+                                        <li class="param">
+                                                <code class="param-name">width</code>
+                                                <span class="type">Integer</span>
+
+                                            <div class="param-description">
+                                                Image.width
+                                            </div>
+                                        </li>
+                                        <li class="param">
+                                                <code class="param-name">height</code>
+                                                <span class="type">Integer</span>
+
+                                            <div class="param-description">
+                                                Image height
+                                            </div>
+                                        </li>
+                                        <li class="param">
+                                                <code class="param-name optional">[nbChannels=1]</code>
+                                                <span class="type">Integer</span>
+                                                <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                                            <div class="param-description">
+                                                Number of channels of the image
+                                            </div>
+                                        </li>
+                                    </ul>
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">constructor2</code>
+                                    <span class="type">Arguments</span>
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                                    <ul class="params-list">
+                                        <li class="param">
+                                                <code class="param-name">src</code>
+                                                <span class="type">String</span>
+
+                                            <div class="param-description">
+                                                The image URL
+                                            </div>
+                                        </li>
+                                        <li class="param">
+                                                <code class="param-name optional">[onload]</code>
+                                                <span class="type">Function</span>
+                                                <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                                            <div class="param-description">
+                                                Called when the image is loaded if <code>src</code> is specified
+                                            </div>
+                                        </li>
+                                    </ul>
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>// Grayscale image
+var image1 = new jpx.Image(256,256);
+
+// RGB image
+var image2 = new jpx.Image(256,256,3);
+
+// RGBA image
+var image3 = new jpx.Image('my/image/file.png', function()
+{
+    console.log(&quot;I'm loaded !&quot;);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+    </div>
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_create">create</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_load">load</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_clone">clone</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_copy">copy</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_index">index</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_resize">resize</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_crop">crop</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_crop2">crop2</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fill">fill</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fill">fill</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_toDataURL">toDataURL</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getImageData">getImageData</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getHTMLImage">getHTMLImage</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_output">output</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_output">output</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forXY">forXY</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forXY2">forXY2</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forInXY">forInXY</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forXYC">forXYC</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forC">forC</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_convolve">convolve</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_repeat">repeat</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_applyFilters">applyFilters</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_dispose">dispose</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_load">load</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_add">add</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_add">add</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sub">sub</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sub">sub</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_mul">mul</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_mul">mul</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_negative">negative</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_desaturate">desaturate</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_pixelate">pixelate</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sepia">sepia</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_brightnessContrast">brightnessContrast</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_lighten">lighten</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_equalize">equalize</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_saturation">saturation</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_colorAdjust">colorAdjust</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_vintage">vintage</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_love">love</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_bluetify">bluetify</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_grungy">grungy</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_lightVintage">lightVintage</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_bloom">bloom</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sharpen">sharpen</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_eval">eval</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_create">create</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_load">load</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_clone">clone</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_copy">copy</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_index">index</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_resize">resize</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_crop">crop</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_crop2">crop2</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fill">fill</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_fill">fill</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_toDataURL">toDataURL</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getImageData">getImageData</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getHTMLImage">getHTMLImage</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_output">output</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_output">output</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forXY">forXY</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forXY2">forXY2</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forInXY">forInXY</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forXYC">forXYC</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_forC">forC</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_convolve">convolve</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_repeat">repeat</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_applyFilters">applyFilters</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_dispose">dispose</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_load">load</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_add">add</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_add">add</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sub">sub</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sub">sub</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_mul">mul</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_mul">mul</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_negative">negative</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_desaturate">desaturate</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_pixelate">pixelate</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sepia">sepia</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_brightnessContrast">brightnessContrast</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_lighten">lighten</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_equalize">equalize</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_saturation">saturation</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_colorAdjust">colorAdjust</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_vintage">vintage</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_love">love</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_bluetify">bluetify</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_grungy">grungy</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_lightVintage">lightVintage</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_bloom">bloom</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_sharpen">sharpen</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+                    <ul class="index-list properties">
+                            <li class="index-item property">
+                                <a href="#property_data">data</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_imageBase">imageBase</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_data">data</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_imageBase">imageBase</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_create" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>create</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>width</code>
+                  </li>
+                  <li class="arg">
+                          <code>height</code>
+                  </li>
+                  <li class="arg">
+                          <code>nbChannels</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Create an new image from specified dimension</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">width</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The image width</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">height</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The image height</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">nbChannels</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The number of channels of the image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_load" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>load</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>src</code>
+                  </li>
+                  <li class="arg">
+                          <code class="optional">[onComplete]</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Load an image from an url.
+The resulting image has 4 channels.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The URL of the image to be loaded.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[onComplete]</code>
+                        <span class="type">Function</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Called when the image has just finished loading.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_clone" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>clone</code></h3>
+          <span class="paren">()</span>
+
+          <span class="returns-inline">
+              <span class="type"></span>
+          </span>
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Clone the image.</p>
+
+  </div>
+
+
+
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <div class="blue-return-desc">
+                    <p>A new instance of the current image.</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+</div>
+</div>
+<div id="method_copy" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>copy</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>image</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Copy the contents of an image to the current image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">image</code>
+                        <span class="type"><a href="../classes/jpx.Image.html" class="crosslink">jpx.Image</a></span>
+
+
+                    <div class="param-description">
+                        <p>The image from which data are copied</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_index" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>index</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>x</code>
+                  </li>
+                  <li class="arg">
+                          <code class="optional">[y=0]</code>
+                  </li>
+                  <li class="arg">
+                          <code class="optional">[c=0]</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+          <span class="returns-inline">
+              <span class="type">Integer</span>
+          </span>
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Compute the index of a specified pixel position</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">x</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The x-coordinate of the pixel</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[y=0]</code>
+                        <span class="type">Integer</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>The y-coordinate of the pixel</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[c=0]</code>
+                        <span class="type">Integer</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>The channel</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type">Integer</span>:
+                <div class="blue-return-desc">
+                    <p>The index of the pixel inside the data buffer</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+</div>
+</div>
+<div id="method_resize" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>resize</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>width</code>
+                  </li>
+                  <li class="arg">
+                          <code>height</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Roughfly resize the image using specified dimension and method.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">width</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The new image width</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">height</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The new image height</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_crop" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>crop</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>x</code>
+                  </li>
+                  <li class="arg">
+                          <code>y</code>
+                  </li>
+                  <li class="arg">
+                          <code>width</code>
+                  </li>
+                  <li class="arg">
+                          <code>height</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Crop an image from specified position and size.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">x</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The x-coordinate of the top-left corner of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">y</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The y-coordinate of the top-left corner of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">width</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The width of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">height</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The height of the crop</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_crop2" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>crop2</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>x1</code>
+                  </li>
+                  <li class="arg">
+                          <code>y1</code>
+                  </li>
+                  <li class="arg">
+                          <code>x2</code>
+                  </li>
+                  <li class="arg">
+                          <code>y2</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Crop an image from specified corner positions.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">x1</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The x-coordinate of the top-left corner of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">y1</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The y-coordinate of the top-left corner of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">x2</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The x-coordinate of the bottom-right corner of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">y2</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The y-coordinate of the bottom-right corner of the crop</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_fill" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>fill</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>data</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Fill the image with data.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">data</code>
+                        <span class="type">Array</span>
+
+
+                    <div class="param-description">
+                        <p>The vector of data to use</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_fill" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>fill</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>data</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Fill the image with data.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">data</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_toDataURL" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>toDataURL</code></h3>
+          <span class="paren">()</span>
+
+          <span class="returns-inline">
+              <span class="type">String</span>
+          </span>
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Convert the image to a base64 string
+(see HTMLcanvasElement.toDataURL() for more details).</p>
+
+  </div>
+
+
+
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type">String</span>:
+                <div class="blue-return-desc">
+                    <p>A base64-based url of the image.</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var image = jpx.Image.load('my/image.png', function()
+{
+    var img = document.createElement('img');
+    img.src = this.toDataURL();
+    document.body.appendChild(img);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_getImageData" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>getImageData</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Compute a canvas image data buffer.</p>
+
+  </div>
+
+
+
+
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var canvas  = document.getElementById('mycanvas');
+var ctx     = canvas.getContext('2d');
+var image = jpx.Image.load('my/image.png', function()
+{
+    ctx.putImageData(this.getImageData(),0,0);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_getHTMLImage" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>getHTMLImage</code></h3>
+          <span class="paren">()</span>
+
+          <span class="returns-inline">
+              <span class="type"></span>
+          </span>
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Create an HTML image.</p>
+
+  </div>
+
+
+
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <div class="blue-return-desc">
+                    <p>An html image</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var image = new jpx.Image(256,256,1);
+var img   = image.getHTMLImage();
+document.body.appendChild(img);</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_output" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>output</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>id</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Output the image to the specified canvas element.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The id of the canvas on which the image will be drawn</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_output" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>output</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>element</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Output the image to the specified canvas element.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">element</code>
+                        <span class="type">HTMLCanvasElement</span>
+
+
+                    <div class="param-description">
+                        <p>The the canvas element where to
+draw the image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_forXY" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>forXY</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>forxy</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Iterate over all image pixels from top-left to bottom-right.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">forxy</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <p>The pixel callback</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">pixel</code>
+                                    <span class="type">Object</span>
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                                    <ul class="params-list">
+                                        <li class="param">
+                                                <code class="param-name">x</code>
+                                                <span class="type">Integer</span>
+
+                                            <div class="param-description">
+                                                The x-coordinate
+                                            </div>
+                                        </li>
+                                        <li class="param">
+                                                <code class="param-name">y</code>
+                                                <span class="type">Integer</span>
+
+                                            <div class="param-description">
+                                                The y-coordinate
+                                            </div>
+                                        </li>
+                                        <li class="param">
+                                                <code class="param-name">i</code>
+                                                <span class="type">Integer</span>
+
+                                            <div class="param-description">
+                                                The index of the pixel inside the data buffer
+                                            </div>
+                                        </li>
+                                    </ul>
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var image = new jpx.Image(50,50,1);
+image.forXY(function(pixel)
+{
+    this.data[pixel.x+pixel.y*this.width] = Math.random();
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_forXY2" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>forXY2</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>forxy</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Iterate over all image pixels from top-left to bottom-right.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">forxy</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <p>The pixel callback</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">x</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The pixel x-coordinate</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">y</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The pixel y-coordinate</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">data</code>
+                                    <span class="type">Array</span>
+
+                                <div class="param-description">
+                                    <p>The [I/O] pixel color</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>// Apply a blueish tone to the image
+var image = new jpx.Image(50,50,3);
+image.forXY2(function(x,y,data)
+{
+    data[0] *= 0.5;
+    data[1] *= 0.8;
+    data[2] *= 1.2;
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_forInXY" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>forInXY</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>minX</code>
+                  </li>
+                  <li class="arg">
+                          <code>minY</code>
+                  </li>
+                  <li class="arg">
+                          <code>maxX</code>
+                  </li>
+                  <li class="arg">
+                          <code>maxY</code>
+                  </li>
+                  <li class="arg">
+                          <code>forInXY</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Iterate over all image pixels from top-left to bottom-right.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">minX</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">minY</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">maxX</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">maxY</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">forInXY</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <p>The pixel callback</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">x</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The x-coordinate of the pixel</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">y</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The y-coordinate of the pixel</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>//  Draw a white square at the top-left of the image
+var image = new jpx.Image(50,50,1);
+image.forInXY(0,0,25,25, function(x,y)
+{
+    this.data[this.index(x,y)] = 255;
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_forXYC" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>forXYC</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>forXYC</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Iterate over all values inside an image.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">forXYC</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">x</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The pixel y-coordinate</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">y</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The pixel x-coordinate</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">c</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The channel of the current pixel</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>//  Make a blueish image
+var image = new jpx.Image(50,50,3).forXYC(function(x,y,c)
+{
+    this.data[this.index(x,y,c)] = 50 + 50 * c;
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_forC" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>forC</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>forC</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Iterate over image channels.</p>
+<p class="warning">
+<span class="tag-warning">Warning</span>
+Due to performance issues, this method must NOT
+be used inside a <code>forXY</code> loop.
+Instead, you may use the <code>forXYC</code> loop.
+</p>
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">forC</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <p><code>function(c){ }</code></p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var image = new jpx.Image(256,256,3);
+image.forC(function(c){
+    // do stuff with channels
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_convolve" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>convolve</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>kernel</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Convolve the image with by specified kernel.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">kernel</code>
+                        <span class="type">Kernel</span>
+
+
+                    <div class="param-description">
+                        <p>A normalized kernel.</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">width</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">height</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">data</code>
+                                    <span class="type">Array</span>
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_repeat" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>repeat</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>filter</code>
+                  </li>
+                  <li class="arg">
+                          <code>parameters</code>
+                  </li>
+                  <li class="arg">
+                          <code>n</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Repeat a filter afor <code>n</code> times.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">filter</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The name of the filter</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">parameters</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The parameters of the filter,</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">n</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The number of iterations</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_applyFilters" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>applyFilters</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>filters</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply a set of filters defined by a JSON object.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">filters</code>
+                        <span class="type">Array</span>
+
+
+                    <div class="param-description">
+                        <p>The set of filters to be applied</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var filters = {
+    colorAdjust     : {
+        r : 0.5,
+        g : 1.1,
+        b : 0.7
+    },
+    saturation      : 0.5
+};
+var image = jpx.Image.load('my/image.png', function()
+{
+    this.applyFilters(filters);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_dispose" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>dispose</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Free image memory</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_load" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>load</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>src</code>
+                  </li>
+                  <li class="arg">
+                          <code class="optional">[loaded]</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+          <span class="returns-inline">
+              <span class="type"></span>
+          </span>
+
+      <div class="flags">
+
+
+
+              <span class="flag static">static</span>
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Load an image from a specified source filename.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The image filename</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[loaded]</code>
+                        <span class="type">Function</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Called when the image has finished loading</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <div class="blue-return-desc">
+                    <p>The new newly created image</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+</div>
+</div>
+<div id="method_add" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>add</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>image</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise addition of an image to the current image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">image</code>
+                        <span class="type"><a href="../classes/jpx.Image.html" class="crosslink">jpx.Image</a></span>
+
+
+                    <div class="param-description">
+                        <p>The image to be added to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_add" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>add</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>value</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise addition of the current image by a number</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The value to be added to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_sub" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>sub</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>image</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise substraction of an image to the current image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">image</code>
+                        <span class="type"><a href="../classes/jpx.Image.html" class="crosslink">jpx.Image</a></span>
+
+
+                    <div class="param-description">
+                        <p>The image to be substracted to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_sub" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>sub</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>value</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise substraction of the current image by a number</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The value to be substracted to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_mul" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>mul</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>image</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise multiplication of an image to the current image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">image</code>
+                        <span class="type"><a href="../classes/jpx.Image.html" class="crosslink">jpx.Image</a></span>
+
+
+                    <div class="param-description">
+                        <p>The image to be multiplied to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_mul" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>mul</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>value</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise multiplication of the current image by a number</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The value to be multiplied to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_negative" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>negative</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>max=255</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply a negative filter on the image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">max=255</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The value from which compute the negative</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_desaturate" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>desaturate</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Desaturate the image</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_pixelate" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>pixelate</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>p=5</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p><span class="beta-feature">beta</span>
+Pixelate the image.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">p=5</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The pixel size</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_sepia" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>sepia</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply sepia tone to the image.</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_brightnessContrast" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>brightnessContrast</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>properties</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Change the brightness and/or the contrast of the image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">properties</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name optional">[brighntess= 0]</code>
+                                    <span class="type">Number</span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                                <div class="param-description">
+                                    <p>Brightness between -1 and 1</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name optional">[contrast= 1]</code>
+                                    <span class="type">Number</span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                                <div class="param-description">
+                                    <p>Contrast between 0 and 1</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_lighten" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>lighten</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>factor=0.1</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Lighten the image with a specified percentage</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">factor=0.1</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The percentage of lightness to increase</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_equalize" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>equalize</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Equalize the image histogram</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_saturation" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>saturation</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>saturation</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Change the image saturation</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">saturation</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The new image saturation between 0 and 2</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_colorAdjust" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>colorAdjust</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>rgb</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Adjust RGB channels values.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">rgb</code>
+                        <span class="type">Array | Object</span>
+
+
+                    <div class="param-description">
+                        <p>The RGB correction vector</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">r</code>
+                                    <span class="type"></span>
+
+                                <div class="param-description">
+                                    <p>Correction of the red channel</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">g</code>
+                                    <span class="type"></span>
+
+                                <div class="param-description">
+                                    <p>Correction of the green channel</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">b</code>
+                                    <span class="type"></span>
+
+                                <div class="param-description">
+                                    <p>Correction of the blue channel</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var image = ...
+image.colorAdjust({r:0.7,g:1.0,b:1.4}); // I'm blueish !
+image.colorAdjust([1.5,0.8,1.2]);       // I'm pinky !</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_vintage" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>vintage</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply vintage effect to the image.</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_love" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>love</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Love filter. Get ready to fall in love</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_bluetify" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>bluetify</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply a blueish tone on the dark parts of the image</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_grungy" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>grungy</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_lightVintage" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>lightVintage</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_bloom" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>bloom</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply a blooming effect on the image</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_sharpen" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>sharpen</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>amount</code>
+                  </li>
+                  <li class="arg">
+                          <code>lowPassKernel</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Sharpen the image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">amount</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">lowPassKernel</code>
+                        <span class="type">Kernel</span>
+
+
+                    <div class="param-description">
+                        <p>Kernel used to apply the low-pass filtering</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_eval" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>eval</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>filters</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Evaluate a filter sequence from a string.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">filters</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The filter sequence.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>//
+//  Example script
+//-------------------------------
+//  brightness:brightness=0.5
+//  sepia
+//  lighten
+//
+var script  = &quot;&quot;;
+script += &quot;brightness:brightness=0.5\n&quot;;
+script += &quot;sepia\n&quot;;
+script += &quot;lighten\n&quot;;
+var image   = new jpx.Image.load('my/image.png', function()
+{
+    this.eval(script).output('output');
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_create" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>create</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>width</code>
+                  </li>
+                  <li class="arg">
+                          <code>height</code>
+                  </li>
+                  <li class="arg">
+                          <code>nbChannels</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Create an new image from specified dimension</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">width</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The image width</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">height</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The image height</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">nbChannels</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The number of channels of the image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_load" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>load</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>src</code>
+                  </li>
+                  <li class="arg">
+                          <code class="optional">[onComplete]</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Load an image from an url.
+The resulting image has 4 channels.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The URL of the image to be loaded.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[onComplete]</code>
+                        <span class="type">Function</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Called when the image has just finished loading.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_clone" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>clone</code></h3>
+          <span class="paren">()</span>
+
+          <span class="returns-inline">
+              <span class="type"></span>
+          </span>
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Clone the image.</p>
+
+  </div>
+
+
+
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <div class="blue-return-desc">
+                    <p>A new instance of the current image.</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+</div>
+</div>
+<div id="method_copy" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>copy</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>image</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Copy the contents of an image to the current image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">image</code>
+                        <span class="type"><a href="../classes/jpx.Image.html" class="crosslink">jpx.Image</a></span>
+
+
+                    <div class="param-description">
+                        <p>The image from which data are copied</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_index" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>index</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>x</code>
+                  </li>
+                  <li class="arg">
+                          <code>y</code>
+                  </li>
+                  <li class="arg">
+                          <code class="optional">[c=0]</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+          <span class="returns-inline">
+              <span class="type">Integer</span>
+          </span>
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Compute the index of a specified pixel position</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">x</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The x-coordinate of the pixel</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">y</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The y-coordinate of the pixel</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[c=0]</code>
+                        <span class="type">Integer</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>The channel</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type">Integer</span>:
+                <div class="blue-return-desc">
+                    <p>The index of the pixel inside the data buffer</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+</div>
+</div>
+<div id="method_resize" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>resize</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>width</code>
+                  </li>
+                  <li class="arg">
+                          <code>height</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Roughfly resize the image using specified dimension and method.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">width</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The new image width</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">height</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The new image height</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_crop" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>crop</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>x</code>
+                  </li>
+                  <li class="arg">
+                          <code>y</code>
+                  </li>
+                  <li class="arg">
+                          <code>width</code>
+                  </li>
+                  <li class="arg">
+                          <code>height</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Crop an image from specified position and size.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">x</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The x-coordinate of the top-left corner of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">y</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The y-coordinate of the top-left corner of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">width</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The width of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">height</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The height of the crop</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_crop2" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>crop2</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>x1</code>
+                  </li>
+                  <li class="arg">
+                          <code>y1</code>
+                  </li>
+                  <li class="arg">
+                          <code>x2</code>
+                  </li>
+                  <li class="arg">
+                          <code>y2</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Crop an image from specified corner positions.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">x1</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The x-coordinate of the top-left corner of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">y1</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The y-coordinate of the top-left corner of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">x2</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The x-coordinate of the bottom-right corner of the crop</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">y2</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                        <p>The y-coordinate of the bottom-right corner of the crop</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_fill" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>fill</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>data</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Fill the image with data.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">data</code>
+                        <span class="type">Array</span>
+
+
+                    <div class="param-description">
+                        <p>The vector of data to use</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_fill" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>fill</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>data</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Fill the image with data.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">data</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_toDataURL" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>toDataURL</code></h3>
+          <span class="paren">()</span>
+
+          <span class="returns-inline">
+              <span class="type">String</span>
+          </span>
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Convert the image to a base64 string
+(see HTMLcanvasElement.toDataURL() for more details).</p>
+
+  </div>
+
+
+
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type">String</span>:
+                <div class="blue-return-desc">
+                    <p>A base64-based url of the image.</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var image = jpx.Image.load('my/image.png', function()
+{
+    var img = document.createElement('img');
+    img.src = this.toDataURL();
+    document.body.appendChild(img);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_getImageData" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>getImageData</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Compute a canvas image data buffer.</p>
+
+  </div>
+
+
+
+
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var canvas  = document.getElementById('mycanvas');
+var ctx     = canvas.getContext('2d');
+var image = jpx.Image.load('my/image.png', function()
+{
+    ctx.putImageData(this.getImageData(),0,0);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_getHTMLImage" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>getHTMLImage</code></h3>
+          <span class="paren">()</span>
+
+          <span class="returns-inline">
+              <span class="type"></span>
+          </span>
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Create an HTML image.</p>
+
+  </div>
+
+
+
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <div class="blue-return-desc">
+                    <p>An html image</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var image = new jpx.Image(256,256,1);
+var img   = image.getHTMLImage();
+document.body.appendChild(img);</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_output" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>output</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>id</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Output the image to the specified canvas element.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The id of the canvas on which the image will be drawn</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_output" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>output</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>element</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Output the image to the specified canvas element.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">element</code>
+                        <span class="type">HTMLCanvasElement</span>
+
+
+                    <div class="param-description">
+                        <p>The the canvas element where to
+draw the image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_forXY" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>forXY</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>forxy</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Iterate over all image pixels from top-left to bottom-right.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">forxy</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <p>The pixel callback</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">pixel</code>
+                                    <span class="type">Object</span>
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                                    <ul class="params-list">
+                                        <li class="param">
+                                                <code class="param-name">x</code>
+                                                <span class="type">Integer</span>
+
+                                            <div class="param-description">
+                                                The x-coordinate
+                                            </div>
+                                        </li>
+                                        <li class="param">
+                                                <code class="param-name">y</code>
+                                                <span class="type">Integer</span>
+
+                                            <div class="param-description">
+                                                The y-coordinate
+                                            </div>
+                                        </li>
+                                        <li class="param">
+                                                <code class="param-name">i</code>
+                                                <span class="type">Integer</span>
+
+                                            <div class="param-description">
+                                                The index of the pixel inside the data buffer
+                                            </div>
+                                        </li>
+                                    </ul>
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var image = new jpx.Image(50,50,1);
+image.forXY(function(pixel)
+{
+    this.data[pixel.x+pixel.y*this.width] = Math.random();
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_forXY2" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>forXY2</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>forxy</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Iterate over all image pixels from top-left to bottom-right.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">forxy</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <p>The pixel callback</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">x</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The pixel x-coordinate</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">y</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The pixel y-coordinate</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">data</code>
+                                    <span class="type">Array</span>
+
+                                <div class="param-description">
+                                    <p>The [I/O] pixel color</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>// Apply a blueish tone to the image
+var image = new jpx.Image(50,50,3);
+image.forXY2(function(x,y,data)
+{
+    data[0] *= 0.5;
+    data[1] *= 0.8;
+    data[2] *= 1.2;
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_forInXY" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>forInXY</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>minX</code>
+                  </li>
+                  <li class="arg">
+                          <code>minY</code>
+                  </li>
+                  <li class="arg">
+                          <code>maxX</code>
+                  </li>
+                  <li class="arg">
+                          <code>maxY</code>
+                  </li>
+                  <li class="arg">
+                          <code>forInXY</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Iterate over all image pixels from top-left to bottom-right.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">minX</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">minY</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">maxX</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">maxY</code>
+                        <span class="type">Integer</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">forInXY</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <p>The pixel callback</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">x</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The x-coordinate of the pixel</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">y</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The y-coordinate of the pixel</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>//  Draw a white square at the top-left of the image
+var image = new jpx.Image(50,50,1);
+image.forInXY(0,0,25,25, function(x,y)
+{
+    this.data[this.index(x,y)] = 255;
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_forXYC" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>forXYC</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>forXYC</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Iterate over all values inside an image.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">forXYC</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">x</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The pixel y-coordinate</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">y</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The pixel x-coordinate</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">c</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    <p>The channel of the current pixel</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>//  Make a blueish image
+var image = new jpx.Image(50,50,3).forXYC(function(x,y,c)
+{
+    this.data[this.index(x,y,c)] = 50 + 50 * c;
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_forC" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>forC</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>forC</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Iterate over image channels.</p>
+<p class="warning">
+<span class="tag-warning">Warning</span>
+Due to performance issues, this method must NOT
+be used inside a <code>forXY</code> loop.
+Instead, you may use the <code>forXYC</code> loop.
+</p>
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">forC</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <p><code>function(c){ }</code></p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var image = new jpx.Image(256,256,3);
+image.forC(function(c){
+    // do stuff with channels
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_convolve" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>convolve</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>kernel</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Convolve the image with by specified kernel.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">kernel</code>
+                        <span class="type">Kernel</span>
+
+
+                    <div class="param-description">
+                        <p>A normalized kernel.</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">width</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">height</code>
+                                    <span class="type">Integer</span>
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">data</code>
+                                    <span class="type">Array</span>
+
+                                <div class="param-description">
+                                    
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_repeat" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>repeat</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>filter</code>
+                  </li>
+                  <li class="arg">
+                          <code>parameters</code>
+                  </li>
+                  <li class="arg">
+                          <code>n</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Repeat a filter afor <code>n</code> times.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">filter</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The name of the filter</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">parameters</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The parameters of the filter,</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">n</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The number of iterations</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_applyFilters" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>applyFilters</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>filters</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply a set of filters defined by a JSON object.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">filters</code>
+                        <span class="type">Array</span>
+
+
+                    <div class="param-description">
+                        <p>The set of filters to be applied</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var filters = {
+    colorAdjust     : {
+        r : 0.5,
+        g : 1.1,
+        b : 0.7
+    },
+    saturation      : 0.5
+};
+var image = jpx.Image.load('my/image.png', function()
+{
+    this.applyFilters(filters);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_dispose" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>dispose</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Free image memory</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_load" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>load</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>src</code>
+                  </li>
+                  <li class="arg">
+                          <code class="optional">[loaded]</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+          <span class="returns-inline">
+              <span class="type"></span>
+          </span>
+
+      <div class="flags">
+
+
+
+              <span class="flag static">static</span>
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Load an image from a specified source filename.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">src</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The image filename</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[loaded]</code>
+                        <span class="type">Function</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Called when the image has finished loading</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <div class="blue-return-desc">
+                    <p>The new newly created image</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+</div>
+</div>
+<div id="method_add" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>add</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>image</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise addition of an image to the current image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">image</code>
+                        <span class="type"><a href="../classes/jpx.Image.html" class="crosslink">jpx.Image</a></span>
+
+
+                    <div class="param-description">
+                        <p>The image to be added to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_add" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>add</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>value</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise addition of the current image by a number</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The value to be added to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_sub" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>sub</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>image</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise substraction of an image to the current image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">image</code>
+                        <span class="type"><a href="../classes/jpx.Image.html" class="crosslink">jpx.Image</a></span>
+
+
+                    <div class="param-description">
+                        <p>The image to be substracted to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_sub" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>sub</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>value</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise substraction of the current image by a number</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The value to be substracted to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_mul" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>mul</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>image</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise multiplication of an image to the current image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">image</code>
+                        <span class="type"><a href="../classes/jpx.Image.html" class="crosslink">jpx.Image</a></span>
+
+
+                    <div class="param-description">
+                        <p>The image to be multiplied to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_mul" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>mul</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>value</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Pointwise multiplication of the current image by a number</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The value to be multiplied to the current image</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_negative" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>negative</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>max=255</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply a negative filter on the image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">max=255</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The value from which compute the negative</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_desaturate" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>desaturate</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Desaturate the image</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_pixelate" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>pixelate</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>p=5</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p><span class="beta-feature">beta</span>
+Pixelate the image.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">p=5</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>The pixel size</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_sepia" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>sepia</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply sepia tone to the image.</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_brightnessContrast" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>brightnessContrast</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>properties</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Change the brightness and/or the contrast of the image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">properties</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name optional">[brighntess= 0]</code>
+                                    <span class="type">Number</span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                                <div class="param-description">
+                                    <p>Brightness between -1 and 1</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name optional">[contrast= 1]</code>
+                                    <span class="type">Number</span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                                <div class="param-description">
+                                    <p>Contrast between 0 and 1</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_lighten" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>lighten</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>factor=0.1</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Lighten the image with a specified percentage</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">factor=0.1</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The percentage of lightness to increase</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_equalize" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>equalize</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Equalize the image histogram</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_saturation" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>saturation</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>saturation</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Change the image saturation</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">saturation</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>The new image saturation between 0 and 2</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+<div id="method_colorAdjust" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>colorAdjust</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>rgb</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Adjust RGB channels values.</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">rgb</code>
+                        <span class="type">Array | Object</span>
+
+
+                    <div class="param-description">
+                        <p>The RGB correction vector</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name">r</code>
+                                    <span class="type"></span>
+
+                                <div class="param-description">
+                                    <p>Correction of the red channel</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">g</code>
+                                    <span class="type"></span>
+
+                                <div class="param-description">
+                                    <p>Correction of the green channel</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name">b</code>
+                                    <span class="type"></span>
+
+                                <div class="param-description">
+                                    <p>Correction of the blue channel</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var image = ...
+image.colorAdjust({r:0.7,g:1.0,b:1.4}); // I'm blueish !
+image.colorAdjust([1.5,0.8,1.2]);       // I'm pinky !</code></pre>
+
+            </div>
+        </div>
+
+</div>
+</div>
+<div id="method_vintage" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>vintage</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply vintage effect to the image.</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_love" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>love</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Love filter. Get ready to fall in love</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_bluetify" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>bluetify</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply a blueish tone on the dark parts of the image</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_grungy" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>grungy</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_lightVintage" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>lightVintage</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_bloom" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>bloom</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Apply a blooming effect on the image</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
+<div id="method_sharpen" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>sharpen</code></h3>
+          <div class="args">
+              <span class="paren">(</span><ul class="args-list inline commas">
+                  <li class="arg">
+                          <code>amount</code>
+                  </li>
+                  <li class="arg">
+                          <code>lowPassKernel</code>
+                  </li>
+              </ul><span class="paren">)</span>
+          </div>
+
+
+      <div class="flags">
+
+
+
+
+              <span class="flag chainable">chainable</span>
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Sharpen the image</p>
+
+  </div>
+
+
+
+
+        <div class="params">
+            <h4>Parameters</h4>
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">amount</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">lowPassKernel</code>
+                        <span class="type">Kernel</span>
+
+
+                    <div class="param-description">
+                        <p>Kernel used to apply the low-pass filtering</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+</div>
+            </div>
+
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                    <div id="property_data" class="property item">
+                    
+                      <h3 class="blue-method-name">data</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/src_jpx.jipl.js.html#l251"><code>src&#x2F;jpx.jipl.js:251</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>data</code></h3>
+                        <span class="type">Array</span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>Data buffer.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_imageBase" class="property item">
+                    
+                      <h3 class="blue-method-name">imageBase</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/src_jpx.jipl.js.html#l258"><code>src&#x2F;jpx.jipl.js:258</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>imageBase</code></h3>
+                        <span class="type">HTMLImageElement</span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>The source image.
+                    If no <code>src</code> was provided at construction or if
+                    no loading was performed, this value is <code>null</code>.</p>
+                    
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    
+                    </div>
+                    <div id="property_data" class="property item">
+                    
+                      <h3 class="blue-method-name">data</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/src_jpx.js.html#l266"><code>src&#x2F;jpx.js:266</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>data</code></h3>
+                        <span class="type">Array</span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>Data buffer.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_imageBase" class="property item">
+                    
+                      <h3 class="blue-method-name">imageBase</h3>
+                      <div class="meta method-meta">
+                          <p>
+                              Defined in
+                          <a href="../files/src_jpx.js.html#l273"><code>src&#x2F;jpx.js:273</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>imageBase</code></h3>
+                        <span class="type">HTMLImageElement</span>
+                    
+                    
+                    
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            <p>The source image.
+                    If no <code>src</code> was provided at construction or if
+                    no loading was performed, this value is <code>null</code>.</p>
+                    
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    
+                    </div>
+            </div>
+
+
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

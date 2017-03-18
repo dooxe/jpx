@@ -1,0 +1,75 @@
+.prettyprint
+{
+    background-color            : #151519 !important;
+    font-family                 : 'Droid Sans Mono';
+    border-style                : none !important;
+}
+
+.pln
+{
+    color                       : #BBBBBB;
+}
+
+.pun
+{
+    color                       : #4488BB;
+}
+
+.typ
+{
+    color                       : #9966DD;/*#8833BB;*/
+}
+
+.lit
+{
+    color                       : #BB7744;
+}
+
+.kwd
+{
+    color                       : #77AA55;
+}
+
+.str
+{
+    color                       : #9F8555;
+}
+
+/**COMMENTS*/
+.com
+{
+    display                     : inline-block;
+    color                       : #22AA55;
+}
+
+
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9,
+li.L1, li.L3, li.L5, li.L7, li.L9
+{
+    background-color            : #222222;
+    color                       : #CCCCCC;
+}
+
+pre,xmp
+{
+	-webkit-tab-size: 4;
+-moz-tab-size: 4;
+-ms-tab-size: 4;
+-o-tab-size: 4;
+tab-size: 4;
+}
+
+.tag
+{
+    color                       : #88BBFF;
+}
+
+.atn
+{
+    color                       : #CC88FF;
+}
+
+.atv
+{
+    color                       : #DDFF88;
+}

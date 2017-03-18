@@ -1,0 +1,23 @@
+{
+    "name"          : "jpx",
+    "version"       : "0.1",
+    "description"   : "A javascript image processing library toolkit",
+    "keywords"      : [
+        "jpx",
+        "jipl",
+        "image processing",
+		"javascript"
+    ],
+    "homepage"      : "http://dooxe-creative.net/projects/jpx/",
+    "license"       : "MIT",
+    "author"        : {
+        "name"          : "dooxe",
+        "email"         : "maxime.daisy@gmail.com",
+        "url"           : "http://dooxe-creative.net"
+    },
+    "files"         : [
+        "src/jpx.js",
+        "src/jiplc.js"
+    ],
+    "main"          : "jiplc"
+}
