@@ -1,4 +1,4 @@
-![jpx logo](https://dooxe.github.io/jpx/docs/assets/logo.png)
+![jpx logo](https://dooxe.github.io/jpx/docs/assets/images/logo.png)
 
 # jpx
 
@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="jpx/jpx.js"/>
+        <script src="jpx.js"/>
     </head>
     <body>
         <canvas id="output-canvas"></canvas>
