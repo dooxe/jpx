@@ -26,18 +26,6 @@
 </html>
 ```
 
-<canvas id="output1" width="200" height="200"></canvas>
-<canvas id="output2" width="200" height="200"></canvas>
-<script src="https://dooxe.github.io/jpx/dist/jpx.js"></script>
-<script>
-    var image = new jpx.Image('static/images/flowers.jpg', function()
-    {
-        this.output('output1');
-        this.sepia().output('output2');
-    });
-</script>
-
-
 ## jiplc: an image processing compiler
 
 ### Use it in webpages
