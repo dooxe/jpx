@@ -1,9 +1,10 @@
-jpx
---------------------
+![jpx logo](https://dooxe.github.io/jpx/docs/assets/logo.png)
+
+# jpx
 
 **jpx** is a javascript image processing toolkit
 
-## jpx
+## jpx library
 
 ```html
 <!DOCTYPE html>
@@ -51,3 +52,7 @@ jpx
     </body>
 </html>
 ```
+
+## API documentation
+
+https://dooxe.github.io/jpx/docs/api/
