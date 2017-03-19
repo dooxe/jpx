@@ -14,7 +14,7 @@
 	*
 	*	<h2>Loops</h2>
 	*
-	*	<h3>`foreach(position p) in image`</h3>
+	*	<h3>`foreach position p in image`</h3>
 	*	Loops over image pixel positions.
 	*	```javascript
 	*	foreach(position p) in image
@@ -22,10 +22,10 @@
 	*	/foreach
 	*	```
 	*
-	*	<h3>`foreach(channel c) in image`</h3>
+	*	<h3>`foreach channel c in image`</h3>
 	*	Loops over image channels.
 	*	```javascript
-	*	foreach(channel c) in image
+	*	foreach channel c in image
 	*		// Do something with c
 	*	/foreach
 	*	```
@@ -33,7 +33,7 @@
 	*	<h3>`foreach(pixel p) in image`</h3>
 	*	Loops over all image pixels.
 	*	```javascript
-	*	foreach(pixel p) in image
+	*	foreach pixel p in image
 	*		// Do something with p.x, p.y, p.c, p.index
 	*	/foreach
 	*	```
@@ -46,7 +46,7 @@
 	*	```javascript
 	*	var image = new jpx.Image('my/super/image.png',function()
 	*	{
-	*		foreach(pixel p) in this
+	*		foreach pixel p in this
 	*			var index = index;
 	*			var value = `@`data[index]; // this.data[index]
 	*			`@`data[index] = value / 2 + 10 * p.c;

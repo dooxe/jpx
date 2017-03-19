@@ -23,6 +23,15 @@ var jpx = (function()
 	var PixelArray	= Array;
 
 	
+	var createDataFromCanvas	= function(w,h)
+	{
+		canvas.width	= w;
+		canvas.height	= h;
+		var img = context.getImageData(0,0,w,h);
+		return img.data;
+	};
+
+	
 	var jpx = {
 
 		
@@ -181,7 +190,14 @@ var jpx = (function()
 					this.height 	= h? h : 1;
 					this.spectrum	= s? s : 1;
 					this.length		= w*h*s;
-					this.data		= new PixelArray(this.length);
+					if(this.spectrum == 4)
+					{
+						this.data = createDataFromCanvas(w,h);
+					}
+					else
+					{
+						this.data = new PixelArray(this.length);
+					}
 					return this.fill(0);
 				},
 
@@ -317,15 +333,14 @@ var jpx = (function()
 				getImageData 	: function(){
 					var imageData	= context.createImageData(this.width,this.height);
 					var pixels		= imageData.data;
-					this.forXY(function(p)
-					{
+					for(var p = {x:0,y:0}; p.y<this.height;++p.y)
+	for(p.x=0;p.x<this.width;++p.x){
 						var i = (p.x+p.y*this.width);
-						for(var c = 0; c < this.spectrum; ++c)
-						{
+						for(var c=0;c<this.spectrum;++c){
 							pixels[i*4+c] = this.data[i*this.spectrum+c];
 						}
 						pixels[i*4+3] = 255;
-					});
+					}
 					return imageData;
 				},
 
@@ -446,8 +461,7 @@ var jpx = (function()
 				getHistogram		: function(length)
 				{
 					var H = new Array(this.spectrum);
-					for(var c = 0; c < this.spectrum; ++c)
-					{
+					for(var c=0;c<this.spectrum;++c){
 						var hc = H[c] = new Array(length);
 					}
 					for(var p = {x:0,y:0,c:0,index:0,data:[]};p.y<this.height;++p.y)
@@ -665,9 +679,9 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 
 	    
 	    brightnessContrast 		: function(properties){
-	        properties = properties || {};
-	        var C = jpx.utils.getDefault(properties.contrast,0)
-			var B = jpx.utils.getDefault(properties.brightness,0);
+	        properties = ((typeof properties==='undefined')?{}:properties);
+	        var C = ((typeof properties.contrast==='undefined')?0:properties.contrast)
+			var B = ((typeof properties.brightness==='undefined')?0:properties.brightness);
 	        return this.forXY2(function(x,y,data)
 	        {
 	            for(var i = 0; i < 3; ++i)
@@ -928,4 +942,3 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 	});
 	return jpx;
 })();
-

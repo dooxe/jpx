@@ -3,10 +3,8 @@ build.sh
 yuidoc.json
 
 #
-bin/
+docs/
 trash/
-tests/
 yuidoc-theme-blue-dc/
 yuidoc-theme-dc/
 log/
-test/

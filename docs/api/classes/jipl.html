@@ -120,21 +120,21 @@
 <p>It provides a specific syntax to make image processing tasks easier,
 and more efficient.</p>
 <p><h2>Loops</h2></p>
-<p><h3><code>foreach(position p) in image</code></h3>
+<p><h3><code>foreach position p in image</code></h3>
 Loops over image pixel positions.</p>
 <pre class="code prettyprint"><code class="language-javascript">foreach(position p) in image
     // Do something with p.x, p.y
 /foreach
 </code></pre>
-<p><h3><code>foreach(channel c) in image</code></h3>
+<p><h3><code>foreach channel c in image</code></h3>
 Loops over image channels.</p>
-<pre class="code prettyprint"><code class="language-javascript">foreach(channel c) in image
+<pre class="code prettyprint"><code class="language-javascript">foreach channel c in image
     // Do something with c
 /foreach
 </code></pre>
 <p><h3><code>foreach(pixel p) in image</code></h3>
 Loops over all image pixels.</p>
-<pre class="code prettyprint"><code class="language-javascript">foreach(pixel p) in image
+<pre class="code prettyprint"><code class="language-javascript">foreach pixel p in image
     // Do something with p.x, p.y, p.c, p.index
 /foreach
 </code></pre>
@@ -144,7 +144,7 @@ Within a function, you can use the symbol <code>@</code> that aliases &quot;<cod
 <p>Example:</p>
 <pre class="code prettyprint"><code class="language-javascript">var image = new jpx.Image('my/super/image.png',function()
 {
-    foreach(pixel p) in this
+    foreach pixel p in this
         var index = index;
         var value = <code>@</code>data[index]; // this.data[index]
         <code>@</code>data[index] = value / 2 + 10 * p.c;
@@ -163,21 +163,21 @@ Within a function, you can use the symbol <code>@</code> that aliases &quot;<cod
 <p>It provides a specific syntax to make image processing tasks easier,
 and more efficient.</p>
 <p><h2>Loops</h2></p>
-<p><h3><code>foreach(position p) in image</code></h3>
+<p><h3><code>foreach position p in image</code></h3>
 Loops over image pixel positions.</p>
 <pre class="code prettyprint"><code class="language-javascript">foreach(position p) in image
     // Do something with p.x, p.y
 /foreach
 </code></pre>
-<p><h3><code>foreach(channel c) in image</code></h3>
+<p><h3><code>foreach channel c in image</code></h3>
 Loops over image channels.</p>
-<pre class="code prettyprint"><code class="language-javascript">foreach(channel c) in image
+<pre class="code prettyprint"><code class="language-javascript">foreach channel c in image
     // Do something with c
 /foreach
 </code></pre>
 <p><h3><code>foreach(pixel p) in image</code></h3>
 Loops over all image pixels.</p>
-<pre class="code prettyprint"><code class="language-javascript">foreach(pixel p) in image
+<pre class="code prettyprint"><code class="language-javascript">foreach pixel p in image
     // Do something with p.x, p.y, p.c, p.index
 /foreach
 </code></pre>
@@ -187,7 +187,7 @@ Within a function, you can use the symbol <code>@</code> that aliases &quot;<cod
 <p>Example:</p>
 <pre class="code prettyprint"><code class="language-javascript">var image = new jpx.Image('my/super/image.png',function()
 {
-    foreach(pixel p) in this
+    foreach pixel p in this
         var index = index;
         var value = <code>@</code>data[index]; // this.data[index]
         <code>@</code>data[index] = value / 2 + 10 * p.c;

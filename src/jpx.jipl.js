@@ -22,6 +22,15 @@ var jpx = (function()
 	//
 	var PixelArray	= Array;
 
+	//
+	var createDataFromCanvas	= function(w,h)
+	{
+		canvas.width	= w;
+		canvas.height	= h;
+		var img = context.getImageData(0,0,w,h);
+		return img.data;
+	};
+
 	/**
 	*	@class jpx
 	*/
@@ -298,7 +307,14 @@ var jpx = (function()
 					@height 	= h? h : 1;
 					@spectrum	= s? s : 1;
 					@length		= w*h*s;
-					@data		= new PixelArray(@length);
+					if(@spectrum == 4)
+					{
+						@data = createDataFromCanvas(w,h);
+					}
+					else
+					{
+						@data = new PixelArray(@length);
+					}
 					return @fill(0);
 				},
 
@@ -511,15 +527,13 @@ var jpx = (function()
 				getImageData 	: function(){
 					var imageData	= context.createImageData(this.width,this.height);
 					var pixels		= imageData.data;
-					this.forXY(function(p)
-					{
+					foreach position p in this
 						var i = (p.x+p.y*this.width);
-						for(var c = 0; c < this.spectrum; ++c)
-						{
+						foreach channel c in this
 							pixels[i*4+c] = this.data[i*this.spectrum+c];
-						}
+						/foreach
 						pixels[i*4+3] = 255;
-					});
+					/foreach
 					return imageData;
 				},
 
@@ -743,11 +757,10 @@ var jpx = (function()
 				*/
 				getHistogram		: function(length)
 				{
-					var H = new Array(this.spectrum);
-					for(var c = 0; c < @spectrum; ++c)
-					{
+					var H = new Array(@spectrum);
+					foreach channel c in this
 						var hc = H[c] = new Array(length);
-					}
+					/foreach
 					foreach pixel p in this
 						H[p.c][parseInt(@data[p.index])]++;
 					/foreach
@@ -765,7 +778,7 @@ var jpx = (function()
 				convolve            : function(kernel)
                 {
                     var r = parseInt(kernel.width / 2);
-					return this.forXY2(function(x,y,data)
+					return @forXY2(function(x,y,data)
 					{
 						data[0] = 0;
 						data[1] = 0;
@@ -1059,9 +1072,9 @@ var jpx = (function()
 	    *	@chainable
 	    */
 	    brightnessContrast 		: function(properties){
-	        properties = properties || {};
-	        var C = jpx.utils.getDefault(properties.contrast,0)
-			var B = jpx.utils.getDefault(properties.brightness,0);
+	        properties = ((properties|{}));
+	        var C = ((properties.contrast|0))
+			var B = ((properties.brightness|0));
 	        return this.forXY2(function(x,y,data)
 	        {
 	            for(var i = 0; i < 3; ++i)
@@ -1082,7 +1095,7 @@ var jpx = (function()
 	        {
 	            factor = jpx.utils.getDefault(factor.factor,0.1);
 	        }
-	        return this.forXY2(function(x,y,data)
+	        return @forXY2(function(x,y,data)
 	        {
 	            for(var i = 0; i < 3; ++i)
 	            {
@@ -1099,7 +1112,7 @@ var jpx = (function()
 	    equalize		: function(){
 	        var Imin = {r:255,g:255,b:255};
 	        var Imax = {r:0,g:0,b:0};
-	        return this.forXY2(function(x,y,data)
+	        return @forXY2(function(x,y,data)
 	        {
 	            var r = data[0];
 	            var g = data[1];
