@@ -1,6 +1,8 @@
+![jpx logo](http://dooxe-creative.net/projects/jpx/assets/images/logo.png)
+
 # jpx
 
-**jpx** is a javascript image processing toolkit
+**jpx** is a javascript image processing toolkit.
 
 * [API documentation](http://dooxe-creative.net/projects/jpx/docs/api/index.html)
 
