@@ -98,7 +98,7 @@
     <!--dc-->
     <div style="display:none">
         <div class="meta-content foundat">
-            Defined in: <a href="../files/src_jpx.js.html#l153"><code>src&#x2F;jpx.js:153</code></a>
+            Defined in: <a href="../files/src_jpx.jipl.js.html#l175"><code>src&#x2F;jpx.jipl.js:175</code></a>
         </div>
 
     </div>
@@ -140,27 +140,12 @@
                                     <span class="flag static">static</span>
                             </li>
                             <li class="index-item method">
-                                <a href="#method_isArray">isArray</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method">
                                 <a href="#method_getDefault">getDefault</a>
 
                                     <span class="flag static">static</span>
                             </li>
                             <li class="index-item method">
-                                <a href="#method_derive">derive</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method">
                                 <a href="#method_isArray">isArray</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_getDefault">getDefault</a>
 
                                     <span class="flag static">static</span>
                             </li>
@@ -278,60 +263,6 @@ console.log(kobject.getId()); // &quot;5&quot;</code></pre>
 
 </div>
 </div>
-<div id="method_isArray" class="method item">
-    <div class="blue-method-syntax">
-        <h3 class="name"><code>isArray</code></h3>
-          <div class="args">
-              <span class="paren">(</span><ul class="args-list inline commas">
-                  <li class="arg">
-                          <code>suspect</code>
-                  </li>
-              </ul><span class="paren">)</span>
-          </div>
-
-
-      <div class="flags">
-
-
-
-              <span class="flag static">static</span>
-
-
-      </div>
-      <div class="clearfix"></div>
-
-  </div>
-
-<div class="method-description">
-  <div class="description">
-      <p>Check whether an object is an array.</p>
-
-  </div>
-
-
-
-
-        <div class="params">
-            <h4>Parameters</h4>
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">suspect</code>
-                        <span class="type">Object</span>
-
-
-                    <div class="param-description">
-                        <p>The object to be checked</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-</div>
 <div id="method_getDefault" class="method item">
     <div class="blue-method-syntax">
         <h3 class="name"><code>getDefault</code></h3>
@@ -400,110 +331,6 @@ console.log(kobject.getId()); // &quot;5&quot;</code></pre>
 
 </div>
 </div>
-<div id="method_derive" class="method item">
-    <div class="blue-method-syntax">
-        <h3 class="name"><code>derive</code></h3>
-          <div class="args">
-              <span class="paren">(</span><ul class="args-list inline commas">
-                  <li class="arg">
-                          <code>object1</code>
-                  </li>
-                  <li class="arg">
-                          <code>object2</code>
-                  </li>
-              </ul><span class="paren">)</span>
-          </div>
-
-          <span class="returns-inline">
-              <span class="type">Object</span>
-          </span>
-
-      <div class="flags">
-
-
-
-              <span class="flag static">static</span>
-
-
-      </div>
-      <div class="clearfix"></div>
-
-  </div>
-
-<div class="method-description">
-  <div class="description">
-      <p>Derive an object with another one.</p>
-
-  </div>
-
-
-
-
-        <div class="params">
-            <h4>Parameters</h4>
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">object1</code>
-                        <span class="type">Object</span>
-
-
-                    <div class="param-description">
-                        <p>The object to be derived</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">object2</code>
-                        <span class="type">Object</span>
-
-
-                    <div class="param-description">
-                        <p>Properties to add/override in <code>object1</code></p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                <span class="type">Object</span>:
-                <div class="blue-return-desc">
-                    <p><code>object1</code></p>
-
-                </div>
-
-
-            </div>
-        </div>
-
-        <div class="example">
-            <h4>Example</h4>
-
-            <div class="example-content">
-<pre class="code prettyprint"><code>var Klass = function(id)
-{
-    this.id = id;
-};
-jpx.utils.derive(Klass.prototype,
-{
-    getId : function()
-    {
-        return this.id;
-    }
-});
-var kobject = new Klass(5);
-console.log(kobject.getId()); // &quot;5&quot;</code></pre>
-
-            </div>
-        </div>
-
-</div>
-</div>
 <div id="method_isArray" class="method item">
     <div class="blue-method-syntax">
         <h3 class="name"><code>isArray</code></h3>
@@ -547,74 +374,6 @@ console.log(kobject.getId()); // &quot;5&quot;</code></pre>
 
                     <div class="param-description">
                         <p>The object to be checked</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-</div>
-<div id="method_getDefault" class="method item">
-    <div class="blue-method-syntax">
-        <h3 class="name"><code>getDefault</code></h3>
-          <div class="args">
-              <span class="paren">(</span><ul class="args-list inline commas">
-                  <li class="arg">
-                          <code>object</code>
-                  </li>
-                  <li class="arg">
-                          <code>defaultValue</code>
-                  </li>
-              </ul><span class="paren">)</span>
-          </div>
-
-
-      <div class="flags">
-
-
-
-              <span class="flag static">static</span>
-
-
-      </div>
-      <div class="clearfix"></div>
-
-  </div>
-
-<div class="method-description">
-  <div class="description">
-      <p>If <code>object</code> is defined returns it, otherwise returns <code>defaultValue</code></p>
-
-  </div>
-
-
-
-
-        <div class="params">
-            <h4>Parameters</h4>
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">object</code>
-                        <span class="type">Object</span>
-
-
-                    <div class="param-description">
-                        <p>The object to be tested</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">defaultValue</code>
-                        <span class="type">Object</span>
-
-
-                    <div class="param-description">
-                        <p>The value to be returned if <code>object</code> is not defined</p>
 
                     </div>
 

@@ -95,11 +95,6 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-//
-//
-//
-//
-//
 var jpx = (function()
 {
 	&#x27;use strict&#x27;;
@@ -147,7 +142,7 @@ var jpx = (function()
 			{
 				@name		= &#x27;jpx.Error&#x27;;
 				@message	= &#x27;[&#x27; + f + &#x27;]&#x27; + (message? &#x27; - &#x27; + message : &#x27;&#x27;);
-			}
+			};
 			jpxError.prototype = Error.prototype;
 			return jpxError;
 		})(),
@@ -246,13 +241,19 @@ var jpx = (function()
 		Kernel : function(w,h,data,normalize){
 			if(normalize)
 			{
-				var min = Infinity;
-				var max = 0;
+				var
+					min = Infinity,
+					max = 0
+				;
 				for(var i = 0; i &lt; data.length; ++i)
 				{
 					var d = data[i];
-					if(d &lt; min) min = d;
-					if(d &gt; max) max = d;
+					if(d &lt; min){
+						min = d;
+					}
+					if(d &gt; max){
+						max = d;
+					}
 				}
 				var N = Math.max(Math.abs(min),Math.abs(max));
 				for(var i = 0; i &lt; data.length; ++i)
@@ -431,7 +432,7 @@ var jpx = (function()
 					@height 	= h? h : 1;
 					@spectrum	= s? s : 1;
 					@length		= w*h*s;
-					if(@spectrum == 4)
+					if(@spectrum === 4)
 					{
 						@data = createDataFromCanvas(w,h);
 					}
@@ -469,7 +470,10 @@ var jpx = (function()
 						self.height		= h;
 						self.spectrum	= 4;
 						self.loaded		= true;
-						if(complete) complete.call(self, null);
+						if(complete)
+						{
+							complete.call(self, null);
+						}
 					};
 					image.src = src;
 					@imageBase = image;
@@ -495,7 +499,7 @@ var jpx = (function()
 				*	@chainable
 				*/
 				copy 			: function(image){
-					if(image.data.length != @data.length)
+					if(image.data.length !== @data.length)
 					{
 						throw new jpx.Error(&#x27;Image.copy&#x27;, &#x27;images must have the same dimension&#x27;);
 					}
@@ -528,7 +532,9 @@ var jpx = (function()
 					w = Math.floor(w);
 					h = Math.floor(h);
 					var pixels = new Array(@length);
-					for(var i = 0; i &lt; @length; ++i) pixels[i] = @data[i];
+					for(var i = 0; i &lt; @length; ++i){
+						pixels[i] = @data[i];
+					}
 
 					var W	= @width;
 					var H	= @height;
@@ -607,7 +613,9 @@ var jpx = (function()
 				*	@chainable
 				*/
 				fill 		: function(data){
-					if(typeof data === &#x27;number&#x27;) data = [data];
+					if(typeof data === &#x27;number&#x27;){
+						data = [data];
+					}
 					return this.forXY(function(p)
 					{
 						for(var c = 0; c &lt; this.spectrum; ++c)
@@ -732,7 +740,7 @@ var jpx = (function()
 						x : 0,
 						y : 0,
 						i : 0
-					}
+					};
 					var data	= this.data;
 					for(var y = 0; y &lt; this.height; ++y)
 					{
@@ -1031,12 +1039,12 @@ var jpx = (function()
 		add	: function(other)
 		{
 			var self = this;
-			if(typeof other == &#x27;number&#x27;)
+			if(typeof other === &#x27;number&#x27;)
 			{
-				self.data.forEach(function(d,i){self.data[i]+=other});
+				self.data.forEach(function(d,i){self.data[i]+=other;});
 				return this;
 			}
-			self.data.forEach(function(d,i){self.data[i]+=other.data[i]});
+			self.data.forEach(function(d,i){self.data[i]+=other.data[i];});
 			return self;
 		},
 		/**
@@ -1054,11 +1062,11 @@ var jpx = (function()
 		sub : function(other)
 		{
 			var self = this;
-			if(typeof other == &#x27;number&#x27;)
+			if(typeof other === &#x27;number&#x27;)
 			{
 				return self.add(-other);
 			}
-			self.data.forEach(function(d,i){self.data[i]-=other.data[i]});
+			self.data.forEach(function(d,i){self.data[i]-=other.data[i];});
 			return self;
 		},
 		/**
@@ -1076,12 +1084,12 @@ var jpx = (function()
 		mul : function(other)
 		{
 			var self = this;
-			if(typeof other == &#x27;number&#x27;)
+			if(typeof other === &#x27;number&#x27;)
 			{
-				self.data.forEach(function(d,i){self.data[i]*=other});
+				self.data.forEach(function(d,i){self.data[i]*=other;});
 				return this;
 			}
-			self.data.forEach(function(d,i){self.data[i]*=other.data[i]});
+			self.data.forEach(function(d,i){self.data[i]*=other.data[i];});
 			return self;
 		}
 	});
@@ -1149,7 +1157,7 @@ var jpx = (function()
 	    *	@chainable
 	    */
 	    pixelate		: function(p){
-	        if(typeof p != &#x27;number&#x27;)
+	        if(typeof p !== &#x27;number&#x27;)
 	        {
 	            p = p.pixelsize || 5;
 	        }
@@ -1197,7 +1205,7 @@ var jpx = (function()
 	    */
 	    brightnessContrast 		: function(properties){
 	        properties = ((properties|{}));
-	        var C = ((properties.contrast|0))
+	        var C = ((properties.contrast|0));
 			var B = ((properties.brightness|0));
 	        return this.forXY2(function(x,y,data)
 	        {
@@ -1267,7 +1275,7 @@ var jpx = (function()
 	        if(typeof saturation !== &#x27;number&#x27;)
 	        {
 	            saturation = p.amount || 1;
-	            if(p.amount == 0)
+	            if(p.amount === 0)
 	            {
 	                saturation = 0;
 	            }
@@ -1303,7 +1311,7 @@ var jpx = (function()
 	            ((typeof p.g === &#x27;undefined&#x27;)? 1 : p.g),
 	            ((typeof p.b === &#x27;undefined&#x27;)? 1 : p.b)
 	        ];
-	        if(p.amount == 0)
+	        if(p.amount === 0)
 	        {
 	            saturation = 0;
 	        }
@@ -1405,7 +1413,7 @@ var jpx = (function()
 	    */
 	    grungy 			: function(){
 	        return this
-	            .lighten(0.5)
+	            .brightness({luminosity:0.5}).lighten(0.5)
 	            .saturation(1-15/255)
 	            .brightness({contrast:0.25})
 	            ;
@@ -1446,7 +1454,7 @@ var jpx = (function()
 		*/
 		sharpen 		: function(amount, ker)
 		{
-			if((typeof amount) != &#x27;number&#x27;)
+			if((typeof amount) !== &#x27;number&#x27;)
 			{
 				ker		= amount.ker || ker;
 				amount	= amount.amount || 1;
@@ -1487,7 +1495,7 @@ var jpx = (function()
 	        var self = this;
 	        lines.forEach(function(line,i)
 	        {
-	            if(line[0] == &#x27;#&#x27;)
+	            if(line[0] === &#x27;#&#x27;)
 	            {
 	                name = line.substr(1);
 	                code += (name + &#x27; = function(){ return this&#x27;);

@@ -177,7 +177,7 @@
 			{
 				var s    = scripts[i];
 				var type = s.getAttribute('type');
-				if(type == 'text/jpx-jipl')
+				if(type === 'text/jpx-jipl')
 				{
 					var newJS = document.createElement('script');
 					newJS.setAttribute('type', 'text/javascript');

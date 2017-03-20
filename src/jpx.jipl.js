@@ -1,8 +1,3 @@
-//
-//
-//
-//
-//
 var jpx = (function()
 {
 	'use strict';
@@ -50,7 +45,7 @@ var jpx = (function()
 			{
 				@name		= 'jpx.Error';
 				@message	= '[' + f + ']' + (message? ' - ' + message : '');
-			}
+			};
 			jpxError.prototype = Error.prototype;
 			return jpxError;
 		})(),
@@ -149,13 +144,19 @@ var jpx = (function()
 		Kernel : function(w,h,data,normalize){
 			if(normalize)
 			{
-				var min = Infinity;
-				var max = 0;
+				var
+					min = Infinity,
+					max = 0
+				;
 				for(var i = 0; i < data.length; ++i)
 				{
 					var d = data[i];
-					if(d < min) min = d;
-					if(d > max) max = d;
+					if(d < min){
+						min = d;
+					}
+					if(d > max){
+						max = d;
+					}
 				}
 				var N = Math.max(Math.abs(min),Math.abs(max));
 				for(var i = 0; i < data.length; ++i)
@@ -334,7 +335,7 @@ var jpx = (function()
 					@height 	= h? h : 1;
 					@spectrum	= s? s : 1;
 					@length		= w*h*s;
-					if(@spectrum == 4)
+					if(@spectrum === 4)
 					{
 						@data = createDataFromCanvas(w,h);
 					}
@@ -372,7 +373,10 @@ var jpx = (function()
 						self.height		= h;
 						self.spectrum	= 4;
 						self.loaded		= true;
-						if(complete) complete.call(self, null);
+						if(complete)
+						{
+							complete.call(self, null);
+						}
 					};
 					image.src = src;
 					@imageBase = image;
@@ -398,7 +402,7 @@ var jpx = (function()
 				*	@chainable
 				*/
 				copy 			: function(image){
-					if(image.data.length != @data.length)
+					if(image.data.length !== @data.length)
 					{
 						throw new jpx.Error('Image.copy', 'images must have the same dimension');
 					}
@@ -431,7 +435,9 @@ var jpx = (function()
 					w = Math.floor(w);
 					h = Math.floor(h);
 					var pixels = new Array(@length);
-					for(var i = 0; i < @length; ++i) pixels[i] = @data[i];
+					for(var i = 0; i < @length; ++i){
+						pixels[i] = @data[i];
+					}
 
 					var W	= @width;
 					var H	= @height;
@@ -510,7 +516,9 @@ var jpx = (function()
 				*	@chainable
 				*/
 				fill 		: function(data){
-					if(typeof data === 'number') data = [data];
+					if(typeof data === 'number'){
+						data = [data];
+					}
 					return this.forXY(function(p)
 					{
 						for(var c = 0; c < this.spectrum; ++c)
@@ -635,7 +643,7 @@ var jpx = (function()
 						x : 0,
 						y : 0,
 						i : 0
-					}
+					};
 					var data	= this.data;
 					for(var y = 0; y < this.height; ++y)
 					{
@@ -934,12 +942,12 @@ var jpx = (function()
 		add	: function(other)
 		{
 			var self = this;
-			if(typeof other == 'number')
+			if(typeof other === 'number')
 			{
-				self.data.forEach(function(d,i){self.data[i]+=other});
+				self.data.forEach(function(d,i){self.data[i]+=other;});
 				return this;
 			}
-			self.data.forEach(function(d,i){self.data[i]+=other.data[i]});
+			self.data.forEach(function(d,i){self.data[i]+=other.data[i];});
 			return self;
 		},
 		/**
@@ -957,11 +965,11 @@ var jpx = (function()
 		sub : function(other)
 		{
 			var self = this;
-			if(typeof other == 'number')
+			if(typeof other === 'number')
 			{
 				return self.add(-other);
 			}
-			self.data.forEach(function(d,i){self.data[i]-=other.data[i]});
+			self.data.forEach(function(d,i){self.data[i]-=other.data[i];});
 			return self;
 		},
 		/**
@@ -979,12 +987,12 @@ var jpx = (function()
 		mul : function(other)
 		{
 			var self = this;
-			if(typeof other == 'number')
+			if(typeof other === 'number')
 			{
-				self.data.forEach(function(d,i){self.data[i]*=other});
+				self.data.forEach(function(d,i){self.data[i]*=other;});
 				return this;
 			}
-			self.data.forEach(function(d,i){self.data[i]*=other.data[i]});
+			self.data.forEach(function(d,i){self.data[i]*=other.data[i];});
 			return self;
 		}
 	});
@@ -1052,7 +1060,7 @@ var jpx = (function()
 	    *	@chainable
 	    */
 	    pixelate		: function(p){
-	        if(typeof p != 'number')
+	        if(typeof p !== 'number')
 	        {
 	            p = p.pixelsize || 5;
 	        }
@@ -1100,7 +1108,7 @@ var jpx = (function()
 	    */
 	    brightnessContrast 		: function(properties){
 	        properties = ((properties|{}));
-	        var C = ((properties.contrast|0))
+	        var C = ((properties.contrast|0));
 			var B = ((properties.brightness|0));
 	        return this.forXY2(function(x,y,data)
 	        {
@@ -1170,7 +1178,7 @@ var jpx = (function()
 	        if(typeof saturation !== 'number')
 	        {
 	            saturation = p.amount || 1;
-	            if(p.amount == 0)
+	            if(p.amount === 0)
 	            {
 	                saturation = 0;
 	            }
@@ -1206,7 +1214,7 @@ var jpx = (function()
 	            ((typeof p.g === 'undefined')? 1 : p.g),
 	            ((typeof p.b === 'undefined')? 1 : p.b)
 	        ];
-	        if(p.amount == 0)
+	        if(p.amount === 0)
 	        {
 	            saturation = 0;
 	        }
@@ -1308,7 +1316,7 @@ var jpx = (function()
 	    */
 	    grungy 			: function(){
 	        return this
-	            .lighten(0.5)
+	            .brightness({luminosity:0.5}).lighten(0.5)
 	            .saturation(1-15/255)
 	            .brightness({contrast:0.25})
 	            ;
@@ -1349,7 +1357,7 @@ var jpx = (function()
 		*/
 		sharpen 		: function(amount, ker)
 		{
-			if((typeof amount) != 'number')
+			if((typeof amount) !== 'number')
 			{
 				ker		= amount.ker || ker;
 				amount	= amount.amount || 1;
@@ -1390,7 +1398,7 @@ var jpx = (function()
 	        var self = this;
 	        lines.forEach(function(line,i)
 	        {
-	            if(line[0] == '#')
+	            if(line[0] === '#')
 	            {
 	                name = line.substr(1);
 	                code += (name + ' = function(){ return this');

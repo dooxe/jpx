@@ -22,10 +22,6 @@
 * SOFTWARE.
 */
 
-
-
-
-
 var jpx = (function()
 {
 	'use strict';
@@ -71,7 +67,7 @@ var jpx = (function()
 			{
 				this.name		= 'jpx.Error';
 				this.message	= '[' + f + ']' + (message? ' - ' + message : '');
-			}
+			};
 			jpxError.prototype = Error.prototype;
 			return jpxError;
 		})(),
@@ -131,13 +127,19 @@ var jpx = (function()
 		Kernel : function(w,h,data,normalize){
 			if(normalize)
 			{
-				var min = Infinity;
-				var max = 0;
+				var
+					min = Infinity,
+					max = 0
+				;
 				for(var i = 0; i < data.length; ++i)
 				{
 					var d = data[i];
-					if(d < min) min = d;
-					if(d > max) max = d;
+					if(d < min){
+						min = d;
+					}
+					if(d > max){
+						max = d;
+					}
 				}
 				var N = Math.max(Math.abs(min),Math.abs(max));
 				for(var i = 0; i < data.length; ++i)
@@ -238,7 +240,7 @@ var jpx = (function()
 					this.height 	= h? h : 1;
 					this.spectrum	= s? s : 1;
 					this.length		= w*h*s;
-					if(this.spectrum == 4)
+					if(this.spectrum === 4)
 					{
 						this.data = createDataFromCanvas(w,h);
 					}
@@ -269,7 +271,10 @@ var jpx = (function()
 						self.height		= h;
 						self.spectrum	= 4;
 						self.loaded		= true;
-						if(complete) complete.call(self, null);
+						if(complete)
+						{
+							complete.call(self, null);
+						}
 					};
 					image.src = src;
 					this.imageBase = image;
@@ -285,7 +290,7 @@ var jpx = (function()
 
 				
 				copy 			: function(image){
-					if(image.data.length != this.data.length)
+					if(image.data.length !== this.data.length)
 					{
 						throw new jpx.Error('Image.copy', 'images must have the same dimension');
 					}
@@ -305,7 +310,9 @@ var jpx = (function()
 					w = Math.floor(w);
 					h = Math.floor(h);
 					var pixels = new Array(this.length);
-					for(var i = 0; i < this.length; ++i) pixels[i] = this.data[i];
+					for(var i = 0; i < this.length; ++i){
+						pixels[i] = this.data[i];
+					}
 
 					var W	= this.width;
 					var H	= this.height;
@@ -359,7 +366,9 @@ var jpx = (function()
 				
 				
 				fill 		: function(data){
-					if(typeof data === 'number') data = [data];
+					if(typeof data === 'number'){
+						data = [data];
+					}
 					return this.forXY(function(p)
 					{
 						for(var c = 0; c < this.spectrum; ++c)
@@ -429,7 +438,7 @@ var jpx = (function()
 						x : 0,
 						y : 0,
 						i : 0
-					}
+					};
 					var data	= this.data;
 					for(var y = 0; y < this.height; ++y)
 					{
@@ -610,12 +619,12 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 		add	: function(other)
 		{
 			var self = this;
-			if(typeof other == 'number')
+			if(typeof other === 'number')
 			{
-				self.data.forEach(function(d,i){self.data[i]+=other});
+				self.data.forEach(function(d,i){self.data[i]+=other;});
 				return this;
 			}
-			self.data.forEach(function(d,i){self.data[i]+=other.data[i]});
+			self.data.forEach(function(d,i){self.data[i]+=other.data[i];});
 			return self;
 		},
 		
@@ -623,11 +632,11 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 		sub : function(other)
 		{
 			var self = this;
-			if(typeof other == 'number')
+			if(typeof other === 'number')
 			{
 				return self.add(-other);
 			}
-			self.data.forEach(function(d,i){self.data[i]-=other.data[i]});
+			self.data.forEach(function(d,i){self.data[i]-=other.data[i];});
 			return self;
 		},
 		
@@ -635,12 +644,12 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 		mul : function(other)
 		{
 			var self = this;
-			if(typeof other == 'number')
+			if(typeof other === 'number')
 			{
-				self.data.forEach(function(d,i){self.data[i]*=other});
+				self.data.forEach(function(d,i){self.data[i]*=other;});
 				return this;
 			}
-			self.data.forEach(function(d,i){self.data[i]*=other.data[i]});
+			self.data.forEach(function(d,i){self.data[i]*=other.data[i];});
 			return self;
 		}
 	});
@@ -691,7 +700,7 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 
 	    
 	    pixelate		: function(p){
-	        if(typeof p != 'number')
+	        if(typeof p !== 'number')
 	        {
 	            p = p.pixelsize || 5;
 	        }
@@ -728,7 +737,7 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 	    
 	    brightnessContrast 		: function(properties){
 	        properties = ((typeof properties==='undefined')?{}:properties);
-	        var C = ((typeof properties.contrast==='undefined')?0:properties.contrast)
+	        var C = ((typeof properties.contrast==='undefined')?0:properties.contrast);
 			var B = ((typeof properties.brightness==='undefined')?0:properties.brightness);
 	        return this.forXY2(function(x,y,data)
 	        {
@@ -784,7 +793,7 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 	        if(typeof saturation !== 'number')
 	        {
 	            saturation = p.amount || 1;
-	            if(p.amount == 0)
+	            if(p.amount === 0)
 	            {
 	                saturation = 0;
 	            }
@@ -820,7 +829,7 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 	            ((typeof p.g === 'undefined')? 1 : p.g),
 	            ((typeof p.b === 'undefined')? 1 : p.b)
 	        ];
-	        if(p.amount == 0)
+	        if(p.amount === 0)
 	        {
 	            saturation = 0;
 	        }
@@ -894,7 +903,7 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 	    
 	    grungy 			: function(){
 	        return this
-	            .lighten(0.5)
+	            .brightness({luminosity:0.5}).lighten(0.5)
 	            .saturation(1-15/255)
 	            .brightness({contrast:0.25})
 	            ;
@@ -922,7 +931,7 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 		
 		sharpen 		: function(amount, ker)
 		{
-			if((typeof amount) != 'number')
+			if((typeof amount) !== 'number')
 			{
 				ker		= amount.ker || ker;
 				amount	= amount.amount || 1;
@@ -942,7 +951,7 @@ p.index=(p.x+p.y*this.width)*this.spectrum+p.c;
 	        var self = this;
 	        lines.forEach(function(line,i)
 	        {
-	            if(line[0] == '#')
+	            if(line[0] === '#')
 	            {
 	                name = line.substr(1);
 	                code += (name + ' = function(){ return this');

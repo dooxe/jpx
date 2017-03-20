@@ -1,3 +1,6 @@
+var jiplc   = require('./src/jiplc.js');
+var path    = require('path');
+
 module.exports = function(grunt)
 {
     grunt.initConfig({
@@ -6,14 +9,66 @@ module.exports = function(grunt)
         //
         //
         //
-        concat:
-        {
-            options: {
-                separator: ";\n"
+        mkdir: {
+            all: {
+                options: {
+                    mode: 0700,
+                    create: ['tmp']
+                },
             },
-            dist: {
-                src : ['src/**/*.js'],
-                dest: 'dist/<%= pkg.name %>.js'
+        },
+
+        //
+        //
+        //
+        jiplc : {
+            options : {
+                files           : ['src/jpx.jipl.js'],
+                outputFile      : 'jpx.js',
+                outputDirectory : 'dist'
+            }
+        },
+
+        //
+        //
+        //
+        yuidoc : {
+            compile: {
+                name        : '<%= pkg.name %>',
+                description : '<%= pkg.description %>',
+                version     : '<%= pkg.version %>',
+                url         : '<%= pkg.homepage %>',
+                options: {
+                    paths       : 'src',
+                    themedir    : 'docs/yuidoc-theme-blue-dc',
+                    outdir      : 'docs/api',
+                    nosort      : true
+                }
+            }
+        },
+
+        //
+        //
+        //
+        concat: {
+            options: {
+
+            },
+            dist1: {
+                src: ['src/license.js','dist/jpx.js'],
+                dest: 'dist/jpx.js',
+            },
+            dist2: {
+                src: ['src/license.js','dist/jpx.min.js'],
+                dest: 'dist/jpx.min.js',
+            },
+            dist3: {
+                src: ['src/license.js','dist/jiplc.js'],
+                dest: 'dist/jiplc.js',
+            },
+            dist4: {
+                src: ['src/license.js','dist/jiplc.min.js'],
+                dest: 'dist/jiplc.min.js',
             }
         },
 
@@ -23,13 +78,33 @@ module.exports = function(grunt)
         uglify:
         {
             options: {
-                // the banner is inserted at the top of the output
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+                mangle      : true,
+                compress    : true
             },
             dist: {
-                files: {
-                    'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+                files:
+                {
+                    'dist/jpx.min.js'   : 'dist/jpx.js',
+                    'dist/jiplc.min.js' : 'src/jiplc.js'
                 }
+            }
+        },
+
+        //
+        //
+        //
+        copy: {
+            jiplc: {
+                files: [
+                    // includes files within path
+                    {
+                        expand  : true,
+                        cwd     : 'src',
+                        src     : ['jiplc.js'],
+                        dest    : 'dist/',
+                        filter  : 'isFile'
+                    }
+                ]
             }
         },
 
@@ -46,17 +121,16 @@ module.exports = function(grunt)
         //
         jshint:
         {
-            // define the files to lint
             files: [
                 'Gruntfile.js',
-                'src/**/*.js',
-                'test/**/*.js'
+                'src/jiplc.js',
+                'dist/jpx.js'
             ],
-
-            // configure JSHint (documented at http://www.jshint.com/docs/)
             options:
             {
-                // more options here if you want to override JSHint defaults
+                eqeqeq      : true,
+                freeze      : true,
+                shadow      : true,
                 globals:
                 {
                     jQuery: true,
@@ -64,25 +138,44 @@ module.exports = function(grunt)
                     module: true
                 }
             }
-        },
-
-        //
-        //
-        //
-        watch: {
-            files: ['<%= jshint.files %>'],
-            tasks: ['jshint', 'qunit']
         }
     });
+
+    //
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-yuidoc');
 
-    // this would be run by typing "grunt test" on the command line
-    grunt.registerTask('test', ['jshint', 'qunit']);
+    //
+    grunt.registerTask('jiplc', [], function()
+    {
+        var files           = this.options('files').files;
+        var outputDirectory = this.options('outputDirectory').outputDirectory;
+        var outputFile      = this.options('outputFile').outputFile;
+        var contents        = "";
+        for(var i = 0; i < files.length; ++i)
+        {
+            contents += grunt.file.read(files[i],{encoding:'utf-8'});
+        }
+        contents = jiplc.compile(contents);
+        var output = path.join(outputDirectory,outputFile);
+        grunt.log.writeln("Output to '" + output + "'");
+        grunt.file.write(output,contents,{encoding:'utf-8'});
+    });
 
     // the default task can be run just by typing "grunt" on the command line
-    grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+    grunt.registerTask('default', [
+        'jiplc',
+        'jshint',
+        'uglify',
+        'copy:jiplc',
+        'concat:dist1',
+        'concat:dist2',
+        'concat:dist3',
+        'concat:dist4',
+        'yuidoc']);
 };

@@ -98,7 +98,7 @@
     <!--dc-->
     <div style="display:none">
         <div class="meta-content foundat">
-            Defined in: <a href="../files/src_jpx.js.html#l40"><code>src&#x2F;jpx.js:40</code></a>
+            Defined in: <a href="../files/src_jpx.jipl.js.html#l29"><code>src&#x2F;jpx.jipl.js:29</code></a>
         </div>
 
     </div>
@@ -135,7 +135,7 @@
 
                     <ul class="index-list methods">
                             <li class="index-item method">
-                                <a href="#method_time">time</a>
+                                <a href="#method_addPlugin">addPlugin</a>
 
                                     <span class="flag static">static</span>
                             </li>
@@ -145,22 +145,7 @@
                                     <span class="flag static">static</span>
                             </li>
                             <li class="index-item method">
-                                <a href="#method_addPlugin">addPlugin</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method">
                                 <a href="#method_time">time</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_exit">exit</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_addPlugin">addPlugin</a>
 
                                     <span class="flag static">static</span>
                             </li>
@@ -174,86 +159,6 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method_time" class="method item">
-    <div class="blue-method-syntax">
-        <h3 class="name"><code>time</code></h3>
-          <span class="paren">()</span>
-
-          <span class="returns-inline">
-              <span class="type"></span>
-          </span>
-
-      <div class="flags">
-
-
-
-              <span class="flag static">static</span>
-
-
-      </div>
-      <div class="clearfix"></div>
-
-  </div>
-
-<div class="method-description">
-  <div class="description">
-      <p>Get the current timestamp.</p>
-
-  </div>
-
-
-
-
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                <div class="blue-return-desc">
-                    <p>The number of millisecond since the 1st of January 1970 00:00:00 UTC.</p>
-
-                </div>
-
-
-            </div>
-        </div>
-
-
-</div>
-</div>
-<div id="method_exit" class="method item">
-    <div class="blue-method-syntax">
-        <h3 class="name"><code>exit</code></h3>
-          <span class="paren">()</span>
-
-
-      <div class="flags">
-
-
-
-              <span class="flag static">static</span>
-
-
-      </div>
-      <div class="clearfix"></div>
-
-  </div>
-
-<div class="method-description">
-  <div class="description">
-      <p>Exit the program by throwing an error. Useful when one debugs loops
-with callback functions etc.</p>
-
-  </div>
-
-
-
-
-
-
-
-</div>
-</div>
 <div id="method_addPlugin" class="method item">
     <div class="blue-method-syntax">
         <h3 class="name"><code>addPlugin</code></h3>
@@ -328,6 +233,39 @@ var image = new jpx.Image.load('my/image.png', function()
 
 </div>
 </div>
+<div id="method_exit" class="method item">
+    <div class="blue-method-syntax">
+        <h3 class="name"><code>exit</code></h3>
+          <span class="paren">()</span>
+
+
+      <div class="flags">
+
+
+
+              <span class="flag static">static</span>
+
+
+      </div>
+      <div class="clearfix"></div>
+
+  </div>
+
+<div class="method-description">
+  <div class="description">
+      <p>Exit the program by throwing an error. Useful when one debugs loops
+with callback functions etc.</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>
+</div>
 <div id="method_time" class="method item">
     <div class="blue-method-syntax">
         <h3 class="name"><code>time</code></h3>
@@ -372,113 +310,6 @@ var image = new jpx.Image.load('my/image.png', function()
             </div>
         </div>
 
-
-</div>
-</div>
-<div id="method_exit" class="method item">
-    <div class="blue-method-syntax">
-        <h3 class="name"><code>exit</code></h3>
-          <span class="paren">()</span>
-
-
-      <div class="flags">
-
-
-
-              <span class="flag static">static</span>
-
-
-      </div>
-      <div class="clearfix"></div>
-
-  </div>
-
-<div class="method-description">
-  <div class="description">
-      <p>Exit the program by throwing an error. Useful when one debugs loops
-with callback functions etc.</p>
-
-  </div>
-
-
-
-
-
-
-
-</div>
-</div>
-<div id="method_addPlugin" class="method item">
-    <div class="blue-method-syntax">
-        <h3 class="name"><code>addPlugin</code></h3>
-          <div class="args">
-              <span class="paren">(</span><ul class="args-list inline commas">
-                  <li class="arg">
-                          <code>plugin</code>
-                  </li>
-              </ul><span class="paren">)</span>
-          </div>
-
-
-      <div class="flags">
-
-
-
-              <span class="flag static">static</span>
-
-
-      </div>
-      <div class="clearfix"></div>
-
-  </div>
-
-<div class="method-description">
-  <div class="description">
-      <p>Add a set of filters to jpx.Image class</p>
-
-  </div>
-
-
-
-
-        <div class="params">
-            <h4>Parameters</h4>
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">plugin</code>
-                        <span class="type">Object</span>
-
-
-                    <div class="param-description">
-                        <p>Contains all image filters (see the example)</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-        <div class="example">
-            <h4>Example</h4>
-
-            <div class="example-content">
-<pre class="code prettyprint"><code>var plugin = {
-    redify : function(){
-        return this.forXY2(function(x,y,data){
-            data[0] += 25;
-            data[0] = Math.min(255,data[0]);
-        });
-    }
-};
-jpx.addPlugin(plugin);
-var image = new jpx.Image.load('my/image.png', function()
-{
-    this.redify().output('output');
-});</code></pre>
-
-            </div>
-        </div>
 
 </div>
 </div>

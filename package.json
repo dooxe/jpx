@@ -1,23 +1,35 @@
 {
-    "name"          : "jpx",
-    "version"       : "0.1",
-    "description"   : "A javascript image processing library toolkit",
-    "keywords"      : [
-        "jpx",
-        "jipl",
-        "image processing",
-		"javascript"
-    ],
-    "homepage"      : "http://dooxe-creative.net/projects/jpx/",
-    "license"       : "MIT",
-    "author"        : {
-        "name"          : "dooxe",
-        "email"         : "maxime.daisy@gmail.com",
-        "url"           : "http://dooxe-creative.net"
-    },
-    "files"         : [
-        "src/jpx.js",
-        "src/jiplc.js"
-    ],
-    "main"          : "jiplc"
+  "name": "jpx",
+  "version": "0.0.1",
+  "description": "A javascript image processing library toolkit",
+  "keywords": [
+    "jpx",
+    "jipl",
+    "image processing",
+    "javascript"
+  ],
+  "homepage": "http://dooxe-creative.net/projects/jpx/",
+  "license": "MIT",
+  "author": {
+    "name": "dooxe",
+    "email": "maxime.daisy@gmail.com",
+    "url": "http://dooxe-creative.net"
+  },
+  "files": [
+    "src/jpx.js",
+    "src/jiplc.js"
+  ],
+  "main": "jiplc",
+  "repository": "https://github.com/dooxe/jpx/",
+  "devDependencies": {
+    "grunt": "~1.0.1",
+    "grunt-contrib-uglify": "~2.2.0",
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-mkdir": "~1.0.0",
+    "path": "~0.12.7",
+    "grunt-contrib-yuidoc": "~1.0.0",
+    "grunt-contrib-copy": "~1.0.0"
+  }
 }
