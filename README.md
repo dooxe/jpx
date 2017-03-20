@@ -26,9 +26,17 @@
 </html>
 ```
 
-## jiplc: an image processing compiler
+## jipl : javascript image processing language
 
-### Use it in webpages
+This "pre-processor" language for javascript introduce several commands that makes
+the image processing development with jpx easier.
+
+See [the language](http://dooxe-creative.net/projects/jpx/docs/api/classes/jipl.html) for more details about this language.
+
+### Use jipl in webpages
+
+jpx toolkit provider a small jipl compiler that translate jipl to javascript. You 
+can use it inside your own web pages like the following:
 
 ```html
 <!DOCTYPE html>
