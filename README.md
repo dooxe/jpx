@@ -36,7 +36,7 @@
         <script src="jpx/jiplc.js"/>
     </head>
     <body>
-        <script type="text/jipl">
+        <script type="text/jpx-jipl">
             var image = new jpx.Image("my/super/image.png",function()
             {
                 foreach pixel p in image
