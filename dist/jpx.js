@@ -103,6 +103,31 @@ var jpx = (function()
 		},
 
 		
+		defineFilter : function(name, parameters,filterCode)
+		{
+			jpx.addPlugin((function(name,params,filterCode)
+			{
+				var defaults = {};
+				for(var i = 0; i < params.length; ++i)
+				{
+					var p = params[i];
+					defaults[p.name] = p.defaultValue;
+				}
+				var plugin = {};
+				plugin[name] = function(P)
+				{
+					var p = defaults;
+					for(var n in P)
+					{
+						p[n] = jpx.utils.getDefault(P[n],defaults[n]);
+					}
+					return filterCode.call(this,p);
+				};
+				return plugin;
+			})(name,parameters,filterCode));
+		},
+
+		
 		Kernel : function(w,h,data,normalize){
 			if(normalize)
 			{

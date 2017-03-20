@@ -270,7 +270,12 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 151,
+            "line": 113,
+            "class": "jpx"
+        },
+        {
+            "file": "src/jpx.jipl.js",
+            "line": 178,
             "description": "Derive an object with another one.",
             "static": 1,
             "itemtype": "method",
@@ -298,7 +303,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 181,
+            "line": 208,
             "description": "Check whether an object is an array.",
             "static": 1,
             "itemtype": "method",
@@ -313,7 +318,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 192,
+            "line": 219,
             "description": "If `object` is defined returns it, otherwise returns `defaultValue`",
             "static": 1,
             "itemtype": "method",
@@ -334,7 +339,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 260,
+            "line": 287,
             "description": "Data buffer.",
             "itemtype": "property",
             "name": "data",
@@ -343,7 +348,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 267,
+            "line": 294,
             "description": "The source image.\nIf no `src` was provided at construction or if\nno loading was performed, this value is `null`.",
             "itemtype": "property",
             "name": "imageBase",
@@ -353,7 +358,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 296,
+            "line": 323,
             "description": "Create an new image from specified dimension",
             "itemtype": "method",
             "name": "create",
@@ -379,7 +384,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 321,
+            "line": 348,
             "description": "Load an image from an url.\nThe resulting image has 4 channels.",
             "itemtype": "method",
             "name": "load",
@@ -401,7 +406,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 355,
+            "line": 382,
             "description": "Clone the image.",
             "itemtype": "method",
             "name": "clone",
@@ -413,7 +418,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 367,
+            "line": 394,
             "description": "Copy the contents of an image to the current image",
             "itemtype": "method",
             "name": "copy",
@@ -429,7 +434,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 384,
+            "line": 411,
             "description": "Compute the index of a specified pixel position",
             "itemtype": "method",
             "name": "index",
@@ -462,7 +467,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 396,
+            "line": 423,
             "description": "Roughfly resize the image using specified dimension and method.",
             "itemtype": "method",
             "name": "resize",
@@ -483,7 +488,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 431,
+            "line": 458,
             "description": "Crop an image from specified position and size.",
             "itemtype": "method",
             "name": "crop",
@@ -514,7 +519,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 456,
+            "line": 483,
             "description": "Crop an image from specified corner positions.",
             "itemtype": "method",
             "name": "crop2",
@@ -545,7 +550,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 473,
+            "line": 500,
             "description": "Fill the image with data.",
             "itemtype": "method",
             "name": "fill",
@@ -561,7 +566,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 479,
+            "line": 506,
             "description": "Fill the image with data.",
             "itemtype": "method",
             "name": "fill",
@@ -577,7 +582,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 496,
+            "line": 523,
             "description": "Convert the image to a base64 string\n(see HTMLcanvasElement.toDataURL() for more details).",
             "itemtype": "method",
             "name": "toDataURL",
@@ -592,7 +597,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 516,
+            "line": 543,
             "description": "Compute a canvas image data buffer.",
             "itemtype": "method",
             "name": "getImageData",
@@ -603,7 +608,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 540,
+            "line": 567,
             "description": "Create an HTML image.",
             "itemtype": "method",
             "name": "getHTMLImage",
@@ -617,7 +622,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 556,
+            "line": 583,
             "description": "Output the image to the specified canvas element.",
             "itemtype": "method",
             "name": "output",
@@ -633,7 +638,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 562,
+            "line": 589,
             "description": "Output the image to the specified canvas element.",
             "itemtype": "method",
             "name": "output",
@@ -649,7 +654,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 590,
+            "line": 617,
             "description": "Iterate over all image pixels from top-left to bottom-right.",
             "itemtype": "method",
             "name": "forXY",
@@ -692,7 +697,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 627,
+            "line": 654,
             "description": "Iterate over all image pixels from top-left to bottom-right.",
             "itemtype": "method",
             "name": "forXY2",
@@ -727,7 +732,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 666,
+            "line": 693,
             "description": "Iterate over all image pixels from top-left to bottom-right.",
             "itemtype": "method",
             "name": "forInXY",
@@ -777,7 +782,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 695,
+            "line": 722,
             "description": "Iterate over all values inside an image.",
             "itemtype": "method",
             "name": "forXYC",
@@ -813,7 +818,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 724,
+            "line": 751,
             "description": "Iterate over image channels.\n<p class=\"warning\">\n<span class=\"tag-warning\">Warning</span>\nDue to performance issues, this method must NOT\nbe used inside a `forXY` loop.\nInstead, you may use the `forXYC` loop.\n</p>",
             "itemtype": "method",
             "name": "forC",
@@ -831,12 +836,12 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 754,
+            "line": 781,
             "class": "jpx.Image"
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 769,
+            "line": 796,
             "description": "Convolve the image with by specified kernel.",
             "itemtype": "method",
             "name": "convolve",
@@ -869,7 +874,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 814,
+            "line": 841,
             "description": "Repeat a filter afor `n` times.",
             "itemtype": "method",
             "name": "repeat",
@@ -891,7 +896,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 830,
+            "line": 857,
             "description": "Apply a set of filters defined by a JSON object.",
             "itemtype": "method",
             "name": "applyFilters",
@@ -910,7 +915,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 858,
+            "line": 885,
             "description": "Free image memory",
             "itemtype": "method",
             "name": "dispose",
@@ -918,7 +923,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 871,
+            "line": 898,
             "description": "Load an image from a specified source filename.",
             "static": 1,
             "itemtype": "method",
@@ -943,7 +948,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 895,
+            "line": 922,
             "description": "Pointwise addition of an image to the current image",
             "itemtype": "method",
             "name": "add",
@@ -959,7 +964,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 901,
+            "line": 928,
             "description": "Pointwise addition of the current image by a number",
             "itemtype": "method",
             "name": "add",
@@ -975,7 +980,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 918,
+            "line": 945,
             "description": "Pointwise substraction of an image to the current image",
             "itemtype": "method",
             "name": "sub",
@@ -991,7 +996,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 924,
+            "line": 951,
             "description": "Pointwise substraction of the current image by a number",
             "itemtype": "method",
             "name": "sub",
@@ -1007,7 +1012,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 940,
+            "line": 967,
             "description": "Pointwise multiplication of an image to the current image",
             "itemtype": "method",
             "name": "mul",
@@ -1023,7 +1028,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 946,
+            "line": 973,
             "description": "Pointwise multiplication of the current image by a number",
             "itemtype": "method",
             "name": "mul",
@@ -1039,7 +1044,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 969,
+            "line": 996,
             "description": "Apply a negative filter on the image",
             "itemtype": "method",
             "name": "negative",
@@ -1055,7 +1060,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 986,
+            "line": 1013,
             "description": "Desaturate the image",
             "itemtype": "method",
             "name": "desaturate",
@@ -1064,7 +1069,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1020,
+            "line": 1047,
             "description": "<span class=\"beta-feature\">beta</span>\nPixelate the image.",
             "itemtype": "method",
             "name": "pixelate",
@@ -1079,7 +1084,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1049,
+            "line": 1076,
             "description": "Apply sepia tone to the image.",
             "itemtype": "method",
             "name": "sepia",
@@ -1088,7 +1093,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1066,
+            "line": 1093,
             "description": "Change the brightness and/or the contrast of the image",
             "itemtype": "method",
             "name": "brightnessContrast",
@@ -1120,7 +1125,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1087,
+            "line": 1114,
             "description": "Lighten the image with a specified percentage",
             "itemtype": "method",
             "name": "lighten",
@@ -1136,7 +1141,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1107,
+            "line": 1134,
             "description": "Equalize the image histogram",
             "itemtype": "method",
             "name": "equalize",
@@ -1145,7 +1150,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1135,
+            "line": 1162,
             "description": "Change the image saturation",
             "itemtype": "method",
             "name": "saturation",
@@ -1161,7 +1166,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1202,
+            "line": 1229,
             "description": "Adjust RGB channels values.",
             "itemtype": "method",
             "name": "colorAdjust",
@@ -1194,7 +1199,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1229,
+            "line": 1256,
             "description": "Apply vintage effect to the image.",
             "itemtype": "method",
             "name": "vintage",
@@ -1203,7 +1208,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1243,
+            "line": 1270,
             "description": "Love filter. Get ready to fall in love",
             "itemtype": "method",
             "name": "love",
@@ -1212,7 +1217,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1258,
+            "line": 1285,
             "description": "Apply a blueish tone on the dark parts of the image",
             "itemtype": "method",
             "name": "bluetify",
@@ -1221,7 +1226,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1277,
+            "line": 1304,
             "itemtype": "method",
             "name": "grungy",
             "chainable": 1,
@@ -1229,7 +1234,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1290,
+            "line": 1317,
             "itemtype": "method",
             "name": "lightVintage",
             "chainable": 1,
@@ -1237,7 +1242,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1303,
+            "line": 1330,
             "description": "Apply a blooming effect on the image",
             "itemtype": "method",
             "name": "bloom",
@@ -1246,7 +1251,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1316,
+            "line": 1343,
             "description": "Sharpen the image",
             "itemtype": "method",
             "name": "sharpen",
@@ -1267,7 +1272,7 @@
         },
         {
             "file": "src/jpx.jipl.js",
-            "line": 1336,
+            "line": 1363,
             "description": "Evaluate a filter sequence from a string.",
             "itemtype": "method",
             "name": "eval",
@@ -2323,7 +2328,11 @@
     "warnings": [
         {
             "message": "Missing item type",
-            "line": " src/jpx.jipl.js:754"
+            "line": " src/jpx.jipl.js:113"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/jpx.jipl.js:781"
         },
         {
             "message": "Missing item type",
