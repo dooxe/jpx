@@ -2,7 +2,7 @@
 
 **jpx** is a javascript image processing toolkit
 
-* [API documentation](http://dooxe-creative.net/projects/jpx/api/)
+* [API documentation](http://dooxe-creative.net/projects/jpx/docs/api/index.html)
 
 ## Get started
 
