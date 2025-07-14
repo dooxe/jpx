@@ -1,0 +1,28 @@
+{
+    "entries" : [
+        {
+            "name" : "jpx",
+            "projectType" : "library",
+            "target" : "web",
+            "entry" : "src/index.ts",
+            "configuration" : {
+                "ID" : "net.dx.jpx",
+                "name" : "jpx"
+            }
+        },
+        {
+            "name" : "jpx-app",
+            "projectType" : "app",
+            "target" : "web",
+            "entry" : "app/index.ts",
+            "configuration" : {
+                "ID" : "net.dx.jpx.app",
+                "name" : "jpx-app",
+                "web" : {
+                    "publicDirectory" : "app",
+                    "index" : "index.html"
+                }
+            }
+        }
+    ]
+}

@@ -4,6 +4,8 @@ yuidoc.json
 
 #
 bin/
+build/
+dist/
 tests/
 docs/
 trash/
@@ -12,3 +14,4 @@ yuidoc-theme-dc/
 log/
 node_modules/
 test/
+types/

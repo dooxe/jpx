@@ -20,16 +20,25 @@
     "src/jiplc.js"
   ],
   "main": "jiplc",
+  "scripts": {
+    "build": "tsc",
+    "nova:build": "nova build jpx",
+    "develop"  : "nova develop jpx-app"
+  },
   "repository": "https://github.com/dooxe/jpx/",
   "devDependencies": {
     "grunt": "~1.0.1",
-    "grunt-contrib-uglify": "~2.2.0",
-    "grunt-contrib-jshint": "~1.1.0",
-    "grunt-contrib-watch": "~1.0.0",
     "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-copy": "~1.0.0",
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-contrib-uglify": "~2.2.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-contrib-yuidoc": "~1.0.0",
     "grunt-mkdir": "~1.0.0",
     "path": "~0.12.7",
-    "grunt-contrib-yuidoc": "~1.0.0",
-    "grunt-contrib-copy": "~1.0.0"
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@dx/nova": "file:../tessy"
   }
 }
