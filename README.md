@@ -20,6 +20,6 @@ const myImage = new jpx.Image(512,512,3);
 
 
 ## Documentation
-* [Wiki](https://github.com/dooxe/jpx/wiki)
-* [API documentation](http://dooxe-creative.net/projects/jpx/docs/api/index.html)
+
+* [API documentation](https://dooxe.github.io/jpx/api/)
 
