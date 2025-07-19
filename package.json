@@ -24,6 +24,7 @@
     "build": "tsc",
     "nova:build": "nova build jpx",
     "develop": "nova develop jpx-app",
+    "build:app": "nova build jpx-app",
     "doc": "typedoc src/index.ts"
   },
   "repository": "https://github.com/dooxe/jpx/",
