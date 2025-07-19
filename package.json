@@ -23,7 +23,8 @@
   "scripts": {
     "build": "tsc",
     "nova:build": "nova build jpx",
-    "develop"  : "nova develop jpx-app"
+    "develop": "nova develop jpx-app",
+    "doc": "typedoc src/index.ts"
   },
   "repository": "https://github.com/dooxe/jpx/",
   "devDependencies": {
@@ -36,6 +37,7 @@
     "grunt-contrib-yuidoc": "~1.0.0",
     "grunt-mkdir": "~1.0.0",
     "path": "~0.12.7",
+    "typedoc": "^0.28.7",
     "typescript": "^5.8.3"
   },
   "dependencies": {

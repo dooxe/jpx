@@ -6,7 +6,7 @@ const main = async () => {
 
     const image = await jpx.Image.load('Lenna.png');
     //image.fill(125);
-    image.bloom();
+    image.blutify();
 
     const htmlImage = new Image();
     htmlImage.src = image.toDataURL();

@@ -1,5 +1,5 @@
-import { JpxImage } from "./JpxImage";
-import { JpxError } from "./JpxError";
+import { Image as JpxImage } from "./Image";
+import { Error as JpxError } from "./Error";
 import { Kernel } from "./Kernel";
 import { getDefault } from "./utils";
 
@@ -44,43 +44,3 @@ export const defineFilter = (name, parameters, filterCode) => {
         return plugin;
     })(name, parameters, filterCode));
 }
-
-
-
-
-
-
-addPlugin({
-
-
-    add: function (other) {
-        var self = this;
-        if (typeof other === 'number') {
-            self.data.forEach(function (d, i) { self.data[i] += other; });
-            return this;
-        }
-        self.data.forEach(function (d, i) { self.data[i] += other.data[i]; });
-        return self;
-    },
-
-
-    sub: function (other) {
-        var self = this;
-        if (typeof other === 'number') {
-            return self.add(-other);
-        }
-        self.data.forEach(function (d, i) { self.data[i] -= other.data[i]; });
-        return self;
-    },
-
-
-    mul: function (other) {
-        var self = this;
-        if (typeof other === 'number') {
-            self.data.forEach(function (d, i) { self.data[i] *= other; });
-            return this;
-        }
-        self.data.forEach(function (d, i) { self.data[i] *= other.data[i]; });
-        return self;
-    }
-});

@@ -1,4 +1,7 @@
-export { JpxError as Error } from './JpxError';
-export { JpxImage as Image } from './JpxImage';
+/**
+ * @module jpx
+ */
+export * from './Error';
+export * from './Image';
 export * from './Kernel';
 export * from './lib';
