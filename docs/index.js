@@ -44,17 +44,110 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const jpx = __importStar(__webpack_require__(/*! ../src/index */ "./src/index.ts"));
-console.log(jpx);
 const main = async () => {
     const image = await jpx.Image.load('Lenna.png');
     //image.fill(125);
-    image.blutify();
+    //image.blutify();
     const htmlImage = new Image();
+    const content = document.querySelector('#content');
     htmlImage.src = image.toDataURL();
-    document.body.appendChild(htmlImage);
+    content.appendChild(htmlImage);
+    const filters = [
+        {
+            id: 'blutify',
+            name: 'Blutify',
+        },
+        {
+            id: 'grungy',
+            name: 'Grungy',
+        },
+        {
+            id: 'desaturate',
+            name: 'Desaturate',
+        },
+        {
+            id: 'pixelate',
+            name: 'Pixelate',
+            parameters: [
+                10
+            ]
+        },
+        {
+            id: 'sepia',
+            name: 'Sepia',
+        },
+        {
+            id: 'brightnessContrast',
+            name: 'Brightness / Contrast',
+            parameters: [
+                {
+                    brightness: -0.2,
+                    //contrast: 0.5
+                }
+            ]
+        },
+        {
+            id: 'lighten',
+            name: 'Lighten',
+            parameters: [0.25]
+        },
+        {
+            id: 'equalize',
+            name: 'Equalize',
+            parameters: []
+        },
+        {
+            id: 'saturation',
+            name: 'Saturation',
+            parameters: [0.5]
+        },
+        {
+            id: 'vintage',
+            name: 'Vintage',
+            parameters: []
+        },
+        {
+            id: 'love',
+            name: 'Love',
+            parameters: []
+        },
+        {
+            id: 'lightVintage',
+            name: 'Light vintage',
+            parameters: []
+        },
+        {
+            id: 'bloom',
+            name: 'Bloom',
+            parameters: []
+        }
+    ];
+    const links = [];
+    const menuList = document.querySelector('.menu .list');
+    for (const filter of filters) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.textContent = filter.name;
+        a.href = '#';
+        a.onclick = () => {
+            for (const l of links) {
+                l.classList.remove('selected');
+            }
+            const fun = filter.id;
+            const img = image.clone();
+            img[fun].call(img, ...(filter.parameters || []));
+            htmlImage.src = img.toDataURL();
+            a.classList.add('selected');
+        };
+        links.push(a);
+        li.appendChild(a);
+        menuList.appendChild(li);
+    }
 };
-main().catch((e) => {
-    console.error(e);
+document.addEventListener('DOMContentLoaded', () => {
+    main().catch((e) => {
+        console.error(e);
+    });
 });
 
 
@@ -629,9 +722,9 @@ class Image {
         }
         return this;
     }
-    pixelate(p) {
+    pixelate(p = 5) {
         if (typeof p !== 'number') {
-            p = p.pixelsize || 5;
+            p = p.pixelSize || 5;
         }
         var $data = [];
         for (var i = 0; i < this._data.length; ++i) {
@@ -713,11 +806,11 @@ class Image {
      * @param p
      * @returns
      */
-    saturation(p) {
+    saturation(p = 1) {
         var saturation = p;
         if (typeof saturation !== 'number') {
-            saturation = p.amount || 1;
-            if (p.amount === 0) {
+            saturation = saturation.amount || 1;
+            if (saturation.amount === 0) {
                 saturation = 0;
             }
         }
@@ -766,7 +859,7 @@ class Image {
             .desaturate()
             .brightnessContrast({ contrast: 0.3 })
             .sepia()
-            .lighten(0.4);
+            .lighten(0.2);
     }
     love() {
         return this
@@ -802,7 +895,7 @@ class Image {
     }
     bloom() {
         var kernel = BLOOM_KERNEL;
-        var lowPass = this.clone().repeat('convolve', 10, kernel);
+        var lowPass = this.clone().repeat('convolve', 20, kernel);
         var coarse = this.clone().sub(lowPass);
         return this.fill(0).add(lowPass.mul(1.4)).add(coarse.mul(1));
     }

@@ -1,26 +1,26 @@
 import { Error as JpxError } from "./Error";
 import { Kernel } from "./Kernel";
 
-const 
+const
     GRAY = [0.299, 0.587, 0.114],
     SEPIA = [0.799, 0.387, 0.114],
     BLOOM_KERNEL = new Kernel(3, 3, [1, 1, 1, 1, 1, 1, 1, 1, 1], true),
     SHARPEN_KERNEL = new Kernel(3, 3, [1, 1, 1, 1, 1, 1, 1, 1, 1], true)
-;
+    ;
 
 var canvas = document.createElement('canvas');
 var context = canvas.getContext('2d');
 var plugins = [];
 var PixelArray = Array;
 
-var createDataFromCanvas = function (w : number, h:number) {
-	canvas.width = w;
-	canvas.height = h;
-    if(!context){
+var createDataFromCanvas = function (w: number, h: number) {
+    canvas.width = w;
+    canvas.height = h;
+    if (!context) {
         throw new Error("No context!");
     }
-	var img = context.getImageData(0, 0, w, h);
-	return img.data;
+    var img = context.getImageData(0, 0, w, h);
+    return img.data;
 };
 
 /**
@@ -28,19 +28,19 @@ var createDataFromCanvas = function (w : number, h:number) {
  */
 export class Image {
 
-    imageBase            : any = null;
+    imageBase: any = null;
 
-    loaded               : boolean = false;
+    loaded: boolean = false;
 
-    private _width       : number = 1;
+    private _width: number = 1;
 
-    private _height      : number = 1;
+    private _height: number = 1;
 
-    private _spectrum    : number = 1;
+    private _spectrum: number = 1;
 
-    private _length      : number = 1;
+    private _length: number = 1;
 
-    private _data        : number[] = [];
+    private _data: number[] = [];
 
     /**
      * 
@@ -49,10 +49,10 @@ export class Image {
      * @param spectrum 
      */
     constructor(
-        width : number = 1, 
-        height : number = 1,
-        spectrum : number = 1
-    ){
+        width: number = 1,
+        height: number = 1,
+        spectrum: number = 1
+    ) {
         this.create(width, height, spectrum);
     }
 
@@ -75,14 +75,14 @@ export class Image {
     /**
      * The image spectrum
      */
-    get spectrum(){
+    get spectrum() {
         return this._spectrum;
     }
 
     /**
      * The image data buffer length
      */
-    get length(){
+    get length() {
         return this._length;
     }
 
@@ -92,7 +92,7 @@ export class Image {
     get data() {
         return this._data;
     }
-    
+
     //#MARK: Ops
 
     /**
@@ -102,14 +102,14 @@ export class Image {
      * @param s 
      * @returns this
      */
-    create(w : number = 1, h:number = 1, s:number = 1) : Image {
+    create(w: number = 1, h: number = 1, s: number = 1): Image {
         this._width = w;
         this._height = h;
         this._spectrum = s;
         this._length = w * h * s;
         if (this.spectrum === 4) {
             const canvasData = createDataFromCanvas(w, h);
-            this._data = [ ...canvasData ];
+            this._data = [...canvasData];
         }
         else {
             this._data = new PixelArray(this.length);
@@ -122,7 +122,7 @@ export class Image {
      * @param src
      * @returns 
      */
-    async load(src:string) : Promise<Image> {
+    async load(src: string): Promise<Image> {
         return new Promise<Image>((resolve) => {
             var self = this;
             var image = document.createElement('img');
@@ -131,7 +131,7 @@ export class Image {
                 var h = image.height;
                 canvas.width = w;
                 canvas.height = h;
-                if(context){
+                if (context) {
                     context.drawImage(image, 0, 0);
                     var data = context.getImageData(0, 0, w, h).data;
                     self._data = new Array(data.length);
@@ -154,7 +154,7 @@ export class Image {
      * 
      * @returns 
      */
-    clone() : Image {
+    clone(): Image {
         var clone = new Image(this.width, this.height, this.spectrum);
         clone.imageBase = this.imageBase;
         return clone.copy(this);
@@ -165,8 +165,8 @@ export class Image {
      * @param image 
      * @returns 
      */
-    copy(image : Image) : Image {
-        if(!image._data || !this._data){
+    copy(image: Image): Image {
+        if (!image._data || !this._data) {
             throw new JpxError();
         }
         if (image._data.length !== this._data.length) {
@@ -185,7 +185,7 @@ export class Image {
      * @param c 
      * @returns 
      */
-    index(x : number, y : number = 0, c : number = 0) {
+    index(x: number, y: number = 0, c: number = 0) {
         return (x + y * this.width) * this.spectrum + c;
     }
 
@@ -195,7 +195,7 @@ export class Image {
      * @param h 
      * @returns 
      */
-    resize(w : number, h : number) {
+    resize(w: number, h: number) {
         w = Math.floor(w);
         h = Math.floor(h);
         var pixels = new Array(this.length);
@@ -234,7 +234,7 @@ export class Image {
      * @param h 
      * @returns 
      */
-    crop(x : number, y : number, w : number, h : number) {
+    crop(x: number, y: number, w: number, h: number) {
         var data = new Array(w * h * this.spectrum);
         this.forInXY(x, y, x + w, y + h, function (p) {
             var ni = ((p.x - x) + (p.y - y) * w) * this.spectrum;
@@ -256,7 +256,7 @@ export class Image {
      * @param y2 
      * @returns 
      */
-    crop2(x1 : number, y1 : number , x2:number, y2:number) {
+    crop2(x1: number, y1: number, x2: number, y2: number) {
         var x = Math.min(x1, x2);
         var y = Math.min(y1, y2);
         var w = Math.abs(x2 - x1);
@@ -269,7 +269,7 @@ export class Image {
      * @param data 
      * @returns 
      */
-    fill(data : number | number[]) {
+    fill(data: number | number[]) {
         if (typeof data === 'number') {
             data = [data];
         }
@@ -284,10 +284,10 @@ export class Image {
      * 
      * @returns 
      */
-    toDataURL() : string {
+    toDataURL(): string {
         canvas.width = this.width;
         canvas.height = this.height;
-        if(context){
+        if (context) {
             context.putImageData(this.getImageData(), 0, 0);
         }
         return canvas.toDataURL();
@@ -298,7 +298,7 @@ export class Image {
      * @returns 
      */
     getImageData() {
-        if(!context){
+        if (!context) {
             throw new JpxError();
         }
         var imageData = context.createImageData(this.width, this.height);
@@ -318,7 +318,7 @@ export class Image {
      * 
      * @returns 
      */
-    getHTMLImage() : HTMLImageElement {
+    getHTMLImage(): HTMLImageElement {
         const image = document.createElement('img');
         image.src = this.toDataURL();
         return image;
@@ -328,18 +328,18 @@ export class Image {
      * @param canvas The HTMLCanvasElement, or its id.
      * @returns 
      */
-    output(canvas : string | HTMLCanvasElement) {
+    output(canvas: string | HTMLCanvasElement) {
         if (typeof canvas === 'string') {
             const c = document.getElementById(canvas);
-            if(c && c instanceof HTMLCanvasElement){
-                canvas = c;; 
+            if (c && c instanceof HTMLCanvasElement) {
+                canvas = c;;
             }
         }
         if (canvas instanceof HTMLCanvasElement) {
             canvas.width = this.width;
             canvas.height = this.height;
             var ctx = canvas.getContext('2d');
-            if(ctx){
+            if (ctx) {
                 var data = this.getImageData();
                 ctx.putImageData(data, 0, 0);
             }
@@ -355,7 +355,7 @@ export class Image {
      * @param forxy 
      * @returns 
      */
-    forXY(forxy) : Image {
+    forXY(forxy): Image {
         var p = {
             x: 0,
             y: 0,
@@ -379,7 +379,7 @@ export class Image {
      * @param forxy2 
      * @returns 
      */
-    forXY2(forxy2 : (x:number, y:number, data:number[])=>void) : Image {
+    forXY2(forxy2: (x: number, y: number, data: number[]) => void): Image {
         var vector = [0, 0, 0, 0];
         var data = this._data;
         for (var y = 0; y < this.height; ++y) {
@@ -402,7 +402,7 @@ export class Image {
     /**
      * 
      */
-    forInXY(mx, my, Mx, My, forInXY) : Image {
+    forInXY(mx, my, Mx, My, forInXY): Image {
         for (var y = my; y < My; ++y) {
             for (var x = mx; x < Mx; ++x) {
                 forInXY.call(this, x, y);
@@ -414,7 +414,7 @@ export class Image {
     /**
      * 
      */
-    forXYC(forxyc) : Image {
+    forXYC(forxyc): Image {
         for (var y = 0; y < this.height; ++y) {
             for (var x = 0; x < this.width; ++x) {
                 for (var c = 0; c < 4; ++c) {
@@ -428,7 +428,7 @@ export class Image {
     /**
      * 
      */
-    forC(forC) : Image {
+    forC(forC): Image {
         if (!forC) return this;
         for (var c = 0; c < this.spectrum; ++c) {
             forC.call(this, c);
@@ -444,8 +444,8 @@ export class Image {
         for (var c = 0; c < this.spectrum; ++c) {
             H[c] = new Array(length);
         }
-        for (var p = { x: 0, y: 0, c: 0, index: 0, data: [] }; p.y < this.height; ++p.y){
-            for (p.x = 0; p.x < this.width; ++p.x){
+        for (var p = { x: 0, y: 0, c: 0, index: 0, data: [] }; p.y < this.height; ++p.y) {
+            for (p.x = 0; p.x < this.width; ++p.x) {
                 for (p.c = 0; p.c < this.spectrum; ++p.c) {
                     p.index = (p.x + p.y * this.width) * this.spectrum + p.c;
                     H[p.c][Math.floor(this._data[p.index])]++;
@@ -457,7 +457,7 @@ export class Image {
     /**
      * 
      */
-    convolve(kernel : Kernel) : Image{
+    convolve(kernel: Kernel): Image {
         var r = Math.floor(kernel.width / 2);
         return this.forXY2(function (x, y, data) {
             data[0] = 0;
@@ -569,7 +569,7 @@ export class Image {
      * @param params 
      * @returns 
      */
-    desaturate(params? : any) {
+    desaturate(params?: any) {
         params = ((typeof params === 'undefined') ? {} : params);
         var m = ((typeof params.method === 'undefined') ? "mean" : params.method);
         switch (m) {
@@ -596,9 +596,9 @@ export class Image {
     }
 
 
-    pixelate(p) {
+    pixelate(p: number | { pixelSize: number } = 5) {
         if (typeof p !== 'number') {
-            p = p.pixelsize || 5;
+            p = p.pixelSize || 5;
         }
         var $data: number[] = [];
         for (var i = 0; i < this._data.length; ++i) {
@@ -643,7 +643,7 @@ export class Image {
      * @param factor The lightening factor
      * @returns this
      */
-    lighten(factor : number = 0.1) : Image {
+    lighten(factor: number = 0.1): Image {
         return this.forXY2((x: number, y: number, data) => {
             for (var i = 0; i < 3; ++i) {
                 data[i] = (1 + factor) * data[i];
@@ -682,11 +682,11 @@ export class Image {
      * @param p 
      * @returns 
      */
-    saturation(p : any) : Image {
+    saturation(p: number | { amount: number } = 1): Image {
         var saturation = p;
         if (typeof saturation !== 'number') {
-            saturation = p.amount || 1;
-            if (p.amount === 0) {
+            saturation = saturation.amount || 1;
+            if (saturation.amount === 0) {
                 saturation = 0;
             }
         }
@@ -744,7 +744,7 @@ export class Image {
             .desaturate()
             .brightnessContrast({ contrast: 0.3 })
             .sepia()
-            .lighten(0.4)
+            .lighten(0.2)
             ;
     }
 
@@ -794,7 +794,7 @@ export class Image {
 
     bloom() {
         var kernel = BLOOM_KERNEL;
-        var lowPass = this.clone().repeat('convolve', 10, kernel);
+        var lowPass = this.clone().repeat('convolve', 20, kernel);
         var coarse = this.clone().sub(lowPass);
         return this.fill(0).add(lowPass.mul(1.4)).add(coarse.mul(1));
     }
@@ -867,7 +867,7 @@ export class Image {
      * @param src 
      * @returns 
      */
-    static async load(src : string) {
+    static async load(src: string) {
         return new Image().load(src);
-	}
+    }
 }

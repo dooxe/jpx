@@ -3,9 +3,13 @@
     <br/>
     <h1>
         jpx<br/>A javascript image processing toolkit
-    </h1>    
+    </h1>
+    <br/>
+    <a href="https://dooxe.github.io/jpx/">DEMO</a>  
 </div>
 <br/><br/>
+
+
 
 ## Get started 
 
