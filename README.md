@@ -5,7 +5,8 @@
         jpx<br/>A javascript image processing toolkit
     </h1>
     <br/>
-    <a href="https://dooxe.github.io/jpx/">DEMO</a>  
+    <a href="https://dooxe.github.io/jpx/">DEMO</a> | 
+    <a href="https://dooxe.github.io/jpx/api/">API Docs</a>
 </div>
 <br/><br/>
 
@@ -17,13 +18,8 @@
 import * as jpx from '@dx/jpx';
 
 const myImage = new jpx.Image(512,512,3);
+myImage.fill(255);
 
-
-
+const canvas = document.querySelector('#canvas');
+myImage.output(canvas);
 ```
-
-
-## Documentation
-
-* [API documentation](https://dooxe.github.io/jpx/api/)
-
