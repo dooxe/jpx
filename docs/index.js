@@ -44,6 +44,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const jpx = __importStar(__webpack_require__(/*! ../src/index */ "./src/index.ts"));
+jpx.config.logPerformances = true;
 const main = async () => {
     const image = await jpx.Image.load('Lenna.png');
     //image.fill(125);
@@ -66,11 +67,21 @@ const main = async () => {
             name: 'Desaturate',
         },
         {
+            id: 'negative',
+            name: 'Negative',
+            parameters: []
+        },
+        {
             id: 'pixelate',
             name: 'Pixelate',
             parameters: [
                 10
             ]
+        },
+        {
+            id: 'sharpen',
+            name: 'Sharpen',
+            parameters: [5]
         },
         {
             id: 'sepia',
@@ -184,17 +195,29 @@ exports.Error = JpxError;
 /*!**********************!*\
   !*** ./src/Image.ts ***!
   \**********************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Image = void 0;
 const Error_1 = __webpack_require__(/*! ./Error */ "./src/Error.ts");
+const filters_1 = __webpack_require__(/*! ./filters */ "./src/filters.ts");
 const Kernel_1 = __webpack_require__(/*! ./Kernel */ "./src/Kernel.ts");
+const logPerformance_1 = __webpack_require__(/*! ./logPerformance */ "./src/logPerformance.ts");
+const loops_1 = __webpack_require__(/*! ./loops */ "./src/loops.ts");
 const GRAY = [0.299, 0.587, 0.114], SEPIA = [0.799, 0.387, 0.114], BLOOM_KERNEL = new Kernel_1.Kernel(3, 3, [1, 1, 1, 1, 1, 1, 1, 1, 1], true), SHARPEN_KERNEL = new Kernel_1.Kernel(3, 3, [1, 1, 1, 1, 1, 1, 1, 1, 1], true);
 var canvas = document.createElement('canvas');
 var context = canvas.getContext('2d');
-var plugins = [];
 var PixelArray = Array;
 var createDataFromCanvas = function (w, h) {
     canvas.width = w;
@@ -337,10 +360,10 @@ class Image {
         return this;
     }
     /**
-     *
-     * @param x
-     * @param y
-     * @param c
+     * Get the index given the specified value coordinate
+     * @param x x-coordinate
+     * @param y y-coordinate
+     * @param c spectrum layer
      * @returns
      */
     index(x, y = 0, c = 0) {
@@ -418,7 +441,7 @@ class Image {
         if (typeof data === 'number') {
             data = [data];
         }
-        return this.forXY(function (p) {
+        return (0, loops_1.forXY)(this, (p) => {
             for (var c = 0; c < this.spectrum; ++c) {
                 this.data[p.i + c] = data[c % data.length];
             }
@@ -493,88 +516,6 @@ class Image {
     }
     /**
      *
-     * @param forxy
-     * @returns
-     */
-    forXY(forxy) {
-        var p = {
-            x: 0,
-            y: 0,
-            i: 0
-        };
-        var data = this._data;
-        for (var y = 0; y < this.height; ++y) {
-            for (var x = 0; x < this.width; ++x) {
-                var i = (x + y * this.width) * this.spectrum;
-                p.x = x;
-                p.y = y;
-                p.i = i;
-                forxy.call(this, p);
-            }
-        }
-        return this;
-    }
-    /**
-     *
-     * @param forxy2
-     * @returns
-     */
-    forXY2(forxy2) {
-        var vector = [0, 0, 0, 0];
-        var data = this._data;
-        for (var y = 0; y < this.height; ++y) {
-            for (var x = 0; x < this.width; ++x) {
-                var i = (x + y * this.width) * 4;
-                vector[0] = data[i + 0];
-                vector[1] = data[i + 1];
-                vector[2] = data[i + 2];
-                vector[3] = data[i + 3];
-                forxy2.call(this, x, y, vector);
-                data[i + 0] = vector[0];
-                data[i + 1] = vector[1];
-                data[i + 2] = vector[2];
-                data[i + 3] = vector[3];
-            }
-        }
-        return this;
-    }
-    /**
-     *
-     */
-    forInXY(mx, my, Mx, My, forInXY) {
-        for (var y = my; y < My; ++y) {
-            for (var x = mx; x < Mx; ++x) {
-                forInXY.call(this, x, y);
-            }
-        }
-        return this;
-    }
-    /**
-     *
-     */
-    forXYC(forxyc) {
-        for (var y = 0; y < this.height; ++y) {
-            for (var x = 0; x < this.width; ++x) {
-                for (var c = 0; c < 4; ++c) {
-                    forxyc.call(this, x, y, c);
-                }
-            }
-        }
-        return this;
-    }
-    /**
-     *
-     */
-    forC(forC) {
-        if (!forC)
-            return this;
-        for (var c = 0; c < this.spectrum; ++c) {
-            forC.call(this, c);
-        }
-        return this;
-    }
-    /**
-     *
      */
     getHistogram(length) {
         var H = new Array(this.spectrum);
@@ -595,7 +536,7 @@ class Image {
      */
     convolve(kernel) {
         var r = Math.floor(kernel.width / 2);
-        return this.forXY2(function (x, y, data) {
+        return (0, loops_1.forXY2)(this, (x, y, data) => {
             data[0] = 0;
             data[1] = 0;
             data[2] = 0;
@@ -653,6 +594,25 @@ class Image {
         this._data = [];
         this.imageBase = null;
     }
+    //#MARK: Loops
+    forXY(callback) {
+        return (0, loops_1.forXY)(this, callback);
+    }
+    forXY2(callback) {
+        return (0, loops_1.forXY2)(this, callback);
+    }
+    /**
+     *
+     */
+    forInXY(mx, my, Mx, My, _forInXY) {
+        return (0, loops_1.forInXY)(this, mx, my, Mx, My, _forInXY);
+    }
+    forXYC(forxyc) {
+        return (0, loops_1.forXYC)(this, forxyc);
+    }
+    forC(imgForC) {
+        return (0, loops_1.forC)(this, imgForC);
+    }
     //#MARK: Maths 
     add(other) {
         var self = this;
@@ -663,7 +623,7 @@ class Image {
         self._data.forEach(function (d, i) { self._data[i] += other._data[i]; });
         return self;
     }
-    sub(other) {
+    subtract(other) {
         var self = this;
         if (typeof other === 'number') {
             return self.add(-other);
@@ -671,7 +631,7 @@ class Image {
         self._data.forEach(function (d, i) { self._data[i] -= other._data[i]; });
         return self;
     }
-    mul(other) {
+    multiply(other) {
         var self = this;
         if (typeof other === 'number') {
             self._data.forEach(function (d, i) { self._data[i] *= other; });
@@ -682,11 +642,9 @@ class Image {
     }
     //#MARK: Filters
     negative(max = 255) {
-        return this.forXY2(function (x, y, data) {
-            for (var i = 0; i < 3; ++i) {
-                data[i] = max - data[i];
-            }
-        });
+        for (let i = 0; i < this._data.length; ++i) {
+            this._data[i] = max - this._data[i];
+        }
     }
     /**
      *
@@ -698,7 +656,7 @@ class Image {
         var m = ((typeof params.method === 'undefined') ? "mean" : params.method);
         switch (m) {
             case "mean": {
-                return this.forXY2(function (x, y, data) {
+                return (0, loops_1.forXY2)(this, (x, y, data) => {
                     var g = 0;
                     for (var i = 0; i < 3; ++i)
                         g += data[i] / 3;
@@ -707,7 +665,7 @@ class Image {
                 });
             }
             case "luminance": {
-                return this.forXY2(function (x, y, data) {
+                return (0, loops_1.forXY2)(this, (x, y, data) => {
                     var g = 0;
                     for (var i = 0; i < 3; ++i)
                         g += (GRAY[i] * data[i]);
@@ -720,7 +678,6 @@ class Image {
                     throw new Error_1.Error('desaturate', 'No method "' + m + '" for desaturation');
                 }
         }
-        return this;
     }
     pixelate(p = 5) {
         if (typeof p !== 'number') {
@@ -730,7 +687,7 @@ class Image {
         for (var i = 0; i < this._data.length; ++i) {
             $data[i] = this._data[i];
         }
-        return this.forXY2(function (x, y, data) {
+        return (0, loops_1.forXY2)(this, (x, y, data) => {
             var xx = p * Math.floor((0.5 + x + p / 2) / p);
             var yy = p * Math.floor((0.5 + y + p / 2) / p);
             var ii = (xx + yy * this.width) * 4;
@@ -740,7 +697,7 @@ class Image {
         });
     }
     sepia() {
-        return this.desaturate().forXY2(function (x, y, data) {
+        return (0, loops_1.forXY2)(this.desaturate(), (x, y, data) => {
             for (var i = 0; i < 3; ++i) {
                 var v = data[i];
                 data[i] = SEPIA[i] * data[i];
@@ -778,7 +735,7 @@ class Image {
         var Imin = { r: 255, g: 255, b: 255 };
         var Imax = { r: 0, g: 0, b: 0 };
         return this
-            .forXY2(function (x, y, data) {
+            .forXY2((x, y, data) => {
             var r = data[0];
             var g = data[1];
             var b = data[2];
@@ -795,7 +752,7 @@ class Image {
             if (Imax.b < b)
                 Imax.b = b;
         })
-            .forXY2(function (x, y, data) {
+            .forXY2((x, y, data) => {
             data[0] = (255 / (Imax.r - Imin.r)) * (data[0] - Imin.r);
             data[1] = (255 / (Imax.g - Imin.g)) * (data[1] - Imin.g);
             data[2] = (255 / (Imax.b - Imin.b)) * (data[2] - Imin.b);
@@ -807,21 +764,7 @@ class Image {
      * @returns
      */
     saturation(p = 1) {
-        var saturation = p;
-        if (typeof saturation !== 'number') {
-            saturation = saturation.amount || 1;
-            if (saturation.amount === 0) {
-                saturation = 0;
-            }
-        }
-        return this.forXY2(function (x, y, data) {
-            var p = Math.sqrt(Math.pow(data[0], 2) * GRAY[0] +
-                Math.pow(data[1], 2) * GRAY[1] +
-                Math.pow(data[2], 2) * GRAY[2]);
-            for (var i = 0; i < 3; ++i) {
-                data[i] = p + (data[i] - p) * saturation;
-            }
-        });
+        return (0, filters_1.saturation)(this, p);
     }
     selectiveSaturation(p) {
         var saturation = (typeof p.saturation === 'undefined') ? 1 : p.saturation;
@@ -896,8 +839,8 @@ class Image {
     bloom() {
         var kernel = BLOOM_KERNEL;
         var lowPass = this.clone().repeat('convolve', 20, kernel);
-        var coarse = this.clone().sub(lowPass);
-        return this.fill(0).add(lowPass.mul(1.4)).add(coarse.mul(1));
+        var coarse = this.clone().subtract(lowPass);
+        return this.fill(0).add(lowPass.multiply(1.4)).add(coarse.multiply(1));
     }
     sharpen(amount, ker) {
         if ((typeof amount) !== 'number') {
@@ -906,8 +849,8 @@ class Image {
         }
         var kernel = ker || SHARPEN_KERNEL;
         var lowPass = this.clone().repeat('convolve', 1, kernel);
-        var coarse = this.clone().sub(lowPass);
-        return this.fill(0).add(lowPass).add(coarse.mul(amount));
+        var coarse = this.clone().subtract(lowPass);
+        return this.fill(0).add(lowPass).add(coarse.multiply(amount));
     }
     eval(filters, codes) {
         var name = '';
@@ -963,6 +906,108 @@ class Image {
     }
 }
 exports.Image = Image;
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "negative", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "desaturate", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "pixelate", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "sepia", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "brightnessContrast", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Image)
+], Image.prototype, "lighten", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "equalize", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Image)
+], Image.prototype, "saturation", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "selectiveSaturation", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "colorAdjust", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "vintage", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "love", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "blutify", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "grungy", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "lightVintage", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "bloom", null);
+__decorate([
+    (0, logPerformance_1.logPerformance)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, typeof (_a = typeof Kernel_1.Kernel !== "undefined" && Kernel_1.Kernel) === "function" ? _a : Object]),
+    __metadata("design:returntype", void 0)
+], Image.prototype, "sharpen", null);
 
 
 /***/ }),
@@ -1048,6 +1093,78 @@ exports.Kernel = Kernel;
 
 /***/ }),
 
+/***/ "./src/config.ts":
+/*!***********************!*\
+  !*** ./src/config.ts ***!
+  \***********************/
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.config = void 0;
+/**
+ * @example
+ * ```
+ * jpx.config.logPerformance = true;
+ * myImage.sharpen();
+ * // [jpx] sharpen()      - 80ms
+ * ```
+ */
+exports.config = {
+    /**
+     * If true, log the performance in the console
+     */
+    logPerformances: false
+};
+
+
+/***/ }),
+
+/***/ "./src/filters.ts":
+/*!************************!*\
+  !*** ./src/filters.ts ***!
+  \************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.saturation = void 0;
+const loops_1 = __webpack_require__(/*! ./loops */ "./src/loops.ts");
+const GRAY = [0.299, 0.587, 0.114];
+/**
+ *
+ * Change the image saturation (same as Image.saturation).
+ * @param image The image to apply the filter on
+ * @returns
+ *
+ * @example
+ *
+ * ```ts
+ * const myImage = await jpx.Image.load('my/image.png');
+ * jpx.filters.saturation(myImage, {
+ *      amount : 0.1 // set the saturation to 0.1
+ * });
+ * ```
+ */
+const saturation = (image, options = 1) => {
+    let saturation = options;
+    if (typeof saturation !== 'number') {
+        saturation = saturation.amount || 1;
+    }
+    return (0, loops_1.forXY2)(image, function (x, y, data) {
+        var p = Math.sqrt(Math.pow(data[0], 2) * GRAY[0] +
+            Math.pow(data[1], 2) * GRAY[1] +
+            Math.pow(data[2], 2) * GRAY[2]);
+        for (var i = 0; i < 3; ++i) {
+            data[i] = p + (data[i] - p) * saturation;
+        }
+    });
+};
+exports.saturation = saturation;
+
+
+/***/ }),
+
 /***/ "./src/index.ts":
 /*!**********************!*\
   !*** ./src/index.ts ***!
@@ -1066,96 +1183,189 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.loops = exports.filters = exports.config = void 0;
 /**
  * @module jpx
  */
 __exportStar(__webpack_require__(/*! ./Error */ "./src/Error.ts"), exports);
 __exportStar(__webpack_require__(/*! ./Image */ "./src/Image.ts"), exports);
 __exportStar(__webpack_require__(/*! ./Kernel */ "./src/Kernel.ts"), exports);
-__exportStar(__webpack_require__(/*! ./lib */ "./src/lib.ts"), exports);
+/**
+ * Some configuration
+ */
+var config_1 = __webpack_require__(/*! ./config */ "./src/config.ts");
+Object.defineProperty(exports, "config", ({ enumerable: true, get: function () { return config_1.config; } }));
+/**
+ * Some filters
+ */
+exports.filters = __importStar(__webpack_require__(/*! ./filters */ "./src/filters.ts"));
+/**
+ * Several loops utilities.
+ *
+ * > [!WARNING] Those loops a time expensive.
+ * >
+ * > If you are into performance, use javascript loops instead
+ */
+exports.loops = __importStar(__webpack_require__(/*! ./loops */ "./src/loops.ts"));
 
 
 /***/ }),
 
-/***/ "./src/lib.ts":
-/*!********************!*\
-  !*** ./src/lib.ts ***!
-  \********************/
+/***/ "./src/logPerformance.ts":
+/*!*******************************!*\
+  !*** ./src/logPerformance.ts ***!
+  \*******************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.defineFilter = exports.addPlugin = exports.exit = exports.time = void 0;
-const Image_1 = __webpack_require__(/*! ./Image */ "./src/Image.ts");
-const Error_1 = __webpack_require__(/*! ./Error */ "./src/Error.ts");
-const utils_1 = __webpack_require__(/*! ./utils */ "./src/utils.ts");
-const time = () => {
-    return Date.now();
-};
-exports.time = time;
-const exit = () => {
-    throw new Error_1.Error('Exiting');
-};
-exports.exit = exit;
-const addPlugin = (plugin) => {
-    for (var name in plugin) {
-        var p = Image_1.Image.prototype[name];
-        if (p) {
-            throw new Error_1.Error('addPlugin()', 'method "' + name + '" cannot be overridden');
-        }
-        Image_1.Image.prototype[name] = plugin[name];
-    }
-};
-exports.addPlugin = addPlugin;
-const defineFilter = (name, parameters, filterCode) => {
-    (0, exports.addPlugin)((function (name, params, filterCode) {
-        var defaults = {};
-        for (var i = 0; i < params.length; ++i) {
-            var p = params[i];
-            defaults[p.name] = p.defaultValue;
-        }
-        var plugin = {};
-        plugin[name] = function (P) {
-            var p = defaults;
-            for (var n in P) {
-                p[n] = (0, utils_1.getDefault)(P[n], defaults[n]);
+exports.logPerformance = void 0;
+const config_1 = __webpack_require__(/*! ./config */ "./src/config.ts");
+/**
+ * Decorator to log performance if needed.
+ * @returns
+ */
+const logPerformance = () => {
+    return (o, k, t) => {
+        const method = t.value;
+        t.value = function (...args) {
+            const t1 = Date.now();
+            const result = method.call(this, ...args);
+            const t2 = Date.now();
+            if (config_1.config.logPerformances) {
+                console.log(`[jpx] ${(k + '()').padEnd(25, ' ')} - ${t2 - t1}ms`);
             }
-            return filterCode.call(this, p);
+            return result;
         };
-        return plugin;
-    })(name, parameters, filterCode));
+    };
 };
-exports.defineFilter = defineFilter;
+exports.logPerformance = logPerformance;
 
 
 /***/ }),
 
-/***/ "./src/utils.ts":
+/***/ "./src/loops.ts":
 /*!**********************!*\
-  !*** ./src/utils.ts ***!
+  !*** ./src/loops.ts ***!
   \**********************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ (function(__unused_webpack_module, exports) {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getDefault = void 0;
+exports.forInXY = exports.forXYC = exports.forC = exports.forXY2 = exports.forXY = void 0;
+/**
+ * Loop on all (x;y) positions
+ * @param image The image to be iterated
+ * @param forxy The callback
+ * @returns The input image for chaining
+ */
+const forXY = (image, forxy) => {
+    var p = {
+        x: 0,
+        y: 0,
+        i: 0
+    };
+    for (var y = 0; y < image.height; ++y) {
+        for (var x = 0; x < image.width; ++x) {
+            var i = (x + y * image.width) * image.spectrum;
+            p.x = x;
+            p.y = y;
+            p.i = i;
+            forxy.call(this, p);
+        }
+    }
+    return image;
+};
+exports.forXY = forXY;
 /**
  *
- * @param object
- * @param defaultValue
+ * @param forxy2
+ * @returns The input image for chaining
+ */
+const forXY2 = (image, forxy2) => {
+    var vector = [0, 0, 0, 0];
+    var data = image.data;
+    for (var y = 0; y < image.height; ++y) {
+        for (var x = 0; x < image.width; ++x) {
+            var i = (x + y * image.width) * image.spectrum;
+            vector[0] = data[i + 0];
+            vector[1] = data[i + 1];
+            vector[2] = data[i + 2];
+            vector[3] = data[i + 3];
+            forxy2.call(null, x, y, vector);
+            data[i + 0] = vector[0];
+            data[i + 1] = vector[1];
+            data[i + 2] = vector[2];
+            data[i + 3] = vector[3];
+        }
+    }
+    return image;
+};
+exports.forXY2 = forXY2;
+/**
+ * Iterate over the image spectrum.
+ * @param image
+ * @param forC
+ * @returns The input image for chaining
+ */
+const forC = (image, forC) => {
+    for (var c = 0; c < image.spectrum; ++c) {
+        forC.call(null, c);
+    }
+    return image;
+};
+exports.forC = forC;
+/**
+ * Iterate over each value of the data buffer
+ * @param image
+ * @param forxyc
+ * @returns The input image for chaining
+ */
+const forXYC = (image, forxyc) => {
+    for (var y = 0; y < image.height; ++y) {
+        for (var x = 0; x < image.width; ++x) {
+            for (var c = 0; c < 4; ++c) {
+                forxyc.call(this, x, y, c);
+            }
+        }
+    }
+    return image;
+};
+exports.forXYC = forXYC;
+/**
+ * Iterate over positions inside a rectangle
+ * @param mx Rectangle x
+ * @param my Rectangle y
+ * @param Mx Rectangle x + Rectangle width
+ * @param My Rectangle y + Rectangle height
+ * @param forInXY
  * @returns
  */
-const getDefault = (object, defaultValue) => {
-    if (typeof object === 'undefined') {
-        return defaultValue;
+const forInXY = (image, mx, my, Mx, My, forInXY) => {
+    for (var y = my; y < My; ++y) {
+        for (var x = mx; x < Mx; ++x) {
+            forInXY.call(this, x, y);
+        }
     }
-    return object;
+    return image;
 };
-exports.getDefault = getDefault;
+exports.forInXY = forInXY;
 
 
 /***/ })

@@ -1,5 +1,8 @@
 import { Error as JpxError } from "./Error";
+import { saturation } from "./filters";
 import { Kernel } from "./Kernel";
+import { logPerformance } from "./logPerformance";
+import { forC, forInXY, forXY, forXY2, forXYC } from "./loops";
 
 const
     GRAY = [0.299, 0.587, 0.114],
@@ -10,7 +13,6 @@ const
 
 var canvas = document.createElement('canvas');
 var context = canvas.getContext('2d');
-var plugins = [];
 var PixelArray = Array;
 
 var createDataFromCanvas = function (w: number, h: number) {
@@ -179,10 +181,10 @@ export class Image {
     }
 
     /**
-     * 
-     * @param x 
-     * @param y 
-     * @param c 
+     * Get the index given the specified value coordinate
+     * @param x x-coordinate
+     * @param y y-coordinate
+     * @param c spectrum layer
      * @returns 
      */
     index(x: number, y: number = 0, c: number = 0) {
@@ -273,7 +275,7 @@ export class Image {
         if (typeof data === 'number') {
             data = [data];
         }
-        return this.forXY(function (p) {
+        return forXY(this, (p) => {
             for (var c = 0; c < this.spectrum; ++c) {
                 this.data[p.i + c] = data[c % data.length];
             }
@@ -352,92 +354,6 @@ export class Image {
 
     /**
      * 
-     * @param forxy 
-     * @returns 
-     */
-    forXY(forxy): Image {
-        var p = {
-            x: 0,
-            y: 0,
-            i: 0
-        };
-        var data = this._data;
-        for (var y = 0; y < this.height; ++y) {
-            for (var x = 0; x < this.width; ++x) {
-                var i = (x + y * this.width) * this.spectrum;
-                p.x = x;
-                p.y = y;
-                p.i = i;
-                forxy.call(this, p);
-            }
-        }
-        return this;
-    }
-
-    /**
-     * 
-     * @param forxy2 
-     * @returns 
-     */
-    forXY2(forxy2: (x: number, y: number, data: number[]) => void): Image {
-        var vector = [0, 0, 0, 0];
-        var data = this._data;
-        for (var y = 0; y < this.height; ++y) {
-            for (var x = 0; x < this.width; ++x) {
-                var i = (x + y * this.width) * 4;
-                vector[0] = data[i + 0];
-                vector[1] = data[i + 1];
-                vector[2] = data[i + 2];
-                vector[3] = data[i + 3];
-                forxy2.call(this, x, y, vector);
-                data[i + 0] = vector[0];
-                data[i + 1] = vector[1];
-                data[i + 2] = vector[2];
-                data[i + 3] = vector[3];
-            }
-        }
-        return this;
-    }
-
-    /**
-     * 
-     */
-    forInXY(mx, my, Mx, My, forInXY): Image {
-        for (var y = my; y < My; ++y) {
-            for (var x = mx; x < Mx; ++x) {
-                forInXY.call(this, x, y);
-            }
-        }
-        return this;
-    }
-
-    /**
-     * 
-     */
-    forXYC(forxyc): Image {
-        for (var y = 0; y < this.height; ++y) {
-            for (var x = 0; x < this.width; ++x) {
-                for (var c = 0; c < 4; ++c) {
-                    forxyc.call(this, x, y, c);
-                }
-            }
-        }
-        return this;
-    }
-
-    /**
-     * 
-     */
-    forC(forC): Image {
-        if (!forC) return this;
-        for (var c = 0; c < this.spectrum; ++c) {
-            forC.call(this, c);
-        }
-        return this;
-    }
-
-    /**
-     * 
      */
     getHistogram(length) {
         var H = new Array(this.spectrum);
@@ -459,7 +375,7 @@ export class Image {
      */
     convolve(kernel: Kernel): Image {
         var r = Math.floor(kernel.width / 2);
-        return this.forXY2(function (x, y, data) {
+        return forXY2(this, (x: number, y: number, data: number[]) => {
             data[0] = 0;
             data[1] = 0;
             data[2] = 0;
@@ -521,9 +437,34 @@ export class Image {
         this.imageBase = null;
     }
 
+    //#MARK: Loops
+
+    forXY(callback: (index: { x: number, y: number, i: number }) => void) {
+        return forXY(this, callback);
+    }
+
+    forXY2(callback: (x: number, y: number, data: number[]) => void) {
+        return forXY2(this, callback);
+    }
+
+    /**
+     * 
+     */
+    forInXY(mx, my, Mx, My, _forInXY): Image {
+        return forInXY(this, mx, my, Mx, My, _forInXY);
+    }
+
+    forXYC(forxyc): Image {
+        return forXYC(this, forxyc);
+    }
+
+    forC(imgForC: (c: number) => void): Image {
+        return forC(this, imgForC);
+    }
+
     //#MARK: Maths 
 
-    add(other) {
+    add(other: number | Image) {
         var self = this;
         if (typeof other === 'number') {
             self._data.forEach(function (d, i) { self._data[i] += other; });
@@ -534,7 +475,7 @@ export class Image {
     }
 
 
-    sub(other) {
+    subtract(other: number | Image) {
         var self = this;
         if (typeof other === 'number') {
             return self.add(-other);
@@ -544,7 +485,7 @@ export class Image {
     }
 
 
-    mul(other) {
+    multiply(other: number | Image) {
         var self = this;
         if (typeof other === 'number') {
             self._data.forEach(function (d, i) { self._data[i] *= other; });
@@ -556,12 +497,11 @@ export class Image {
 
     //#MARK: Filters
 
+    @logPerformance()
     negative(max = 255) {
-        return this.forXY2(function (x, y, data) {
-            for (var i = 0; i < 3; ++i) {
-                data[i] = max - data[i];
-            }
-        });
+        for (let i = 0; i < this._data.length; ++i) {
+            this._data[i] = max - this._data[i];
+        }
     }
 
     /**
@@ -569,19 +509,20 @@ export class Image {
      * @param params 
      * @returns 
      */
+    @logPerformance()
     desaturate(params?: any) {
         params = ((typeof params === 'undefined') ? {} : params);
         var m = ((typeof params.method === 'undefined') ? "mean" : params.method);
         switch (m) {
             case "mean": {
-                return this.forXY2(function (x, y, data) {
+                return forXY2(this, (x, y, data) => {
                     var g = 0;
                     for (var i = 0; i < 3; ++i) g += data[i] / 3;
                     for (var i = 0; i < 3; ++i) data[i] = g;
                 });
             }
             case "luminance": {
-                return this.forXY2(function (x, y, data) {
+                return forXY2(this, (x, y, data) => {
                     var g = 0;
                     for (var i = 0; i < 3; ++i) g += (GRAY[i] * data[i]);
                     for (var i = 0; i < 3; ++i) data[i] = g;
@@ -592,10 +533,9 @@ export class Image {
                     throw new JpxError('desaturate', 'No method "' + m + '" for desaturation');
                 }
         }
-        return this;
     }
 
-
+    @logPerformance()
     pixelate(p: number | { pixelSize: number } = 5) {
         if (typeof p !== 'number') {
             p = p.pixelSize || 5;
@@ -604,7 +544,7 @@ export class Image {
         for (var i = 0; i < this._data.length; ++i) {
             $data[i] = this._data[i];
         }
-        return this.forXY2(function (x, y, data) {
+        return forXY2(this, (x, y, data) => {
             var xx = p * Math.floor((0.5 + x + p / 2) / p);
             var yy = p * Math.floor((0.5 + y + p / 2) / p);
             var ii = (xx + yy * this.width) * 4;
@@ -614,9 +554,9 @@ export class Image {
         });
     }
 
-
+    @logPerformance()
     sepia() {
-        return this.desaturate().forXY2(function (x, y, data) {
+        return forXY2(this.desaturate(), (x, y, data) => {
             for (var i = 0; i < 3; ++i) {
                 var v = data[i];
                 data[i] = SEPIA[i] * data[i];
@@ -625,7 +565,7 @@ export class Image {
         });
     }
 
-
+    @logPerformance()
     brightnessContrast(properties) {
         properties = ((typeof properties === 'undefined') ? {} : properties);
         var C = ((typeof properties.contrast === 'undefined') ? 0 : properties.contrast);
@@ -643,6 +583,7 @@ export class Image {
      * @param factor The lightening factor
      * @returns this
      */
+    @logPerformance()
     lighten(factor: number = 0.1): Image {
         return this.forXY2((x: number, y: number, data) => {
             for (var i = 0; i < 3; ++i) {
@@ -655,11 +596,12 @@ export class Image {
      * Histogram equalization
      * @returns 
      */
+    @logPerformance()
     equalize() {
         var Imin = { r: 255, g: 255, b: 255 };
         var Imax = { r: 0, g: 0, b: 0 };
         return this
-            .forXY2(function (x: number, y: number, data: number[]) {
+            .forXY2((x: number, y: number, data: number[]) => {
                 var r = data[0];
                 var g = data[1];
                 var b = data[2];
@@ -670,7 +612,7 @@ export class Image {
                 if (Imax.g < g) Imax.g = g;
                 if (Imax.b < b) Imax.b = b;
             })
-            .forXY2(function (x: number, y: number, data: number[]) {
+            .forXY2((x: number, y: number, data: number[]) => {
                 data[0] = (255 / (Imax.r - Imin.r)) * (data[0] - Imin.r);
                 data[1] = (255 / (Imax.g - Imin.g)) * (data[1] - Imin.g);
                 data[2] = (255 / (Imax.b - Imin.b)) * (data[2] - Imin.b);
@@ -682,26 +624,12 @@ export class Image {
      * @param p 
      * @returns 
      */
+    @logPerformance()
     saturation(p: number | { amount: number } = 1): Image {
-        var saturation = p;
-        if (typeof saturation !== 'number') {
-            saturation = saturation.amount || 1;
-            if (saturation.amount === 0) {
-                saturation = 0;
-            }
-        }
-        return this.forXY2(function (x, y, data) {
-            var p = Math.sqrt(
-                Math.pow(data[0], 2) * GRAY[0] +
-                Math.pow(data[1], 2) * GRAY[1] +
-                Math.pow(data[2], 2) * GRAY[2]
-            );
-            for (var i = 0; i < 3; ++i) {
-                data[i] = p + (data[i] - p) * saturation;
-            }
-        });
+        return saturation(this, p);
     }
 
+    @logPerformance()
     selectiveSaturation(p) {
         var saturation = (typeof p.saturation === 'undefined') ? 1 : p.saturation;
         var filter = [
@@ -726,7 +654,7 @@ export class Image {
         });
     }
 
-
+    @logPerformance()
     colorAdjust(rgb: number[] | { r: number, g: number, b: number }) {
         if (!Array.isArray(rgb)) {
             rgb = [rgb.r, rgb.g, rgb.b];
@@ -738,7 +666,7 @@ export class Image {
         });
     }
 
-
+    @logPerformance()
     vintage() {
         return this
             .desaturate()
@@ -748,7 +676,7 @@ export class Image {
             ;
     }
 
-
+    @logPerformance()
     love() {
         return this
             .saturation(0.5)
@@ -759,7 +687,7 @@ export class Image {
             ;
     }
 
-
+    @logPerformance()
     blutify() {
         return this.forXY2(function (x, y, data) {
             var G = 0;
@@ -772,7 +700,7 @@ export class Image {
         });
     }
 
-
+    @logPerformance()
     grungy() {
         return this
             .brightnessContrast({ luminosity: 0.5 }).lighten(0.5)
@@ -781,7 +709,7 @@ export class Image {
             ;
     }
 
-
+    @logPerformance()
     lightVintage() {
         return this
             .brightnessContrast({ contrast: 0.1 })
@@ -791,24 +719,24 @@ export class Image {
             ;
     }
 
-
+    @logPerformance()
     bloom() {
         var kernel = BLOOM_KERNEL;
         var lowPass = this.clone().repeat('convolve', 20, kernel);
-        var coarse = this.clone().sub(lowPass);
-        return this.fill(0).add(lowPass.mul(1.4)).add(coarse.mul(1));
+        var coarse = this.clone().subtract(lowPass);
+        return this.fill(0).add(lowPass.multiply(1.4)).add(coarse.multiply(1));
     }
 
-
-    sharpen(amount, ker) {
+    @logPerformance()
+    sharpen(amount: number | { amount: number, ker: Kernel }, ker?: Kernel) {
         if ((typeof amount) !== 'number') {
             ker = amount.ker || ker;
             amount = amount.amount || 1;
         }
         var kernel = ker || SHARPEN_KERNEL;
         var lowPass = this.clone().repeat('convolve', 1, kernel);
-        var coarse = this.clone().sub(lowPass);
-        return this.fill(0).add(lowPass).add(coarse.mul(amount));
+        var coarse = this.clone().subtract(lowPass);
+        return this.fill(0).add(lowPass).add(coarse.multiply(amount));
     }
 
 

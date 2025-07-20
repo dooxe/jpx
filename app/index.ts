@@ -1,5 +1,7 @@
 import * as jpx from '../src/index';
 
+jpx.config.logPerformances = true;
+
 const main = async () => {
 
     const image = await jpx.Image.load('Lenna.png');
@@ -25,11 +27,21 @@ const main = async () => {
             name: 'Desaturate',
         },
         {
+            id: 'negative',
+            name: 'Negative',
+            parameters: []
+        },
+        {
             id: 'pixelate',
             name: 'Pixelate',
             parameters: [
                 10
             ]
+        },
+        {
+            id: 'sharpen',
+            name: 'Sharpen',
+            parameters: [5]
         },
         {
             id: 'sepia',

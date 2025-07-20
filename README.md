@@ -10,7 +10,7 @@
 </div>
 <br/><br/>
 
-
+This package is highly inspired from the great [CImg](https://cimg.eu) library.
 
 ## Get started 
 

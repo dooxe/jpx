@@ -4,6 +4,8 @@
         "target": "es2015",
         "outDir": "./dist",
         "declaration": true,
-        "declarationDir": "./types/"
+        "declarationDir": "./types/",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     }
 }
