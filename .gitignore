@@ -5,9 +5,9 @@ yuidoc.json
 #
 bin/
 build/
+docs/
 dist/
 tests/
-docs/
 trash/
 yuidoc-theme-blue-dc/
 yuidoc-theme-dc/
@@ -15,4 +15,3 @@ log/
 node_modules/
 test/
 types/
-docs/api/

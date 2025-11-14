@@ -1,5 +1,5 @@
 {
-  "name": "jpx",
+  "name": "dx-jpx",
   "version": "0.0.1",
   "description": "A javascript image processing library toolkit",
   "keywords": [
@@ -8,11 +8,10 @@
     "image processing",
     "javascript"
   ],
-  "homepage": "http://dooxe-creative.net/projects/jpx/",
   "license": "MIT",
   "author": {
     "name": "dooxe",
-    "email": "maxime.daisy@gmail.com",
+    "email": "dooxe.creative@gmail.com",
     "url": "http://dooxe-creative.net"
   },
   "files": [
@@ -39,9 +38,7 @@
     "grunt-mkdir": "~1.0.0",
     "path": "~0.12.7",
     "typedoc": "^0.28.7",
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
+    "typescript": "^5.8.3",
     "@dx/nova": "file:../tessy"
   }
 }
