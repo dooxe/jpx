@@ -6,6 +6,13 @@
         "declaration": true,
         "declarationDir": "./types/",
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
-    }
+        "emitDecoratorMetadata": true,
+        "lib" : [
+            "es2017",
+            "DOM"
+        ]
+    },
+    "include" : [
+        "./src/**/*.ts"
+    ]
 }
